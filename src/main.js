@@ -2122,3 +2122,106 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
     });
   });
 })();
+
+/* ===== v3.9.2 · 悬浮随身听（Mini Player）+ 数据备份 ===== */
+(function () {
+  // ---- 样式一次过注入 ----
+  const css = `
+  #mpFab{position:fixed;right:16px;bottom:16px;z-index:999;width:52px;height:52px;border-radius:50%;border:1px solid rgba(212,175,55,.5);background:#141b2e;color:#e8c96a;font-size:22px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45);display:none;align-items:center;justify-content:center}
+  #mpFab.on{display:flex}
+  #mpFab.playing{animation:mpPulse 1.6s infinite}
+  @keyframes mpPulse{0%,100%{box-shadow:0 4px 18px rgba(0,0,0,.45)}50%{box-shadow:0 4px 22px rgba(232,201,106,.55)}}
+  #mpBar{position:fixed;right:16px;bottom:80px;left:16px;max-width:430px;margin-left:auto;z-index:999;background:#141b2e;border:1px solid rgba(212,175,55,.4);border-radius:14px;padding:12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.55);display:none;color:#e8e6df;font-family:inherit}
+  #mpBar.open{display:block}
+  #mpBar .mp-title{font-size:14px;font-weight:700;color:#e8c96a;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #mpBar .mp-row{display:flex;align-items:center;gap:10px}
+  #mpBar button.mp-btn{background:none;border:1px solid rgba(232,201,106,.35);color:#e8c96a;border-radius:8px;width:36px;height:32px;font-size:15px;cursor:pointer;flex:none}
+  #mpBar .mp-prog{flex:1;height:5px;background:rgba(255,255,255,.12);border-radius:3px;cursor:pointer;position:relative}
+  #mpBar .mp-prog i{position:absolute;left:0;top:0;bottom:0;background:#e8c96a;border-radius:3px;width:0%}
+  #mpBar .mp-time{font-size:11px;color:#9aa3b5;flex:none;min-width:70px;text-align:right}
+  #mpBar .mp-list{margin-top:10px;border-top:1px solid rgba(255,255,255,.08);padding-top:8px;max-height:180px;overflow:auto}
+  #mpBar .mp-item{display:flex;align-items:center;gap:8px;padding:6px 4px;font-size:13px;cursor:pointer;border-radius:8px}
+  #mpBar .mp-item:hover{background:rgba(255,255,255,.05)}
+  #mpBar .mp-item.cur{color:#e8c96a;font-weight:700}
+  #mpBar .mp-item .mp-meal{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #mpBar .mp-item .mp-state{font-size:11px;color:#9aa3b5}
+  .bk-bar{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+  .bk-bar button,.bk-bar label{font-size:12.5px;padding:5px 12px;border-radius:8px;border:1px solid rgba(212,175,55,.35);background:none;color:#c8a445;cursor:pointer}
+  `;
+  const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+  // ---- 悬浮随身听 ----
+  const fab = document.createElement('button'); fab.id = 'mpFab'; fab.title = '随身听 · 三餐播报'; fab.textContent = '🎧';
+  const bar = document.createElement('div'); bar.id = 'mpBar';
+  document.body.append(fab, bar);
+  const audio = new Audio(); audio.preload = 'metadata';
+  let queue = [], cur = -1;
+
+  const fmt = s => { if (!isFinite(s)) return '--:--'; s = Math.floor(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+
+  function render() {
+    const it = queue[cur] || {};
+    bar.innerHTML = `
+      <div class="mp-title">${it.icon || '🎧'} ${it.meal || '随身听'} ${it.date ? '· ' + it.date.slice(5) : ''}</div>
+      <div class="mp-row">
+        <button class="mp-btn" data-a="prev" title="上一段">⏮</button>
+        <button class="mp-btn" data-a="play" title="播放/暂停">${audio.paused ? '▶' : '⏸'}</button>
+        <button class="mp-btn" data-a="next" title="下一段">⏭</button>
+        <div class="mp-prog"><i style="width:${audio.duration ? (audio.currentTime / audio.duration * 100) : 0}%"></i></div>
+        <span class="mp-time">${fmt(audio.currentTime)} / ${fmt(audio.duration)}</span>
+      </div>
+      <div class="mp-list">${queue.map((q, i) => `<div class="mp-item${i === cur ? ' cur' : ''}" data-i="${i}"><span>${q.icon || '🎧'}</span><span class="mp-meal">${q.date.slice(5)} ${q.meal}</span><span class="mp-state">${i === cur && !audio.paused ? '播放中' : ''}</span></div>`).join('')}</div>`;
+  }
+  function playAt(i) {
+    if (i < 0 || i >= queue.length) return;
+    cur = i; audio.src = queue[i].audio; audio.play().catch(() => {});
+    fab.classList.add('playing'); render();
+  }
+  bar.addEventListener('click', e => {
+    const b = e.target.closest('[data-a]'), item = e.target.closest('.mp-item'), prog = e.target.closest('.mp-prog');
+    if (b) {
+      const a = b.dataset.a;
+      if (a === 'play') { if (cur < 0) playAt(0); else if (audio.paused) audio.play(); else audio.pause(); }
+      if (a === 'prev') playAt((cur - 1 + queue.length) % queue.length);
+      if (a === 'next') playAt((cur + 1) % queue.length);
+    } else if (item) playAt(+item.dataset.i);
+    else if (prog && audio.duration) { const r = prog.getBoundingClientRect(); audio.currentTime = (e.clientX - r.left) / r.width * audio.duration; }
+  });
+  audio.addEventListener('play', () => { fab.classList.add('playing'); render(); });
+  audio.addEventListener('pause', () => { fab.classList.remove('playing'); render(); });
+  audio.addEventListener('timeupdate', () => { const i = bar.querySelector('.mp-prog i'); if (i && audio.duration) i.style.width = (audio.currentTime / audio.duration * 100) + '%'; const t = bar.querySelector('.mp-time'); if (t) t.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration); });
+  audio.addEventListener('ended', () => { if (cur + 1 < queue.length) playAt(cur + 1); else { fab.classList.remove('playing'); render(); } });
+  audio.addEventListener('loadedmetadata', render);
+  fab.addEventListener('click', () => { bar.classList.toggle('open'); if (bar.classList.contains('open')) render(); });
+
+  fetch('broadcasts.json?_=' + Date.now()).then(r => r.json()).then(d => {
+    const today = (d.items || []).find(x => x.date === new Date().toISOString().slice(0, 10));
+    const all = (d.items || []);
+    const todayStr = all.length ? all[0].date : '';
+    queue = all.filter(x => x.date === todayStr && x.audio);
+    if (queue.length) fab.classList.add('on');
+  }).catch(() => {});
+
+  // ---- 秘书台数据备份/还原 ----
+  const footer = document.querySelector('footer.wrap');
+  if (footer) {
+    const box = document.createElement('div'); box.className = 'bk-bar';
+    const exp = document.createElement('button'); exp.textContent = '💾 备份我的数据';
+    const imp = document.createElement('label'); imp.textContent = '♻️ 还原备份';
+    const file = document.createElement('input'); file.type = 'file'; file.accept = '.json'; file.style.display = 'none';
+    exp.onclick = () => {
+      const dump = {}; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); dump[k] = localStorage.getItem(k); }
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: 'boss-hub', v: 1, saved: new Date().toISOString(), data: dump }, null, 1)], { type: 'application/json' }));
+      a.download = 'boss-hub-backup-' + new Date().toISOString().slice(0, 10) + '.json'; a.click();
+    };
+    file.onchange = () => {
+      const f = file.files[0]; if (!f) return;
+      const rd = new FileReader();
+      rd.onload = () => { try { const j = JSON.parse(rd.result); const d = j.data || j; Object.keys(d).forEach(k => localStorage.setItem(k, d[k])); alert('还原完成，页面即将刷新'); location.reload(); } catch { alert('备份文件格式唔啱'); } };
+      rd.readAsText(f);
+    };
+    imp.appendChild(file); imp.onclick = () => file.click();
+    box.append(exp, imp); footer.appendChild(box);
+  }
+})();

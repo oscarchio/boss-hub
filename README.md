@@ -1,1 +1,0 @@
-boss-hub static mirror
