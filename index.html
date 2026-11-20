@@ -330,7 +330,7 @@ details.module-body > summary:hover{color:var(--gold);border-color:var(--gold)}
 .gicon span{font-size:11.5px;color:var(--text-3);display:block;margin-top:2px}
 /* 四大阵营分区配色：情报墨蓝 · 修炼朱砂 · 军火鎏金 · 商业青绿（一眼看出功能家族） */
 .gicon[href="#live"],.gicon[href="#livetv"],.gicon[href="#deepread"],.gicon[href="#news"],.gicon[href="#market"],.gicon[href="#radar"],.gicon[href="#tribes"]{background:#edf2f7;border-color:#cfdce8}
-.gicon[href="#tasks"],.gicon[href="#daily"],.gicon[href="#life"],.gicon[href="#five"],.gicon[href="#speech"],.gicon[href="#body"],.gicon[href="#learn"],.gicon[href="#review"],.gicon[href="#coach"]{background:#f7efec;border-color:#e8d4cd}
+.gicon[href="#tasks"],.gicon[href="#daily"],.gicon[href="#life"],.gicon[href="#five"],.gicon[href="#speech"],.gicon[href="#body"],.gicon[href="#cert"],.gicon[href="#review"],.gicon[href="#coach"]{background:#f7efec;border-color:#e8d4cd}
 .gicon[href="#books"],.gicon[href="#ttsknow"],.gicon[href="#skills"],.gicon[href="#course"],.gicon[href="#aitools"],.gicon[href="#videos"],.gicon[href="#feeling"]{background:#f7f3e8;border-color:#e5dcc3}
 .gicon[href="#masters"],.gicon[href="#corps"],.gicon[href="#policy"],.gicon[href="#gate"],.gicon[href="#hype"],.gicon[href="#moat"],.gicon[href="#team"],.gicon[href="#predict"],.gicon[href="#roadmap"],.gicon[href="#stages"],.gicon[href="#cert"]{background:#eef4ef;border-color:#d3e2d5}
 /* ---- module view（App 式单页跳转：一页一屏） ---- */
@@ -587,7 +587,7 @@ body.in-module #backbar{display:block}
   </div>
 </section>
 
-<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795213534" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
+<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795214068" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
 
 <!-- ============ 功能宫格 ============ -->
 <!-- ============ 老板生活圈 ============ -->
@@ -618,14 +618,13 @@ body.in-module #backbar{display:block}
 
 <section class="wrap app-sec" id="apps">
   <div class="sec-lite"><h2>🧭 全部功能</h2></div>
-  <p class="lite-sub">31 个板块按「厅」分好了：<b>先看世界（情报局）→ 秘书台（指挥中心）→ 每天练（练功房）→ 系统学（学习院）→ 想生意（商战室）</b>，生活圈系后勤。唔使全点——日课喺练功房，其他用到先入。</p>
+  <p class="lite-sub">26 个板块按「厅」分好了：<b>先看世界（情报局）→ 秘书台（指挥中心）→ 每天练（练功房）→ 系统学（学习院）→ 想生意（商战室）</b>，生活圈系后勤。信源、武器库呢啲后台水管唔摆上门面。唔使全点——日课喺练功房，其他用到先入。</p>
   <div class="gicon-grid">
     <div class="ggroup">📡 情报局 · 先看世界</div>
     <a class="gicon" href="#live"><span class="ic">📰</span><b>实时快讯</b><span>自动更新</span></a>
     <a class="gicon" href="#deepread"><span class="ic">🔍</span><b>今日深读</b><span>每晚换新</span></a>
     <a class="gicon" href="#livetv"><span class="ic">📺</span><b>直播台</b><span>港澳新闻直播</span></a>
     <a class="gicon" href="#market"><span class="ic">📈</span><b>行情大事</b><span>钱的温度计</span></a>
-    <a class="gicon" href="#news"><span class="ic">🍱</span><b>信息渠道</b><span>一手来源</span></a>
     <a class="gicon" href="#radar"><span class="ic">📡</span><b>同行雷达</b><span>看别人怎么赚</span></a>
     <a class="gicon" href="#predict"><span class="ic">🔮</span><b>预测对答案</b><span>校准判断力</span></a>
     <div class="ggroup">📋 秘书台 · 指挥中心</div>
@@ -638,24 +637,19 @@ body.in-module #backbar{display:block}
     <a class="gicon" href="#feeling"><span class="ic">🎚️</span><b>体感评测</b><span>你的标准</span></a>
     <a class="gicon" href="#review"><span class="ic">🔁</span><b>回顾</b><span id="review-badge">记忆曲线</span></a>
     <div class="ggroup">🎓 学习院 · 系统学</div>
-    <a class="gicon" href="#learn"><span class="ic">🚀</span><b>学习</b><span>路径生成</span></a>
-    <a class="gicon" href="#videos"><span class="ic">▶️</span><b>视频课</b><span>直接能看</span></a>
-    <a class="gicon" href="#books"><span class="ic">📚</span><b>仓库</b><span>书籍+素材+金句</span></a>
     <a class="gicon" href="#ttsknow"><span class="ic">🔊</span><b>TTS 入门</b><span>行业课</span></a>
-    <a class="gicon" href="#course"><span class="ic">🎬</span><b>自制课件</b><span>网安第一课</span></a>
     <a class="gicon" href="#cert"><span class="ic">📜</span><b>语言考证</b><span>雅思到粤语</span></a>
-    <a class="gicon" href="#skills"><span class="ic">🧰</span><b>技能武器库</b><span>必先利其器</span></a>
+    <a class="gicon" href="#videos"><span class="ic">▶️</span><b>视频课</b><span>直接能看</span></a>
+    <a class="gicon" href="#course"><span class="ic">🎬</span><b>自制课件</b><span>网安第一课</span></a>
+    <a class="gicon" href="#books"><span class="ic">📚</span><b>仓库</b><span>书籍+素材+金句</span></a>
     <div class="ggroup">⚔️ 商战室 · 想生意</div>
     <a class="gicon" href="#moat"><span class="ic">🏯</span><b>差异化</b><span>文化护城河</span></a>
     <a class="gicon" href="#corps"><span class="ic">⚖️</span><b>公司生死簿</b><span>成败案例</span></a>
     <a class="gicon" href="#policy"><span class="ic">🌊</span><b>政策与风浪</b><span>游戏规则</span></a>
     <a class="gicon" href="#gate"><span class="ic">🚦</span><b>验证闸门</b><span>开工前五关</span></a>
-    <a class="gicon" href="#tribes"><span class="ic">🧭</span><b>社区与定价</b><span>人在哪钱在哪</span></a>
     <a class="gicon" href="#team"><span class="ic">🧑‍💼</span><b>AI 员工</b><span>虚拟团队</span></a>
     <a class="gicon" href="#masters"><span class="ic">🏆</span><b>高手拆解</b><span>学打法</span></a>
     <a class="gicon" href="#roadmap"><span class="ic">🗺️</span><b>路线图</b><span>四阶段</span></a>
-    <a class="gicon" href="#stages"><span class="ic">🪜</span><b>三段跃迁</b><span>30 个领域</span></a>
-    <a class="gicon" href="#hype"><span class="ic">🫧</span><b>鉴别风口</b><span>七条尺子</span></a>
     <div class="ggroup">🌉 生活圈 · 过日子</div>
     <a class="gicon" href="#life"><span class="ic">🌉</span><b>老板生活圈</b><span>见世面日历</span></a>
   </div>
@@ -717,7 +711,7 @@ body.in-module #backbar{display:block}
       <label class="check"><input type="checkbox" data-d="five"><span><b>五问笔记 1 条</b>（把今天最重要的一条新闻过一遍五问）<a href="#five" style="margin-left:8px;font-size:13px">去写 ↓</a></span></label>
       <label class="check"><input type="checkbox" data-d="speak"><span><b>口才录音 60 秒</b>（抽一题，录音，回放找一个毛病）<a href="#speech" style="margin-left:8px;font-size:13px">去抽题 ↓</a></span></label>
       <label class="check"><input type="checkbox" data-d="char"><span><b>气质修炼 1 项</b>（体态 / 声音 / 眼神，每天一项）<a href="#body" style="margin-left:8px;font-size:13px">去抽 ↓</a></span></label>
-      <label class="check"><input type="checkbox" data-d="out"><span><b>输出一次</b>（把今天学到的一件事讲出来或写下来——没输出 = 没学习）<a href="#learn" style="margin-left:8px;font-size:13px">去学 ↓</a></span></label>
+      <label class="check"><input type="checkbox" data-d="out"><span><b>输出一次</b>（把今天学到的一件事讲出来或写下来——没输出 = 没学习）<a href="#cert" style="margin-left:8px;font-size:13px">去学 ↓</a></span></label>
       <label class="check"><input type="checkbox" data-d="rot"><span><b>今日轮修 1 项</b>（<span id="rot-label">今天</span>的支线任务，见下方排程表）</span></label>
     </div>
   </div>
@@ -1147,84 +1141,7 @@ body.in-module #backbar{display:block}
 <!-- ============ 领袖气质 ============ -->
 
 <!-- ============ 学习引擎 ============ -->
-<section class="wrap" id="learn">
-  <div class="sec-head">
-    <div class="no">MODULE 12</div>
-    <h2>学习路径</h2>
-    <p>互联网上的资料多到沉底——小红书、B站、YouTube、播客、论文，每个平台脾气不同、用法不同。<strong>老板学东西不是乱逛，是先定路线再出发。</strong>选一个方向，生成你的学习安排。</p>
-  </div>
-  
-  <div class="case" style="margin-top:0;margin-bottom:18px">
-    <div class="tag">学习教练 · 随时候命</div>
-    <h3 style="margin-bottom:6px">卡住就问，对话框就是教练</h3>
-    <p>这个网站的教练不在网页里——<b>就是 Kimi 对话本身</b>。任何概念不懂、题目卡壳、想让人帮你过一遍思路，直接在对话框里问。学习不用约时间，问题不过夜。</p>
-  </div>
-  <div class="case" style="margin-bottom:18px">
-    <div class="tag">🧠 学习地图的科学底座 · 每条规矩都有论文撑腰</div>
-    <h3 style="margin-bottom:6px">先看人怎么学得牢，再决定地图怎么画</h3>
-    <p>下面的结论不是我编的——全部来自高引用论文（被引次数 = 全世界研究者引用了多少次，数字越大越靠谱）。<b>你的学习路径、打卡、跟读、AI 考官，全都按这些原理排布。</b></p>
-  </div>
-  <div class="duo" style="margin-bottom:18px">
-    <div class="panel gold">
-      <h3>A · 人怎么学得牢：五条铁律</h3>
-      <p class="sub">学习科学几十年实验的共识，适合夜班碎片时间</p>
-      <div class="skill-item"><b>① 考自己 > 反复看（提取练习）</b><p>合上书把内容讲出来，比再看三遍记得牢。「讲不出 = 没学会」是有实验依据的，不是鸡汤。<span style="color:var(--text-3);font-size:12px">Karpicke & Roediger 2007（被引 602）· Carpenter 等 2022《Nature Reviews Psychology》（被引 423）</span></p></div>
-      <div class="skill-item"><b>② 间隔 > 突击（间隔重复）</b><p>同样的总时长，分散到几天学比一天猛灌，长期保留率高得多。所以打卡设计成「每天一点」，不设计「周末补一天」。<span style="color:var(--text-3);font-size:12px">Kang 2016（被引 899）</span></p></div>
-      <div class="skill-item"><b>③ 外语词汇：等距复习最稳</b><p>专门针对外语单词的实验：每天固定间隔的「考自己」，比「先密集后放松」的长期效果更好——你的英语 20 分钟就照这个排。<span style="color:var(--text-3);font-size:12px">Kang 等 2014 外语词汇实验（被引 175）</span></p></div>
-      <div class="skill-item"><b>④ 交错 > 单刷</b><p>同一天里混合不同主题（英语+行业+口才），比一周只啃一样，迁移能力更强。<span style="color:var(--text-3);font-size:12px">Carpenter 等 2022</span></p></div>
-      <div class="skill-item"><b>⑤ 输出才算数</b><p>能把一件事讲给外行听懂，才算学会（费曼检验法）。这就是本站铁规「没输出 = 没学习」的出处。</p></div>
-    </div>
-    <div class="panel">
-      <h3>B · 用 AI 学：四条军规</h3>
-      <p class="sub">AI 导师有用，但用法错了会废掉你的脑子</p>
-      <div class="skill-item"><b>先说好消息</b><p>系统综述：设计得当的智能导师，让学生超过传统课堂 75% 的同龄人；大模型对话式导师在 200 人实测中提升学习成效。<span style="color:var(--text-3);font-size:12px">Sharma 等 2025（被引 299）· Schmucker 等 2024（N=200）</span></p></div>
-      <div class="skill-item"><b>再说风险</b><p>把思考整个外包给 AI，批判性思维和「知道自己会不会」的判断力（元认知）会退化——学界叫「依赖陷阱」。<span style="color:var(--text-3);font-size:12px">Vendrell & Johnston 2026（被引 144）· An 等 2026 · Yan 等 2025（被引 159）</span></p></div>
-      <div class="skill-item"><b>军规 ① 先想再问</b><p>任何问题先写 3 行自己的思路，再问 AI——保住「认知自主权」（大脑的肌肉不练就萎缩）。</p></div>
-      <div class="skill-item"><b>军规 ② 让 AI 出题考你，别让它替你答题</b><p>AI 当考官不当枪手——正好兑现铁律①的提取练习。本页的「AI 考官」就是这么设计的。</p></div>
-      <div class="skill-item"><b>军规 ③ 对答案</b><p>AI 每段回答，追问一句「和我原本想的差在哪、为什么」——这一下就是在练元认知。</p></div>
-      <div class="skill-item"><b>军规 ④ 每周留一段「无 AI 时间」</b><p>哪怕 30 分钟，纸笔想一个问题。防依赖成习惯。</p></div>
-    </div>
-  </div>
-  <div class="panel gold" style="margin-bottom:18px">
-    <h3>C · 画你自己的地图：三步走</h3>
-    <p class="sub">方法来自「知识地图」研究：地图 = 概念节点 + 学习路径 + 社区互证（Li, Hasegawa & Kashihara 2015）</p>
-    <div class="skill-item"><b>第 1 步 · 终点倒推</b><p>写下「18 个月后我要能用 X 做成 Y」（例：用粤语 TTS 做出一个学校愿付费的课件），拆成能力清单——下面的路径就是这么倒推出来的。</p></div>
-    <div class="skill-item"><b>第 2 步 · 分层排布</b><p>地基（不学后面全塌：英语、表达）→ 主干（核心竞争力：TTS 行业、教育场景）→ 枝叶（锦上添花：金融、政治嗅觉）。先地基后枝叶，顺序错了全白学。</p></div>
-    <div class="skill-item"><b>第 3 步 · 每个节点挂一个「输出检验」</b><p>没有检验标准的节点不算学会：英语节点挂「雅思模考分数」，口才节点挂「60 秒不卡壳」，行业节点挂「能说出 3 个没人做好的场景」。</p></div>
-  </div>
-  <div class="boss-view" style="margin-bottom:28px"><b>功能对照表（这个站的每个功能对应哪条原理）：</b>今日修炼打卡+回顾 → 间隔重复（Kang 2016）｜跟读重录、60 秒主播 → 提取练习（Karpicke & Roediger 2007）｜老板五问 → 精细加工·把新知识和旧经验挂钩（Carpenter 2022）｜AI 考官、情景对练 → AI 导师+即时反馈（Sharma 2025）｜预测对答案 → 元认知校准（Yan 2025）｜英语 20 分钟每日等距 → 等距间隔提取（Kang 2014）。<b>论文原文链接收在「思辨认知」模块的 Google Scholar 入口，搜标题即达。</b></div>
-  <div class="tabs" id="learntabs" role="tablist"></div>
-  <div class="qtool" id="learnplan" style="margin-bottom:28px"></div>
 
-  <h3 style="font-size:19px;margin-bottom:14px">全维度资源库：每个平台的正确打开方式</h3>
-  <h3 style="font-size:19px;margin:32px 0 14px">学术资源四件套：论文与数据的打开方式</h3>
-  <div class="src-grid">
-    <div class="src"><span class="tag">论文搜索</span><h3><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a></h3><p>搜「Cantonese TTS」「speech synthesis education」，看学术界在做什么。</p><div class="boss-view"><b>老板读法：</b>只读摘要和结论，图表看趋势，方法细节交给技术人员。</div></div>
-    <div class="src"><span class="tag">中文论文</span><h3><a href="https://www.cnki.net/" target="_blank" rel="noopener">中国知网 CNKI ↗</a></h3><p>中文期刊与学位论文库，查教育技术、语音合成的国内研究。</p><div class="boss-view"><b>老板读法：</b>看「研究综述」类论文，一篇顶五十篇，快速建立领域地图。</div></div>
-    <div class="src"><span class="tag">论文速递</span><h3><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv ↗</a></h3><p>AI 领域最新论文首发地，语音合成在 eess.AS 分类下。</p><div class="boss-view"><b>老板读法：</b>看不懂就丢给 AI：「用做生意的人能懂的话讲这篇论文」。</div></div>
-    <div class="src"><span class="tag">统计素养</span><h3><a href="https://www.gapminder.org/" target="_blank" rel="noopener">Gapminder ↗</a></h3><p>用真实数据纠正你对世界的错误印象，训练数据直觉。</p><div class="boss-view"><b>老板读法：</b>做它的测试题——大多数人的世界观比随机猜测还差，这就是你的机会。</div></div>
-
-  <div class="src-grid">
-    <div class="src"><span class="tag">视频 · 系统课</span><h3><a href="https://www.bilibili.com/" target="_blank" rel="noopener">B站 ↗</a></h3><p>中文系统课程最多的免费大学：Python、雅思、AI、商业案例都有完整系列。</p><div class="boss-view"><b>老板用法：</b>只追「完整合集」，不看零散短视频。搜「雅思 全科」「Python 入门 合集」。</div></div>
-    <div class="src"><span class="tag">视频 · 国际</span><h3><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube ↗</a></h3><p>全球最顶级的免费课堂：李宏毅 AI 课、freeCodeCamp、TED 演讲都在这。</p><div class="boss-view"><b>老板用法：</b>开英文字幕看，一石二鸟——学专业 + 磨耳朵练英语。</div></div>
-    <div class="src"><span class="tag">碎片 · 经验贴</span><h3><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener">小红书 ↗</a></h3><p>普通人的实战经验库：雅思备考时间表、澳门政策申请亲历、副业踩坑记录。</p><div class="boss-view"><b>老板用法：</b>只用搜索，不刷推荐——算法会把你困在茧房里，搜完就关。</div></div>
-    <div class="src"><span class="tag">听觉 · 通勤</span><h3><a href="https://www.xiaoyuzhoufm.com/" target="_blank" rel="noopener">小宇宙播客 ↗</a></h3><p>中文播客平台：商业访谈、AI 评论、创业故事。夜班通勤和做家务时的第二课堂。</p><div class="boss-view"><b>老板用法：</b>耳朵是你的备用通道——眼睛累了用耳朵学，这也是你做 TTS 的行业直觉训练。</div></div>
-    <div class="src"><span class="tag">视频 · 学英语</span><h3><a href="https://www.voicetube.com/" target="_blank" rel="noopener">VoiceTube ↗</a></h3><p>看影片学英文的鼻祖：TED、新闻、电影片段配双语字幕和单句复读，澳门可直接用。</p><div class="boss-view"><b>老板用法：</b>你的「英语 20 分钟」就用它——每天精看一支短片，跟读字幕，比干背单词记得牢。顺便研究它的产品设计：字幕点查、复读、测验——这些功能你的语言产品也会用到。</div></div>
-    <div class="src"><span class="tag">AI · 学习搭子</span><h3><a href="https://solvely.ai/" target="_blank" rel="noopener">Solvely AI ↗</a></h3><p>拍照解题的 AI 学习助手：题目拍上去，不只给答案，还一步步讲为什么。</p><div class="boss-view"><b>老板用法：</b>遇到看不懂的概念/习题直接拍给它。更重要：它是「AI+教育」订阅制的活样本——看它怎么定价、怎么留住学生，你的粤语产品可以照着拆。</div></div>
-    <div class="src"><span class="tag">国际课程</span><h3><a href="https://www.coursera.org/" target="_blank" rel="noopener">Coursera ↗</a></h3><p>世界名校正式课程（可旁听免费），完成还有证书，为简历和人才计划加分。</p><div class="boss-view"><b>老板用法：</b>优先选带证书的商业、AI 课程——学习和背书一次搞定。</div></div>
-    <div class="src"><span class="tag">中文系统课 · 证书</span><h3><a href="https://www.icourse163.org/" target="_blank" rel="noopener">中国大学 MOOC ↗</a></h3><p>国内高校正式课程平台，免费旁听、付费拿证书——传播学、教育心理学、Python 都有完整体系课。</p><div class="boss-view"><b>老板用法：</b>你传媒出身，补「教育心理学」从这里系统学（查论文去「思辨认知」的 Google Scholar，不重复）。</div></div>
-  </div>
-
-  <div class="case">
-    <div class="tag">视听学习法</div>
-    <h3>老板怎么看视频：主动三遍，不是被动一躺</h3>
-    <p><b>看前·带一个问题：</b>打开视频前先写下「我想从这个视频得到什么」。没有问题意识的观看，看完就忘。</p>
-    <p><b>看中·只记三点：</b>倍速看（1.25–1.5x），暂停只记三个要点。记超过三点说明你在抄，不在学。</p>
-    <p><b>看后·讲一遍：</b>关掉视频，用 60 秒把刚学的东西讲出来（对着手机录音）。讲得出来才是你的——这就是把「口才训练」和「学习」合成一个动作。</p>
-    <p style="margin-top:12px"><b>防沉迷红线：</b>视频平台的设计目标是留住你，不是教会你。给自己定规矩：收藏 ≠ 学会，<strong>看完必须有输出</strong>（一条五问笔记 / 一段录音 / 一次实操），否则这一小时算娱乐，不算学习。</p>
-  </div>
-
-  </section>
 
 <!-- ============ 书籍库 ============ -->
 <section class="wrap" id="books">
@@ -1235,15 +1152,15 @@ body.in-module #backbar{display:block}
   </div>
   <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">底层逻辑（先长脑子）</h3>
   <div class="tool-grid">
-    <div class="tool"><span class="role">思维</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2" target="_blank" rel="noopener" style="color:inherit">《思考，快与慢》 ↗</a></h3><p>卡尼曼。大脑有两套系统：快的凭直觉，慢的靠计算。你练「可证伪判断」就是在训练慢系统。</p><div class="recipe"><b>老板用法：</b>每次快讯里下判断前，问自己是系统一还是系统二在说话。</div></div>
-    <div class="tool"><span class="role">思辨</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE" target="_blank" rel="noopener" style="color:inherit">《学会提问》 ↗</a></h3><p>尼尔·布朗。批判性思维入门：别人给你一个结论，你怎么拆它的证据链。</p><div class="recipe"><b>老板用法：</b>和「思辨六视角」配套练，读新闻时逐条套用。</div></div>
-    <div class="tool"><span class="role">格局</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8" target="_blank" rel="noopener" style="color:inherit">《穷查理宝典》 ↗</a></h3><p>查理·芒格。多元思维模型：老板的脑子里要同时装着会计、心理、工程、传播——不是全精通，是问得出对的问题。</p><div class="recipe"><b>老板用法：</b>当字典用，每月翻一个思维模型，套到自己的生意上。</div></div>
+    <div class="tool"><span class="role">思维</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2" target="_blank" rel="noopener" style="color:inherit">《思考，快与慢》 ↗</a></h3><p>卡尼曼。大脑有两套系统：快的凭直觉，慢的靠计算。你练「可证伪判断」就是在训练慢系统。</p><div class="recipe"><b>老板用法：</b>每次快讯里下判断前，问自己是系统一还是系统二在说话。</div></div>
+    <div class="tool"><span class="role">思辨</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE" target="_blank" rel="noopener" style="color:inherit">《学会提问》 ↗</a></h3><p>尼尔·布朗。批判性思维入门：别人给你一个结论，你怎么拆它的证据链。</p><div class="recipe"><b>老板用法：</b>和「思辨六视角」配套练，读新闻时逐条套用。</div></div>
+    <div class="tool"><span class="role">格局</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8" target="_blank" rel="noopener" style="color:inherit">《穷查理宝典》 ↗</a></h3><p>查理·芒格。多元思维模型：老板的脑子里要同时装着会计、心理、工程、传播——不是全精通，是问得出对的问题。</p><div class="recipe"><b>老板用法：</b>当字典用，每月翻一个思维模型，套到自己的生意上。</div></div>
   </div>
   <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">商业与战略（你的缝隙理论课本）</h3>
   <div class="tool-grid">
-    <div class="tool"><span class="role">必读 · 阶段1</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E4%BB%8E0%E5%88%B01" target="_blank" rel="noopener" style="color:inherit">《从0到1》 ↗</a></h3><p>彼得·蒂尔。垄断从被忽视的小市场开始——「粤语 AI 语音」就是你的从 0 到 1。</p><div class="recipe"><b>老板用法：</b>读「秘密」那一章，写下三个「大多数人不信但你信」的判断，存进预测对答案。</div></div>
-    <div class="tool"><span class="role">定位</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener" style="color:inherit">《定位》 ↗</a></h3><p>里斯 & 特劳特。用户脑子里一个词只能站一个品牌——「粤语 AI 语音」这个词怎么占住。</p><div class="recipe"><b>老板用法：</b>以后所有对外介绍，只许用一个词，就是你在占的那个位。</div></div>
-    <div class="tool"><span class="role">巨头盲区</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E5%88%9B%E6%96%B0%E8%80%85%E7%9A%84%E7%AA%98%E5%A2%83" target="_blank" rel="noopener" style="color:inherit">《创新者的窘境》 ↗</a></h3><p>克里斯坦森。巨头为什么看不见小市场——不是笨，是他们的客户不让他们看。你的缝隙就是这么来的。</p><div class="recipe"><b>老板用法：</b>每次担心「大厂下场怎么办」就重读第一章。</div></div>
+    <div class="tool"><span class="role">必读 · 阶段1</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E4%BB%8E0%E5%88%B01" target="_blank" rel="noopener" style="color:inherit">《从0到1》 ↗</a></h3><p>彼得·蒂尔。垄断从被忽视的小市场开始——「粤语 AI 语音」就是你的从 0 到 1。</p><div class="recipe"><b>老板用法：</b>读「秘密」那一章，写下三个「大多数人不信但你信」的判断，存进预测对答案。</div></div>
+    <div class="tool"><span class="role">定位</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener" style="color:inherit">《定位》 ↗</a></h3><p>里斯 & 特劳特。用户脑子里一个词只能站一个品牌——「粤语 AI 语音」这个词怎么占住。</p><div class="recipe"><b>老板用法：</b>以后所有对外介绍，只许用一个词，就是你在占的那个位。</div></div>
+    <div class="tool"><span class="role">巨头盲区</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E5%88%9B%E6%96%B0%E8%80%85%E7%9A%84%E7%AA%98%E5%A2%83" target="_blank" rel="noopener" style="color:inherit">《创新者的窘境》 ↗</a></h3><p>克里斯坦森。巨头为什么看不见小市场——不是笨，是他们的客户不让他们看。你的缝隙就是这么来的。</p><div class="recipe"><b>老板用法：</b>每次担心「大厂下场怎么办」就重读第一章。</div></div>
     <div class="tool"><span class="role">免费公开</span><h3><a href="https://www.navalmanack.com/" target="_blank" rel="noopener" style="color:inherit">《纳瓦尔宝典》 ↗</a></h3><p>Naval Ravikant。杠杆、专长、一人公司哲学——「媒体和代码，是无需许可的杠杆」。</p><div class="recipe"><b>老板用法：</b>navalmanack.com 免费看。你的内容飞轮就是媒体杠杆。</div></div>
   </div>
   <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">AI 与技术（研究者的地基）</h3>
@@ -1253,14 +1170,14 @@ body.in-module #backbar{display:block}
   </div>
   <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">学习科学、语言与传播（产品的里子）</h3>
   <div class="tool-grid">
-    <div class="tool"><span class="role">必读 · 阶段0</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E8%AE%A4%E7%9F%A5%E5%A4%A9%E6%80%A7" target="_blank" rel="noopener" style="color:inherit">《认知天性》 ↗</a></h3><p>Make It Stick。学习科学：为什么「测试+间隔+跟读」比「看课」有效十倍——你的打卡、跟读重录、练兵场全是照它的原理设计的。</p><div class="recipe"><b>老板用法：</b>这本书同时是你的产品设计说明书——教育产品的每个功能都要能在这里找到依据。</div></div>
-    <div class="tool"><span class="role">英语地基</span><h3><a href="https://search.douban.com/book/subject_search?search_text=English%20Grammar%20in%20Use" target="_blank" rel="noopener" style="color:inherit">《English Grammar in Use》 ↗</a></h3><p>Murphy。全世界英语老师都在用的语法圣经，从零到中级最稳的路线。</p><div class="recipe"><b>老板用法：</b>配合你的每日 20 分钟英语，每天一个单元，不跳跃。</div></div>
-    <div class="tool"><span class="role">文化浪潮课本</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E4%BC%A0%E6%92%AD%E5%AD%A6%E6%95%99%E7%A8%8B" target="_blank" rel="noopener" style="color:inherit">《传播学教程》 ↗</a></h3><p>郭庆光。中国传播学标准教材：议程设置、沉默的螺旋、培养理论——你做「文化飞轮」和「定义议题」的学术底座。</p><div class="recipe"><b>老板用法：</b>每策划一轮内容，回来对一遍「议程设置」那一章。</div></div>
+    <div class="tool"><span class="role">必读 · 阶段0</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E8%AE%A4%E7%9F%A5%E5%A4%A9%E6%80%A7" target="_blank" rel="noopener" style="color:inherit">《认知天性》 ↗</a></h3><p>Make It Stick。学习科学：为什么「测试+间隔+跟读」比「看课」有效十倍——你的打卡、跟读重录、练兵场全是照它的原理设计的。</p><div class="recipe"><b>老板用法：</b>这本书同时是你的产品设计说明书——教育产品的每个功能都要能在这里找到依据。</div></div>
+    <div class="tool"><span class="role">英语地基</span><h3><a href="https://weread.qq.com/web/search/books?keyword=English%20Grammar%20in%20Use" target="_blank" rel="noopener" style="color:inherit">《English Grammar in Use》 ↗</a></h3><p>Murphy。全世界英语老师都在用的语法圣经，从零到中级最稳的路线。</p><div class="recipe"><b>老板用法：</b>配合你的每日 20 分钟英语，每天一个单元，不跳跃。</div></div>
+    <div class="tool"><span class="role">文化浪潮课本</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E4%BC%A0%E6%92%AD%E5%AD%A6%E6%95%99%E7%A8%8B" target="_blank" rel="noopener" style="color:inherit">《传播学教程》 ↗</a></h3><p>郭庆光。中国传播学标准教材：议程设置、沉默的螺旋、培养理论——你做「文化飞轮」和「定义议题」的学术底座。</p><div class="recipe"><b>老板用法：</b>每策划一轮内容，回来对一遍「议程设置」那一章。</div></div>
   </div>
   <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">读懂中国、澳门与创业</h3>
   <div class="tool-grid">
-    <div class="tool"><span class="role">必读 · 申请资助前</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85" target="_blank" rel="noopener" style="color:inherit">《置身事内》 ↗</a></h3><p>兰小欢。中国政府怎么运转、钱怎么流动、政策怎么落地——申请科技基金和横琴配套前必读。</p><div class="recipe"><b>老板用法：</b>读完你就明白为什么「就业叙事」比技术参数管用。</div></div>
-    <div class="tool"><span class="role">心力</span><h3><a href="https://search.douban.com/book/subject_search?search_text=%E9%9E%8B%E7%8B%97" target="_blank" rel="noopener" style="color:inherit">《鞋狗》 ↗</a></h3><p>菲尔·奈特。Nike 创始人亲笔：十几年濒临倒闭又活过来的实录。创业最大的成本不是钱，是心力。</p><div class="recipe"><b>老板用法：</b>夜班撑不住的那几天翻几页——不是鸡汤，是战地日记。</div></div>
+    <div class="tool"><span class="role">必读 · 申请资助前</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85" target="_blank" rel="noopener" style="color:inherit">《置身事内》 ↗</a></h3><p>兰小欢。中国政府怎么运转、钱怎么流动、政策怎么落地——申请科技基金和横琴配套前必读。</p><div class="recipe"><b>老板用法：</b>读完你就明白为什么「就业叙事」比技术参数管用。</div></div>
+    <div class="tool"><span class="role">心力</span><h3><a href="https://weread.qq.com/web/search/books?keyword=%E9%9E%8B%E7%8B%97" target="_blank" rel="noopener" style="color:inherit">《鞋狗》 ↗</a></h3><p>菲尔·奈特。Nike 创始人亲笔：十几年濒临倒闭又活过来的实录。创业最大的成本不是钱，是心力。</p><div class="recipe"><b>老板用法：</b>夜班撑不住的那几天翻几页——不是鸡汤，是战地日记。</div></div>
   </div>
   <div class="boss-view" style="margin-top:14px"><b>用法纪律：</b>① 每月只读一本，读透比读多重要；② 每本书读完在「回顾」里写三条「哪一点能马上用在我的生意上」；③ 免费公开的两本（SLP3、纳瓦尔）本周就能开始，零成本。<b>书单是血肉，但读完写下的三条应用，才是你的血肉。</b>（14 本全部系核实过嘅真书：点书名去豆瓣查证；标「免费公开」嘅三本直链官方原文，已实测可开。）</div>
 
@@ -1620,9 +1537,86 @@ body.in-module #backbar{display:block}
 <section class="wrap" id="cert">
   <div class="sec-head">
     <div class="no">MODULE 14 · 语言考证</div>
-    <h2>证书：让别人三秒钟信你</h2>
+    <h2>学习与考证：学是为了用，证是为了让人信</h2>
     <p>做语言生意的人，自己得先有语言凭证。证书不是目的，是敲门砖：投标、谈合作、招人时，对方没耐心听你讲故事，先看证。</p>
   </div>
+
+  <div class="case">
+    <div class="tag">学习路径 · 点样学得牢</div>
+    <h3>学习唔系乱逛：先定路线，再用科学方法学</h3>
+    <p>以下内容由原「学习路径」板块并入——学习只有三个目的：TTS 专业、语言考证、AI 实战。方法论同资源库都喺晒度。</p>
+  </div>
+
+  <div class="case" style="margin-top:0;margin-bottom:18px">
+      <div class="tag">学习教练 · 随时候命</div>
+      <h3 style="margin-bottom:6px">卡住就问，对话框就是教练</h3>
+      <p>这个网站的教练不在网页里——<b>就是 Kimi 对话本身</b>。任何概念不懂、题目卡壳、想让人帮你过一遍思路，直接在对话框里问。学习不用约时间，问题不过夜。</p>
+    </div>
+    <div class="case" style="margin-bottom:18px">
+      <div class="tag">🧠 学习地图的科学底座 · 每条规矩都有论文撑腰</div>
+      <h3 style="margin-bottom:6px">先看人怎么学得牢，再决定地图怎么画</h3>
+      <p>下面的结论不是我编的——全部来自高引用论文（被引次数 = 全世界研究者引用了多少次，数字越大越靠谱）。<b>你的学习路径、打卡、跟读、AI 考官，全都按这些原理排布。</b></p>
+    </div>
+    <div class="duo" style="margin-bottom:18px">
+      <div class="panel gold">
+        <h3>A · 人怎么学得牢：五条铁律</h3>
+        <p class="sub">学习科学几十年实验的共识，适合夜班碎片时间</p>
+        <div class="skill-item"><b>① 考自己 > 反复看（提取练习）</b><p>合上书把内容讲出来，比再看三遍记得牢。「讲不出 = 没学会」是有实验依据的，不是鸡汤。<span style="color:var(--text-3);font-size:12px">Karpicke & Roediger 2007（被引 602）· Carpenter 等 2022《Nature Reviews Psychology》（被引 423）</span></p></div>
+        <div class="skill-item"><b>② 间隔 > 突击（间隔重复）</b><p>同样的总时长，分散到几天学比一天猛灌，长期保留率高得多。所以打卡设计成「每天一点」，不设计「周末补一天」。<span style="color:var(--text-3);font-size:12px">Kang 2016（被引 899）</span></p></div>
+        <div class="skill-item"><b>③ 外语词汇：等距复习最稳</b><p>专门针对外语单词的实验：每天固定间隔的「考自己」，比「先密集后放松」的长期效果更好——你的英语 20 分钟就照这个排。<span style="color:var(--text-3);font-size:12px">Kang 等 2014 外语词汇实验（被引 175）</span></p></div>
+        <div class="skill-item"><b>④ 交错 > 单刷</b><p>同一天里混合不同主题（英语+行业+口才），比一周只啃一样，迁移能力更强。<span style="color:var(--text-3);font-size:12px">Carpenter 等 2022</span></p></div>
+        <div class="skill-item"><b>⑤ 输出才算数</b><p>能把一件事讲给外行听懂，才算学会（费曼检验法）。这就是本站铁规「没输出 = 没学习」的出处。</p></div>
+      </div>
+      <div class="panel">
+        <h3>B · 用 AI 学：四条军规</h3>
+        <p class="sub">AI 导师有用，但用法错了会废掉你的脑子</p>
+        <div class="skill-item"><b>先说好消息</b><p>系统综述：设计得当的智能导师，让学生超过传统课堂 75% 的同龄人；大模型对话式导师在 200 人实测中提升学习成效。<span style="color:var(--text-3);font-size:12px">Sharma 等 2025（被引 299）· Schmucker 等 2024（N=200）</span></p></div>
+        <div class="skill-item"><b>再说风险</b><p>把思考整个外包给 AI，批判性思维和「知道自己会不会」的判断力（元认知）会退化——学界叫「依赖陷阱」。<span style="color:var(--text-3);font-size:12px">Vendrell & Johnston 2026（被引 144）· An 等 2026 · Yan 等 2025（被引 159）</span></p></div>
+        <div class="skill-item"><b>军规 ① 先想再问</b><p>任何问题先写 3 行自己的思路，再问 AI——保住「认知自主权」（大脑的肌肉不练就萎缩）。</p></div>
+        <div class="skill-item"><b>军规 ② 让 AI 出题考你，别让它替你答题</b><p>AI 当考官不当枪手——正好兑现铁律①的提取练习。本页的「AI 考官」就是这么设计的。</p></div>
+        <div class="skill-item"><b>军规 ③ 对答案</b><p>AI 每段回答，追问一句「和我原本想的差在哪、为什么」——这一下就是在练元认知。</p></div>
+        <div class="skill-item"><b>军规 ④ 每周留一段「无 AI 时间」</b><p>哪怕 30 分钟，纸笔想一个问题。防依赖成习惯。</p></div>
+      </div>
+    </div>
+    <div class="panel gold" style="margin-bottom:18px">
+      <h3>C · 画你自己的地图：三步走</h3>
+      <p class="sub">方法来自「知识地图」研究：地图 = 概念节点 + 学习路径 + 社区互证（Li, Hasegawa & Kashihara 2015）</p>
+      <div class="skill-item"><b>第 1 步 · 终点倒推</b><p>写下「18 个月后我要能用 X 做成 Y」（例：用粤语 TTS 做出一个学校愿付费的课件），拆成能力清单——下面的路径就是这么倒推出来的。</p></div>
+      <div class="skill-item"><b>第 2 步 · 分层排布</b><p>地基（不学后面全塌：英语、表达）→ 主干（核心竞争力：TTS 行业、教育场景）→ 枝叶（锦上添花：金融、政治嗅觉）。先地基后枝叶，顺序错了全白学。</p></div>
+      <div class="skill-item"><b>第 3 步 · 每个节点挂一个「输出检验」</b><p>没有检验标准的节点不算学会：英语节点挂「雅思模考分数」，口才节点挂「60 秒不卡壳」，行业节点挂「能说出 3 个没人做好的场景」。</p></div>
+    </div>
+    <div class="boss-view" style="margin-bottom:28px"><b>功能对照表（这个站的每个功能对应哪条原理）：</b>今日修炼打卡+回顾 → 间隔重复（Kang 2016）｜跟读重录、60 秒主播 → 提取练习（Karpicke & Roediger 2007）｜老板五问 → 精细加工·把新知识和旧经验挂钩（Carpenter 2022）｜AI 考官、情景对练 → AI 导师+即时反馈（Sharma 2025）｜预测对答案 → 元认知校准（Yan 2025）｜英语 20 分钟每日等距 → 等距间隔提取（Kang 2014）。<b>论文原文链接收在「思辨认知」模块的 Google Scholar 入口，搜标题即达。</b></div>
+    <div class="tabs" id="learntabs" role="tablist"></div>
+    <div class="qtool" id="learnplan" style="margin-bottom:28px"></div>
+  
+    <h3 style="font-size:19px;margin-bottom:14px">全维度资源库：每个平台的正确打开方式</h3>
+    <h3 style="font-size:19px;margin:32px 0 14px">学术资源四件套：论文与数据的打开方式</h3>
+    <div class="src-grid">
+      <div class="src"><span class="tag">论文搜索</span><h3><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a></h3><p>搜「Cantonese TTS」「speech synthesis education」，看学术界在做什么。</p><div class="boss-view"><b>老板读法：</b>只读摘要和结论，图表看趋势，方法细节交给技术人员。</div></div>
+      <div class="src"><span class="tag">中文论文</span><h3><a href="https://www.cnki.net/" target="_blank" rel="noopener">中国知网 CNKI ↗</a></h3><p>中文期刊与学位论文库，查教育技术、语音合成的国内研究。</p><div class="boss-view"><b>老板读法：</b>看「研究综述」类论文，一篇顶五十篇，快速建立领域地图。</div></div>
+      <div class="src"><span class="tag">论文速递</span><h3><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv ↗</a></h3><p>AI 领域最新论文首发地，语音合成在 eess.AS 分类下。</p><div class="boss-view"><b>老板读法：</b>看不懂就丢给 AI：「用做生意的人能懂的话讲这篇论文」。</div></div>
+      <div class="src"><span class="tag">统计素养</span><h3><a href="https://www.gapminder.org/" target="_blank" rel="noopener">Gapminder ↗</a></h3><p>用真实数据纠正你对世界的错误印象，训练数据直觉。</p><div class="boss-view"><b>老板读法：</b>做它的测试题——大多数人的世界观比随机猜测还差，这就是你的机会。</div></div>
+  
+    <div class="src-grid">
+      <div class="src"><span class="tag">视频 · 系统课</span><h3><a href="https://www.bilibili.com/" target="_blank" rel="noopener">B站 ↗</a></h3><p>中文系统课程最多的免费大学：Python、雅思、AI、商业案例都有完整系列。</p><div class="boss-view"><b>老板用法：</b>只追「完整合集」，不看零散短视频。搜「雅思 全科」「Python 入门 合集」。</div></div>
+      <div class="src"><span class="tag">视频 · 国际</span><h3><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube ↗</a></h3><p>全球最顶级的免费课堂：李宏毅 AI 课、freeCodeCamp、TED 演讲都在这。</p><div class="boss-view"><b>老板用法：</b>开英文字幕看，一石二鸟——学专业 + 磨耳朵练英语。</div></div>
+      <div class="src"><span class="tag">碎片 · 经验贴</span><h3><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener">小红书 ↗</a></h3><p>普通人的实战经验库：雅思备考时间表、澳门政策申请亲历、副业踩坑记录。</p><div class="boss-view"><b>老板用法：</b>只用搜索，不刷推荐——算法会把你困在茧房里，搜完就关。</div></div>
+      <div class="src"><span class="tag">听觉 · 通勤</span><h3><a href="https://www.xiaoyuzhoufm.com/" target="_blank" rel="noopener">小宇宙播客 ↗</a></h3><p>中文播客平台：商业访谈、AI 评论、创业故事。夜班通勤和做家务时的第二课堂。</p><div class="boss-view"><b>老板用法：</b>耳朵是你的备用通道——眼睛累了用耳朵学，这也是你做 TTS 的行业直觉训练。</div></div>
+      <div class="src"><span class="tag">视频 · 学英语</span><h3><a href="https://www.voicetube.com/" target="_blank" rel="noopener">VoiceTube ↗</a></h3><p>看影片学英文的鼻祖：TED、新闻、电影片段配双语字幕和单句复读，澳门可直接用。</p><div class="boss-view"><b>老板用法：</b>你的「英语 20 分钟」就用它——每天精看一支短片，跟读字幕，比干背单词记得牢。顺便研究它的产品设计：字幕点查、复读、测验——这些功能你的语言产品也会用到。</div></div>
+      <div class="src"><span class="tag">AI · 学习搭子</span><h3><a href="https://solvely.ai/" target="_blank" rel="noopener">Solvely AI ↗</a></h3><p>拍照解题的 AI 学习助手：题目拍上去，不只给答案，还一步步讲为什么。</p><div class="boss-view"><b>老板用法：</b>遇到看不懂的概念/习题直接拍给它。更重要：它是「AI+教育」订阅制的活样本——看它怎么定价、怎么留住学生，你的粤语产品可以照着拆。</div></div>
+      <div class="src"><span class="tag">国际课程</span><h3><a href="https://www.coursera.org/" target="_blank" rel="noopener">Coursera ↗</a></h3><p>世界名校正式课程（可旁听免费），完成还有证书，为简历和人才计划加分。</p><div class="boss-view"><b>老板用法：</b>优先选带证书的商业、AI 课程——学习和背书一次搞定。</div></div>
+      <div class="src"><span class="tag">中文系统课 · 证书</span><h3><a href="https://www.icourse163.org/" target="_blank" rel="noopener">中国大学 MOOC ↗</a></h3><p>国内高校正式课程平台，免费旁听、付费拿证书——传播学、教育心理学、Python 都有完整体系课。</p><div class="boss-view"><b>老板用法：</b>你传媒出身，补「教育心理学」从这里系统学（查论文去「思辨认知」的 Google Scholar，不重复）。</div></div>
+    </div>
+  
+    <div class="case">
+      <div class="tag">视听学习法</div>
+      <h3>老板怎么看视频：主动三遍，不是被动一躺</h3>
+      <p><b>看前·带一个问题：</b>打开视频前先写下「我想从这个视频得到什么」。没有问题意识的观看，看完就忘。</p>
+      <p><b>看中·只记三点：</b>倍速看（1.25–1.5x），暂停只记三个要点。记超过三点说明你在抄，不在学。</p>
+      <p><b>看后·讲一遍：</b>关掉视频，用 60 秒把刚学的东西讲出来（对着手机录音）。讲得出来才是你的——这就是把「口才训练」和「学习」合成一个动作。</p>
+      <p style="margin-top:12px"><b>防沉迷红线：</b>视频平台的设计目标是留住你，不是教会你。给自己定规矩：收藏 ≠ 学会，<strong>看完必须有输出</strong>（一条五问笔记 / 一段录音 / 一次实操），否则这一小时算娱乐，不算学习。</p>
+    </div>
+
 
   <div class="src-grid">
     <div class="src"><span class="tag">英语 · 国际通行 <span class="lv lv1">官网</span></span><h3><a href="https://www.ielts.org/" target="_blank" rel="noopener">雅思 IELTS ↗</a></h3><p>全球最认的英语凭证，留学、移民、外企通用。澳门有考点，机考出分快。目标先定 6.5，再到 7.5。</p><div class="boss-view"><b>怎么用：</b>每天 30 分钟：BBC 6 Minute English 磨耳朵 + 跟读录音对比。口语题库直接拿来练口才模块。</div></div>
@@ -2302,6 +2296,6 @@ body.in-module #backbar{display:block}
   <p style="margin-top:14px;font-size:13px">v3.9.3 · 2026-11-21 · 学习资料大完善：雅思作战室（官方真题+四科资源+阶段计划）· TTS 自修书架（两配方+论文+验收尺）· 上一版：v3.9.2 · 悬浮随身听（三餐语音队列，右下角🎧）+ 秘书台数据一键备份还原 · GitHub Pages 双入口上线 · 上一版： 本版：军火库全库实测核验——修正 Ming-omni-tts 名称与许可证（Apache-2.0 非 MIT）、WSYue-TTS 许可证标注（官方 Apache-2.0，语料 NC 需确认）、三个底座链接全部改指模型本体页 · 全站 80 条外链逐一实测存活 · 晨报 07:43、午报 12:47 上岗，三餐制情报开饭</p>
 </footer>
 
-<script type="module" src="./src/main.js?v=1795213534"></script>
+<script type="module" src="./src/main.js?v=1795214068"></script>
 </body>
 </html>
