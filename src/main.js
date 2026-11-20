@@ -855,7 +855,7 @@ const LIVE_FEEDS = [
 /* 地区子筛选：只在大湾区分类下出现。聚合源 = 谷歌新闻按地区聚合，属二手快筛，点进去看原始出处 */
 const LIVE_REGIONS = ['全部', '澳门', '香港', '珠海', '横琴', '广州', '广东'];
 let liveRegion = '全部';
-const LIVE_TABS = ['AI 与科技', '财经与国际', '粤港澳大湾区', '舆情热榜', '社区与博主', '教育前线'];
+const LIVE_TABS = ['AI 与科技', '财经与国际', '粤港澳大湾区', '民生与生活', '舆情热榜', '社区与博主', '教育前线'];
 let liveTab = 0, liveData = {};
 
 function timeAgo(ts) {
