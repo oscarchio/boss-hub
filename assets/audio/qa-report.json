@@ -1,0 +1,10 @@
+{
+ "audio": "bc-2026-11-20-午报.mp3",
+ "cer_percent": 11.48,
+ "threshold": 10.0,
+ "verdict": "FAIL",
+ "ref_chars": 2203,
+ "hyp_chars": 2188,
+ "model": "small",
+ "lang": "zh"
+}
