@@ -1,0 +1,2283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老板成长中枢 · 从打工人到国际老板</title>
+<style>
+:root{
+  --ink: oklch(0.30 0.02 60);
+  --ink-2: oklch(0.985 0.008 95);
+  --ink-3: oklch(0.94 0.015 90);
+  --line: oklch(0.87 0.02 85);
+  --gold: oklch(0.52 0.15 35);
+  --gold-2: oklch(0.45 0.13 35);
+  --paper: oklch(0.955 0.015 90);
+  --text: oklch(0.35 0.02 60);
+  --text-2: oklch(0.48 0.02 65);
+  --text-3: oklch(0.62 0.02 70);
+  --ok: oklch(0.55 0.09 160);
+  --radius: 12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  font:16px/1.8 "PingFang SC","Microsoft YaHei","Noto Sans SC",ui-sans-serif,system-ui,sans-serif;
+  color:var(--text);
+  background:var(--paper);
+  background-image:
+    radial-gradient(oklch(0.90 0.02 85 / 0.35) 1px, transparent 1px),
+    radial-gradient(oklch(0.92 0.02 88 / 0.25) 1px, transparent 1px);
+  background-size:28px 28px, 46px 46px;
+  background-position:0 0, 14px 20px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Songti SC","SimSun",serif;line-height:1.3;text-wrap:balance}
+.kai{font-family:"Kaiti SC","STKaiti","KaiTi","Noto Serif SC",serif}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+button{cursor:pointer;font:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ---- top nav ---- */
+.nav{position:sticky;top:0;z-index:10;background:oklch(0.955 0.015 90 / 0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:880px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:60px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.brand{font-family:"Noto Serif SC","Songti SC",serif;font-weight:700;color:var(--gold);white-space:nowrap;margin-right:8px;font-size:17px}
+.nav a.tab{color:var(--text-2);font-size:14px;padding:8px 12px;border-radius:8px;white-space:nowrap;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.nav a.tab:hover{color:var(--gold);background:var(--ink-3);text-decoration:none}
+
+/* ---- hero ---- */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line);position:relative}
+.hero .kicker{color:var(--gold);font-size:13px;letter-spacing:0.25em;margin-bottom:16px}
+.hero h1{font-size:clamp(30px,6vw,48px);font-weight:900;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--text-2);max-width:62ch;font-size:17px}
+.hero .stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.stat{border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;background:var(--ink-2);box-shadow:0 1px 3px oklch(0.5 0.03 60 / 0.06)}
+.stat b{display:block;font-size:22px;color:var(--gold);font-family:"Noto Serif SC",serif}
+.stat span{font-size:13px;color:var(--text-3)}
+.seal{
+  position:absolute;top:72px;right:20px;width:64px;height:64px;border-radius:10px;
+  background:var(--gold);color:oklch(0.97 0.01 90);display:grid;place-items:center;
+  font-family:"Kaiti SC","STKaiti","KaiTi",serif;font-size:22px;font-weight:700;line-height:1.1;
+  text-align:center;transform:rotate(3deg);box-shadow:0 2px 8px oklch(0.52 0.15 35 / 0.35);
+  writing-mode:vertical-rl;letter-spacing:2px;
+}
+.hero-vert{
+  position:absolute;right:104px;top:72px;writing-mode:vertical-rl;
+  font-family:"Kaiti SC","STKaiti","KaiTi",serif;font-size:15px;color:var(--text-3);
+  letter-spacing:6px;height:180px;
+}
+@media (max-width:640px){.hero-vert{display:none}.seal{width:52px;height:52px;font-size:18px;top:24px;right:16px}}
+
+/* ---- sections ---- */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:28px}
+.sec-head .no{color:var(--gold);font-family:"Noto Serif SC",serif;font-size:14px;letter-spacing:0.2em;margin-bottom:8px}
+.sec-head h2{font-size:clamp(24px,4.5vw,34px);font-weight:900}
+.sec-head p{color:var(--text-2);margin-top:10px;max-width:64ch}
+
+/* ---- five questions tool ---- */
+.qtool{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.qtool .step-dots{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.dot{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--text-3);background:var(--ink-3)}
+.dot.on{border-color:var(--gold);color:var(--gold)}
+.dot.done{background:var(--gold);color:oklch(0.97 0.012 90);border-color:var(--gold);font-weight:700}
+.qtool label{display:block;color:var(--gold);font-weight:700;margin-bottom:6px;font-size:15px}
+.qtool .hint{color:var(--text-3);font-size:13.5px;margin-bottom:12px}
+.qtool textarea{
+  width:100%;min-height:88px;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;
+  color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical;
+}
+.qtool textarea:focus{border-color:var(--gold);outline:none}
+.qtool .row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{
+  background:var(--gold);color:oklch(0.97 0.012 90);border:none;border-radius:10px;padding:12px 22px;
+  font-weight:700;min-height:44px;transition:transform .15s ease-out,background .15s ease-out;
+}
+.btn:hover{background:oklch(0.46 0.14 35)}
+.btn:active{transform:scale(0.97)}
+.btn.ghost{background:transparent;color:var(--text-2);border:1px solid var(--line)}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold);background:var(--ink-3)}
+.note-list{margin-top:24px;display:grid;gap:12px}
+.note{background:var(--ink-3);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:16px 18px}
+.note .meta{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:8px;flex-wrap:wrap}
+.note .meta time{color:var(--text-3);font-size:13px}
+.note .meta button{background:none;border:none;color:var(--text-3);font-size:13px;padding:6px 10px;min-height:44px}
+.note .meta button:hover{color:#f08080}
+.note h4{color:var(--gold);font-size:15px;margin-bottom:8px;font-family:inherit}
+.note p{font-size:14.5px;color:var(--text-2);margin-bottom:6px}
+.note p b{color:var(--text);font-weight:600}
+.empty{color:var(--text-3);font-size:14px;padding:16px;text-align:center;border:1px dashed var(--line);border-radius:10px;margin-top:20px}
+
+/* ---- news tabs ---- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab-btn{
+  background:var(--ink-2);border:1px solid var(--line);color:var(--text-2);border-radius:999px;
+  padding:10px 18px;font-size:14.5px;min-height:44px;transition:all .15s ease-out;
+}
+.tab-btn:hover{color:var(--gold);border-color:var(--gold)}
+.tab-btn.on{background:var(--gold);color:oklch(0.97 0.012 90);border-color:var(--gold);font-weight:700}
+.src-grid,.stage-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.src{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s ease-out,transform .15s ease-out}
+.src:hover{border-color:var(--gold-2);transform:translateY(-2px)}
+.src h3{font-size:16.5px;font-family:inherit;font-weight:700}
+.src h3 a{color:var(--text)}
+.src h3 a:hover{color:var(--gold)}
+.src .tag{font-size:12px;color:var(--gold);letter-spacing:0.08em}
+.src p{font-size:14px;color:var(--text-2)}
+.src .boss-view{font-size:13.5px;color:var(--text-3);border-top:1px dashed var(--line);padding-top:10px}
+.src .boss-view b{color:var(--gold);font-weight:600}
+.cat-desc{color:var(--text-2);font-size:15px;margin-bottom:18px;max-width:64ch}
+.cat-desc b{color:var(--gold)}
+
+/* ---- must master ---- */
+.duo{display:grid;gap:18px}
+@media(min-width:700px){.duo{grid-template-columns:1fr 1fr}}
+.panel{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.panel.gold{border-color:var(--gold-2)}
+.panel h3{font-size:19px;margin-bottom:6px}
+.panel.gold h3{color:var(--gold)}
+.panel .sub{font-size:13.5px;color:var(--text-3);margin-bottom:18px}
+.skill-item{padding:14px 0;border-top:1px solid var(--line)}
+.skill-item:first-of-type{border-top:none;padding-top:0}
+.skill-item b{display:block;font-size:15.5px;margin-bottom:4px}
+.skill-item p{font-size:14px;color:var(--text-2)}
+
+/* ---- speech trainer ---- */
+.speech-card{background:var(--ink-2);border:1px solid var(--gold-2);border-radius:var(--radius);padding:28px;text-align:center}
+.speech-card .label{color:var(--gold);font-size:13px;letter-spacing:0.2em;margin-bottom:14px}
+.speech-card .topic{font-family:"Noto Serif SC","Songti SC",serif;font-size:clamp(19px,4vw,26px);font-weight:700;min-height:2.6em;display:grid;place-items:center;margin-bottom:20px}
+.framework{margin-top:32px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.framework h3{margin-bottom:14px;font-size:18px}
+.fw-steps{display:grid;gap:12px}
+@media(min-width:640px){.fw-steps{grid-template-columns:repeat(4,1fr)}}
+.fw{background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:16px}
+.fw b{color:var(--gold);display:block;font-size:15px;margin-bottom:4px}
+.fw span{font-size:13.5px;color:var(--text-2)}
+
+/* ---- roadmap ---- */
+.progress-wrap{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:24px}
+.progress-bar{height:10px;background:var(--ink-3);border-radius:999px;overflow:hidden;margin-top:10px}
+.progress-bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:999px;transition:width .3s ease-out}
+.progress-wrap .pct{color:var(--gold);font-weight:700;font-family:"Noto Serif SC",serif}
+.phase{margin-bottom:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.phase summary{
+  list-style:none;display:flex;align-items:center;gap:14px;padding:18px 20px;background:var(--ink-2);
+  min-height:44px;flex-wrap:wrap;
+}
+.phase summary::-webkit-details-marker{display:none}
+.phase summary:hover{background:var(--ink-3)}
+.phase summary .ph-no{
+  font-family:"Noto Serif SC",serif;color:var(--gold);border:1px solid var(--gold-2);border-radius:8px;
+  padding:4px 10px;font-size:13px;white-space:nowrap;
+}
+.phase summary h3{font-size:17px;font-family:inherit;font-weight:700}
+.phase summary .ph-goal{font-size:13px;color:var(--text-3);flex-basis:100%}
+.phase .items{padding:8px 20px 18px}
+.check{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line)}
+.check input{width:22px;height:22px;margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}
+.check span{font-size:15px;color:var(--text-2)}
+.check input:checked + span{color:var(--text-3);text-decoration:line-through}
+.check span b{color:var(--text)}
+.check input:checked + span b{color:var(--text-3)}
+
+/* ---- footer ---- */
+footer{padding:48px 0 64px;color:var(--text-3);font-size:14px}
+footer .quote{font-family:"Noto Serif SC","Songti SC",serif;font-size:19px;color:var(--text-2);margin-bottom:14px}
+/* ---- market ---- */
+.tv-wrap{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:8px;overflow:hidden;margin-bottom:22px}
+.chain{display:grid;gap:10px;margin-top:18px}
+.chain-step{background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:flex;gap:14px;align-items:flex-start}
+.chain-step .n{font-family:"Noto Serif SC",serif;color:var(--gold);font-size:18px;flex-shrink:0;width:28px}
+.chain-step div b{display:block;font-size:15px;margin-bottom:2px}
+.chain-step div p{font-size:13.5px;color:var(--text-2)}
+.case{background:var(--ink-2);border:1px solid var(--gold-2);border-radius:var(--radius);padding:20px 22px;margin-top:22px}
+.case .tag{font-size:12px;color:var(--gold);letter-spacing:0.15em;margin-bottom:8px}
+.case h3{font-size:17px;font-family:inherit;margin-bottom:10px}
+.case p{font-size:14.5px;color:var(--text-2);margin-bottom:8px}
+.case p b{color:var(--text)}
+
+/* ---- ai arsenal ---- */
+.tool-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.tool{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.tool h3{font-size:16.5px;font-family:inherit}
+.tool h3 a{color:var(--text)}
+.tool h3 a:hover{color:var(--gold)}
+.tool .role{font-size:12px;color:var(--gold);letter-spacing:0.08em}
+.tool p{font-size:14px;color:var(--text-2)}
+.tool .recipe{font-size:13.5px;color:var(--text-3);border-top:1px dashed var(--line);padding-top:10px}
+.tool .recipe b{color:var(--gold);font-weight:600}
+
+/* ---- body ---- */
+.habit-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.habit{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.habit h3{font-size:16px;font-family:inherit;color:var(--gold);margin-bottom:6px}
+.habit p{font-size:14px;color:var(--text-2)}
+/* ---- source level legend & badges ---- */
+.legend{margin-top:14px;font-size:13px;color:var(--text-3);display:flex;flex-direction:column;gap:8px;line-height:1.8}
+.legend-item{display:flex;gap:8px;align-items:flex-start}
+.legend-item .lv{flex-shrink:0;margin-top:3px}
+.lv{display:inline-block;font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 8px;letter-spacing:0.05em}
+.lv1{background:oklch(0.72 0.13 155 / 0.18);color:var(--ok);border:1px solid oklch(0.72 0.13 155 / 0.4)}
+.lv2{background:oklch(0.80 0.11 85 / 0.15);color:var(--gold);border:1px solid oklch(0.80 0.11 85 / 0.4)}
+.lv3{background:oklch(0.65 0.15 25 / 0.15);color:oklch(0.52 0.12 30);border:1px solid oklch(0.65 0.15 25 / 0.4)}
+.src .lvlv{float:right}
+
+/* ---- tts knowledge ---- */
+.gloss{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));margin-top:14px}
+.gterm{background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.gterm b{color:var(--gold);display:block;font-size:14.5px;margin-bottom:4px}
+.gterm span{font-size:13.5px;color:var(--text-2)}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 4px}
+.pipe span{background:var(--ink-3);border:1px solid var(--gold-2);color:var(--text);border-radius:8px;padding:8px 14px;font-size:14px}
+.pipe i{color:var(--gold);font-style:normal}
+/* ---- training loop ---- */
+.loop{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:6px 0 18px}
+.loop a{
+  flex:1;min-width:140px;display:flex;flex-direction:column;gap:4px;background:var(--ink-3);
+  border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--text);text-decoration:none;
+  transition:border-color .15s ease-out;
+}
+.loop a:hover{border-color:var(--gold);text-decoration:none}
+.loop a b{font-size:14.5px;color:var(--gold)}
+.loop a span{font-size:12.5px;color:var(--text-3)}
+.loop i{align-self:center;color:var(--gold);font-style:normal;font-size:18px}
+/* ---- directory & collapsible modules ---- */
+.dir-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.dir{display:block;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;color:var(--text);text-decoration:none;transition:border-color .15s ease-out,transform .15s ease-out}
+.dir:hover{border-color:var(--gold);transform:translateY(-2px);text-decoration:none}
+.dir b{display:block;font-size:15.5px;color:var(--gold);margin-bottom:4px}
+.dir span{font-size:13px;color:var(--text-3)}
+details.module-body{margin-top:6px}
+details.module-body > summary{
+  list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  border:1px solid var(--line);color:var(--text-2);border-radius:999px;padding:10px 20px;
+  font-size:14.5px;min-height:44px;transition:all .15s ease-out;margin-bottom:22px;
+}
+details.module-body > summary::-webkit-details-marker{display:none}
+details.module-body > summary::before{content:"＋";color:var(--gold);font-weight:700}
+details.module-body[open] > summary::before{content:"－"}
+details.module-body[open] .w-closed{display:none}
+details.module-body:not([open]) .w-open{display:none}
+details.module-body > summary:hover{color:var(--gold);border-color:var(--gold)}
+/* ---- app home ---- */
+.apphome{padding:26px 0 10px;border-bottom:1px solid var(--line)}
+.greet-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.greet-date{color:var(--text-3);font-size:13.5px;margin-bottom:6px}
+.greet-h{font-size:clamp(26px,5.4vw,38px);font-weight:900;line-height:1.2}
+.greet-h em{font-style:normal;color:var(--gold)}
+.greet-sub{color:var(--text-2);font-size:15px;margin-top:10px;max-width:56ch}
+.streak-pill{background:var(--ink-2);border:1px solid var(--gold-2);color:var(--gold);border-radius:999px;padding:10px 18px;font-size:15px;white-space:nowrap}
+.streak-pill b{font-size:19px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 10px}
+.stat-card{border-radius:16px;padding:16px 18px;color:#fff;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 14px oklch(0.55 0.03 60 / 0.22)}
+.stat-card b{font-size:26px;font-weight:900}
+.stat-card span{font-size:13px;opacity:.92}
+.sc-a{background:linear-gradient(135deg,#9e3b2e,#bd5140)}
+.sc-b{background:linear-gradient(135deg,#2b4157,#3d5a76)}
+.sc-c{background:linear-gradient(135deg,#4a6b52,#64856c)}
+@media(max-width:560px){.stat-card b{font-size:21px}.stat-card{padding:13px 14px;min-height:84px}}
+.app-sec{padding:34px 0;border-bottom:1px solid var(--line)}
+.sec-lite{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-lite h2{font-size:22px;font-weight:900}
+.sec-lite .live-meta{color:var(--text-3);font-size:13px}
+.sec-lite .grow{flex:1}
+.mini-btn{background:var(--ink-2);border:1px solid var(--line);color:var(--text-2);border-radius:999px;padding:8px 16px;font-size:13.5px;min-height:36px}
+.mini-btn:hover{color:var(--gold);border-color:var(--gold)}
+.lite-sub{color:var(--text-3);font-size:13.5px;margin-bottom:14px}
+.live-item{display:flex;gap:10px;padding:12px 2px;border-top:1px solid var(--line);align-items:baseline}
+.live-item:first-child{border-top:none}
+.live-item .t{flex:1;font-size:15px;line-height:1.55}
+.live-item a{color:var(--text);text-decoration:none}
+.live-item a:hover{color:var(--gold)}
+.live-item .m{white-space:nowrap;color:var(--text-3);font-size:12.5px}
+.src-chip{display:inline-block;font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--text-3);margin-right:6px}
+.g-chip{display:inline-block;font-size:11px;border-radius:6px;padding:1px 6px;margin-right:6px}
+.g-first{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7}
+.g-agg{background:#fff8e1;color:#8d6e00;border:1px solid #ffe082}
+.vote-btns{display:inline-flex;gap:4px;margin-left:6px;flex-shrink:0}
+.vote-btn{background:none;border:1px solid var(--line);border-radius:6px;font-size:13px;padding:2px 8px;min-height:32px;color:var(--text-3);cursor:pointer}
+.vote-btn:hover{border-color:var(--gold);background:var(--ink-3)}
+.dive-grid{display:grid;gap:14px}
+@media(min-width:680px){.dive-grid{grid-template-columns:1fr 1fr}}
+.dive{background:var(--ink-2);border:1px solid var(--gold-2);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.dive .k{font-size:12px;color:var(--gold);letter-spacing:.12em}
+.dive h3{font-size:16.5px;font-family:inherit;line-height:1.45}
+.dive p{font-size:14px;color:var(--text-2)}
+.dive .act{font-size:13.5px;color:var(--text-3);border-top:1px dashed var(--line);padding-top:10px}
+.dive .act b{color:var(--gold)}
+.hscroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;-webkit-overflow-scrolling:touch}
+.hscroll::-webkit-scrollbar{height:6px}
+.hscroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.vcard{scroll-snap-align:start;min-width:300px;max-width:300px;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.vcard iframe{width:100%;aspect-ratio:16/9;border:0;display:block;background:#000}
+.vcard .vb{padding:12px 16px 16px}
+.vcard .vb b{display:block;font-size:14.5px;margin-bottom:4px}
+.vcard .vb b a{color:var(--text)}
+.vcard .vb b a:hover{color:var(--gold)}
+.vcard .vb span{font-size:13px;color:var(--text-3);line-height:1.5;display:block}
+.vcard.link .thumb{aspect-ratio:16/9;display:grid;place-items:center;font-size:34px;background:linear-gradient(135deg,var(--ink-3),var(--ink))}
+.ggroup{grid-column:1/-1;margin:16px 0 2px;font-weight:700;font-size:15.5px;color:var(--gold);border-left:3px solid var(--gold);padding-left:10px;letter-spacing:.02em}
+.gicon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(min-width:720px){.gicon-grid{grid-template-columns:repeat(6,1fr)}}
+.gicon{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:16px 6px;text-align:center;color:var(--text);text-decoration:none;transition:transform .15s ease-out,border-color .15s}
+.gicon:hover{border-color:var(--gold);transform:translateY(-2px);text-decoration:none}
+.gicon .ic{font-size:26px;display:block;margin-bottom:8px}
+.gicon b{font-size:13.5px;display:block}
+.gicon span{font-size:11.5px;color:var(--text-3);display:block;margin-top:2px}
+/* 四大阵营分区配色：情报墨蓝 · 修炼朱砂 · 军火鎏金 · 商业青绿（一眼看出功能家族） */
+.gicon[href="#live"],.gicon[href="#livetv"],.gicon[href="#deepread"],.gicon[href="#news"],.gicon[href="#market"],.gicon[href="#radar"],.gicon[href="#tribes"]{background:#edf2f7;border-color:#cfdce8}
+.gicon[href="#tasks"],.gicon[href="#daily"],.gicon[href="#life"],.gicon[href="#five"],.gicon[href="#speech"],.gicon[href="#body"],.gicon[href="#learn"],.gicon[href="#review"],.gicon[href="#coach"]{background:#f7efec;border-color:#e8d4cd}
+.gicon[href="#books"],.gicon[href="#ttsknow"],.gicon[href="#skills"],.gicon[href="#course"],.gicon[href="#aitools"],.gicon[href="#videos"],.gicon[href="#feeling"]{background:#f7f3e8;border-color:#e5dcc3}
+.gicon[href="#masters"],.gicon[href="#corps"],.gicon[href="#policy"],.gicon[href="#gate"],.gicon[href="#hype"],.gicon[href="#moat"],.gicon[href="#team"],.gicon[href="#predict"],.gicon[href="#roadmap"],.gicon[href="#stages"],.gicon[href="#cert"]{background:#eef4ef;border-color:#d3e2d5}
+/* ---- module view（App 式单页跳转：一页一屏） ---- */
+main > section{display:none}
+main > section.active-view{display:block}
+body.in-module main > section.active-view{padding-top:28px}
+body.in-module header.apphome{display:none}
+#backbar{display:none;position:sticky;top:60px;z-index:9;background:oklch(0.955 0.015 90 / 0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 0}
+#backbar .bb-in{max-width:880px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:12px}
+#backbar button{background:var(--ink-2);border:1px solid var(--gold-2);color:var(--gold);border-radius:999px;padding:8px 18px;font-size:14.5px;min-height:40px;font-weight:700}
+#backbar button:hover{background:var(--ink-3)}
+#backbar .bb-title{color:var(--text-3);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.in-module #backbar{display:block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<noscript><style>main > section{display:block!important}#backbar{display:none!important}</style></noscript>
+</head>
+<body>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-inner">
+    <a class="brand" href="#top">老板成长中枢</a>
+    <a class="tab" href="#live">快讯</a>
+    <a class="tab" href="#deepread">深读</a>
+  </div>
+</nav>
+
+<header class="apphome wrap" id="top" style="position:relative">
+  <div class="seal" aria-hidden="true" style="writing-mode:horizontal-tb;width:auto;height:auto;padding:8px 12px;line-height:1.25;letter-spacing:1px">日日新<span style="display:block;font-size:10px;font-weight:400;letter-spacing:0;margin-top:2px">每天长进一点</span></div>
+  <div class="greet-row">
+    <div>
+      <div class="greet-date" id="gdate">老板成长中枢</div>
+      <h1 class="greet-h" id="greet-h">今晚好。</h1>
+      <p class="greet-sub">同一条新闻，外行看热闹，内行看门道——钱往哪流、谁在推动、风往哪吹。这里不讲大道理：打开就有新鲜情报，点开就能练。</p>
+      <p class="kai" style="color:var(--text-3);font-size:14px;margin-top:12px">苟日新，日日新，又日新。</p>
+    </div>
+    <div class="streak-pill">🔥 连击 <b id="streak2">0</b> 天</div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-card sc-a"><span>今日修炼</span><b id="stat-daily">0 / 7</b><span>勾完再收工</span></div>
+    <div class="stat-card sc-b"><span>实时快讯</span><b id="stat-live">…</b><span>每次打开自动更新</span></div>
+    <div class="stat-card sc-c"><span>今日深读</span><b id="stat-dive">…</b><span>每晚 18:33 换新</span></div>
+  </div>
+</header>
+
+<main>
+
+<div id="backbar"><div class="bb-in"><button type="button" id="backhome">‹ 返回首页</button><span class="bb-title" id="back-title"></span></div></div>
+
+<!-- ============ 实时快讯 ============ -->
+<!-- ============ 任务栏 ============ -->
+<section class="wrap" id="tasks">
+  <div class="sec-head">
+    <div class="no">MODULE 00 · 秘书台</div>
+    <h2>任务栏：该做的、欠着的、等你拍板的</h2>
+    <p>系统每天自动转，但有些事只有你能做。这页是秘书台：<strong>按死线排序，做完打钩</strong>。情报部每周随经营会更新这张单子。</p>
+  </div>
+  <div class="case">
+    <div class="tag">🔥 死线逼近</div>
+    <div id="tasks-deadline"><p class="lite-sub" style="font-size:13.5px">死线加载中…</p></div>
+  </div>
+  <div class="case" style="margin-top:12px">
+    <div class="tag">📌 本周你的作业</div>
+    <label class="check"><input type="checkbox" data-k="t3"><span><b>军火库四声对比打分</b>——edge-tts 三音色 + Qwen3-TTS 同一段课文，逐个听，每个 1–5 分，写下哪里不自然（你的体感评测第一练）</span></label>
+    <label class="check"><input type="checkbox" data-k="t4"><span><b>跟读重录今晚朗读稿</b>——朗读台听播报挑毛病 → 旁边录音键录你的版本（练口才+攒评测数据，一鱼三吃）</span></label>
+    <label class="check"><input type="checkbox" data-k="t5"><span><b>访谈第一位澳门老师</b>——三句话：你现在怎么解决课文配音？哪里最不好用？有人做好你愿意付多少钱？</span></label>
+  </div>
+  <div class="case" style="margin-top:12px">
+    <div class="tag">⚙️ 情报部欠账（系统自动跟进）</div>
+    <label class="check"><input type="checkbox" data-k="t6"><span><b>CosyVoice 3 实测</b>——官方试用需登录授权，排进算力环境就绪后第一批</span></label>
+    <label class="check"><input type="checkbox" data-k="t7"><span><b>arxiv / YouTube 两个 MCP 接入评估</b>——明晚经营会给结论</span></label>
+    <label class="check"><input type="checkbox" data-k="t8"><span><b>视觉侦察接入晚报</b>——截图读新闻三步走，等你点头就写进任务</span></label>
+    <label class="check"><input type="checkbox" data-k="t9"><span><b>AudioSeal 水印验证</b>——给实测样本嵌水印再检出，跑通「可溯源」全流程</span></label>
+  </div>
+</section>
+
+<section class="wrap app-sec" id="live">
+  <div class="sec-lite">
+    <h2>📰 实时快讯</h2>
+    <span class="live-meta" id="live-meta">正在抓取最新新闻…</span>
+    <span class="grow"></span>
+    <button class="mini-btn" id="live-reload" type="button">手动刷新</button>
+  </div>
+  
+  <p class="lite-sub">不用等每晚的简报——这一栏每次打开都去源头现抓，坐着不动，新闻自己来。</p>
+  <p class="lite-sub" id="live-hint" style="color:var(--gold-2)"></p>
+  
+  <div class="tabs" id="livetabs" role="tablist"></div>
+  <div class="tabs" id="liveregions" role="tablist" style="display:none;margin-top:8px"></div>
+  <div id="livelist"></div>
+  <div style="margin:0 0 16px;font-size:13.5px;color:var(--text-3)">🍚 三餐播报（带语音版）已经搬返去 <a href="#deepread" style="color:var(--verm);text-decoration:underline">深读页</a>——度度嘅嘢归度度。</div>
+
+</section>
+
+<!-- ============ 直播台 ============ -->
+<section class="wrap app-sec" id="livetv">
+  <div class="sec-lite"><h2>📺 直播台</h2></div>
+  <p class="lite-sub">港、澳、国际新闻的官方直播窗口。<b>画面黑 = 现在没直播，不是坏了</b>——点频道名进去看回放。看到大事，复制标题去「五问」拆它。</p>
+  <div class="hscroll">
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UC_ifDTtFAcsj-wJ5JfM27CQ" title="TVB 無綫新聞直播" allowfullscreen></iframe>
+      <div class="vb"><b>TVB 無綫新聞（香港）</b><span>香港收视率最高的新闻台。<a href="https://www.youtube.com/channel/UC_ifDTtFAcsj-wJ5JfM27CQ" target="_blank" rel="noopener">频道主页看回放 ↗</a></span></div>
+    </div>
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCwuTCNZqSMfaiP63cGDb8LQ" title="RTHK 香港電台新聞直播" allowfullscreen></iframe>
+      <div class="vb"><b>RTHK 香港電台新聞（香港）</b><span>公共广播，立场中立。<a href="https://www.youtube.com/channel/UCwuTCNZqSMfaiP63cGDb8LQ" target="_blank" rel="noopener">频道主页看回放 ↗</a></span></div>
+    </div>
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCQziyZiBcB6mw-RhyWfiFag" title="TDM 澳廣視新聞直播" allowfullscreen></iframe>
+      <div class="vb"><b>TDM 澳廣視新聞（澳门）</b><span>澳门自己的电视台，练粤语听力的真材料。<a href="https://www.youtube.com/channel/UCQziyZiBcB6mw-RhyWfiFag" target="_blank" rel="noopener">频道主页看回放 ↗</a></span></div>
+    </div>
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCnAsZ46UTeFEgwOEwMezngQ" title="CCTV 中文直播" allowfullscreen></iframe>
+      <div class="vb"><b>CCTV 中文（内地/国际）</b><span>内地视角和国际大事。<a href="https://www.youtube.com/channel/UCnAsZ46UTeFEgwOEwMezngQ" target="_blank" rel="noopener">频道主页看回放 ↗</a></span></div>
+    </div>
+  </div>
+  <p class="lite-sub" style="margin-top:10px">诚实交代：<b>珠海本地台没有可嵌入的直播源</b>（观海融媒只在自家 App 播）——珠海动态看快讯的「珠海横琴」筛选。直播内容要解读？复制标题丢进「五问」或「AI 教练」。</p>
+</section>
+
+<!-- ============ 今日深读 ============ -->
+<section class="wrap app-sec" id="deepread">
+  <div class="sec-lite">
+    <h2>🔍 今日深读</h2>
+    <span class="live-meta" id="digest-meta"></span>
+  </div>
+  <p class="lite-sub">每晚 18:33，情报部门把六个领域扫一遍：完整报告发在对话里（那是<strong>简报</strong>），这里只放浓缩卡片（这是<strong>深读</strong>）——每条挖五层：发生了什么、钱往哪流、别人没看到的连带效应、对你意味着什么、一个可以被时间检验的判断。<strong>出现专业名词，一定配一句人话解释</strong>，看不懂的名词就是情报部门的失职。</p>
+    <div style="margin-bottom:14px;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px">
+    <div style="font-size:13.5px;color:var(--text-3);margin-bottom:6px">🎧 简报语音版 · 夜班路上听（由我们自己的语音流水线生成——有一天这里会是粤语）</div>
+    <audio controls preload="metadata" src="./assets/digest-latest.mp3" style="width:100%;border-radius:10px"></audio>
+  </div>
+  <div class="dive-grid" id="digest-box"></div>
+  <div class="bc-embed" style="margin:0 0 16px"><div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px"><b style="font-size:16px">🍚 三餐播报</b><span class="bc-embed-meta" style="font-size:12.5px;color:var(--text-3)"></span><span style="font-size:12.5px;color:var(--text-3)">早 07:43 · 午 12:47 · 晚 18:33，点开就读 · 带语音版</span></div><div class="bc-embed-box"><p class="lite-sub" style="font-size:13.5px">播报加载中…</p></div></div>
+  <div style="margin-top:22px">
+    <h3 style="margin-bottom:4px">🎯 机会雷达 · 实习培训申报死线</h3>
+    <p class="lite-sub" style="margin-bottom:12px">劳工局、横琴、华为的培训/实习/扶持计划，带截止倒数、申请条件、补贴金额。过期不候——每晚简报自动扫一遍更新。</p>
+    <div id="opps-box"></div>
+  </div>
+  <div style="margin-top:22px">
+    <h3 style="margin-bottom:4px">⚔️ 练兵场 · 看完要会用</h3>
+    <p class="lite-sub" style="margin-bottom:12px">资讯不练就是装饰。三关全部用今天的新闻自动生成，每天跟着雷达换题——练的是老板三样基本功：<b>分辨信息等级、一句话讲清一件事、把新闻变成自己的判断</b>。</p>
+    <div class="dive-grid" id="drill-box">
+      <div class="dive">
+        <div class="k">第一关 · 信息验尸官</div>
+        <p style="font-size:14.5px">遮住出处猜等级：这条新闻是一手原文、记者加工的媒体稿、还是谷歌机器聚合的二手货？猜 8 条，练你的信息嗅觉。</p>
+        <div id="drill-grade" style="margin-top:8px"></div>
+      </div>
+      <div class="dive">
+        <div class="k">第二关 · 总结过招</div>
+        <p style="font-size:14.5px">只看标题，你写一句话讲清「发生了什么+钱往哪流」，再跟情报部门的版本对比——写不过它就练到写得过。</p>
+        <div id="drill-sum" style="margin-top:8px"></div>
+      </div>
+      <div class="dive">
+        <div class="k">第三关 · 老板之问</div>
+        <p style="font-size:14.5px">把今天的新闻变成你的判断：写下你的答案，系统自动存进你的笔记库，月底回看就是自己思维的进化史。</p>
+        <div id="drill-ask" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 视频课 ============ -->
+<section class="wrap app-sec" id="videos">
+  <div class="sec-lite"><h2>▶️ 视频课</h2></div>
+  <p class="lite-sub">眼睛累了就换视频。前两个点开直接播，后面的是值得长期追的频道。<b>划线：这里只管「现在就点开看」；长期订阅源在「信息渠道 · 一手频道」，两边不重复。</b></p>
+  <div class="hscroll">
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/kCc8FmEb1nY" title="Karpathy：从零手搓 GPT" allowfullscreen></iframe>
+      <div class="vb"><b>从零手搓 GPT</b><span>前特斯拉 AI 总监 Karpathy 手把手教你。想搞懂 AI 而不是只会用工具，从这条开始。</span></div>
+    </div>
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/aircAruvnKk" title="3Blue1Brown：神经网络是什么" allowfullscreen></iframe>
+      <div class="vb"><b>神经网络到底是什么</b><span>3Blue1Brown 用动画讲透，零数学基础也能看懂——看懂它，你就超过了 90% 谈 AI 的人。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://space.bilibili.com/520819684" target="_blank" rel="noopener">📺</a>
+      <div class="vb"><b><a href="https://space.bilibili.com/520819684" target="_blank" rel="noopener">小Lin说（B站官方号） ↗</a></b><span>把宏观经济讲成故事的顶级高手。学她怎么提问、怎么打比方。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/@HungyiLeeNTU" target="_blank" rel="noopener">🎓</a>
+      <div class="vb"><b><a href="https://www.youtube.com/@HungyiLeeNTU" target="_blank" rel="noopener">李宏毅机器学习 ↗</a></b><span>中文世界最好的 AI 系统课，免费。口音亲切，例子接地气。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.ted.com/" target="_blank" rel="noopener">🎤</a>
+      <div class="vb"><b><a href="https://www.ted.com/" target="_blank" rel="noopener">TED 演讲库 ↗</a></b><span>每场 18 分钟都是表达课的满分示范，顺便磨英文耳朵。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://space.bilibili.com/1567748478" target="_blank" rel="noopener">🧑‍🏫</a>
+      <div class="vb"><b><a href="https://space.bilibili.com/1567748478" target="_blank" rel="noopener">跟李沐学AI（B站） ↗</a></b><span>前亚马逊首席科学家，中文讲论文和工程，AI 圈公认的「沐神」。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener">🇬🇧</a>
+      <div class="vb"><b><a href="https://www.youtube.com/@bbclearningenglish" target="_blank" rel="noopener">BBC Learning English ↗</a></b><span>雅思听力素材库，6 Minute English 每期 6 分钟，通勤刚好。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.voicetube.com/" target="_blank" rel="noopener">🗣️</a>
+      <div class="vb"><b><a href="https://www.voicetube.com/" target="_blank" rel="noopener">VoiceTube ↗</a></b><span>看视频学英语的老牌平台，字幕逐句点读——它的形态就是你教育产品的参照。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.cs.cmu.edu/learn/" target="_blank" rel="noopener">🏛️</a>
+      <div class="vb"><b><a href="https://www.cs.cmu.edu/learn/" target="_blank" rel="noopener">CMU CS Learn ↗</a></b><span>计算机全球第一梯队大学把真实课堂免费放出。从 15-110 零基础入门开始，每周两讲，开 YouTube 字幕硬啃——顺便练英语。</span></div>
+    </div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">日语入门 · 汉字圈最快拿下的外语</h3>
+  <p class="lite-sub">日语常用汉字约六成与中文意思相近，你是带着加速器起步的。路线：<b>五十音（1 周）→ 出口仁 N5 语法（每天 1 集，4 个月）→ N4</b>。日语是你的第二外语，也是未来 TTS 产品出海的第一站。</p>
+  <div class="hscroll">
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/@deguchi" target="_blank" rel="noopener">🎌</a>
+      <div class="vb"><b><a href="https://www.youtube.com/@deguchi" target="_blank" rel="noopener">出口日語（出口仁） ↗</a></b><span>用中文教日语的天花板：日本人、筑波大学出身、在台湾教了 20 年，初级课全程中文讲解。华语圈学日语几乎人手一份他的课。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/playlist?list=PLynCeSdpMqxD4OJHjNB3QkmfzfD7B_s67" target="_blank" rel="noopener">📗</a>
+      <div class="vb"><b><a href="https://www.youtube.com/playlist?list=PLynCeSdpMqxD4OJHjNB3QkmfzfD7B_s67" target="_blank" rel="noopener">出口仁 N5 语法讲座（119 集） ↗</a></b><span>零基础正课，每集 10–20 分钟。每天一集，四个月拿下 N5。打不开 YouTube 就在 B 站搜「出口仁 N5」。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/@JapanesePod101" target="_blank" rel="noopener">🎧</a>
+      <div class="vb"><b><a href="https://www.youtube.com/@JapanesePod101" target="_blank" rel="noopener">JapanesePod101 ↗</a></b><span>磨耳朵用：短平快的日语听力短视频，通勤路上刷。先有声音感觉，再啃语法。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.bilibili.com/video/BV1WQyuByERq/" target="_blank" rel="noopener">📺</a>
+      <div class="vb"><b><a href="https://www.bilibili.com/video/BV1WQyuByERq/" target="_blank" rel="noopener">出口日語 B 站入口 ↗</a></b><span>国内网络从这里进。B 站搜「出口仁」，N5–N1 全套搬运都在。</span></div>
+    </div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">粤语实战 · 你的赛道同行在做什么</h3>
+  <p class="lite-sub">这些视频的存在本身就是情报：粤语 TTS 对比测评有人看、有人做、有几十万播放——需求被验证，但还没有人做成体系。</p>
+  <div class="hscroll">
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/mZgU153N84g" title="文恩澄：MiniMax vs CantoneseVO 粤语 AI 语音实测" allowfullscreen></iframe>
+      <div class="vb"><b>MiniMax vs CantoneseVO 实测</b><span>文恩澄把两个粤语 AI 语音摆在一起盲测——这就是「体感评测」的视频版，学她怎么评。</span></div>
+    </div>
+    <div class="vcard">
+      <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/w10my9tG9uY" title="Learn Cantonese in 20 Minutes" allowfullscreen></iframe>
+      <div class="vb"><b>20 分钟粤语入门</b><span>CantoneseClass101 的入门课，180 万播放。你的第一批用户就是这样学粤语的——看他们被怎么教。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/watch?v=V5SlC1e9kVc" target="_blank" rel="noopener">🆚</a>
+      <div class="vb"><b><a href="https://www.youtube.com/watch?v=V5SlC1e9kVc" target="_blank" rel="noopener">Gemini vs MiniMax vs ElevenLabs 粤语对比 ↗</a></b><span>Jansen Lu 的三方横评。竞品雷达的活样本，看完更新你的体感库。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/watch?v=1z-gAuu4zrw" target="_blank" rel="noopener">🎬</a>
+      <div class="vb"><b><a href="https://www.youtube.com/watch?v=1z-gAuu4zrw" target="_blank" rel="noopener">HeyGen 粤语配音实战 ↗</a></b><span>37 万播放。粤语配音需求已经被验证到内容创作端——教育之外第二条路。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/watch?v=bTAQyBeGWHc" target="_blank" rel="noopener">🗣️</a>
+      <div class="vb"><b><a href="https://www.youtube.com/watch?v=bTAQyBeGWHc" target="_blank" rel="noopener">99.9% 还原你的声音（粤语） ↗</a></b><span>Chuchu豬 TV，19 万播放。标题怎么起、痛点怎么戳，直接拆。</span></div>
+    </div>
+    <div class="vcard link">
+      <a class="thumb" href="https://www.youtube.com/watch?v=b38H_ySiTd4" target="_blank" rel="noopener">🎵</a>
+      <div class="vb"><b><a href="https://www.youtube.com/watch?v=b38H_ySiTd4" target="_blank" rel="noopener">粤语六声入门 ↗</a></b><span>Cantonese with Brittany。六声是粤语 TTS 最大的技术难点，也是你的护城河门槛。</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795182681" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
+
+<!-- ============ 功能宫格 ============ -->
+<!-- ============ 老板生活圈 ============ -->
+<section class="wrap app-sec" id="life">
+  <div class="sec-lite">
+    <h2>🌉 老板生活圈</h2>
+    <span class="live-meta" id="life-meta"></span>
+  </div>
+  <p class="lite-sub">老板的谈吐和审美不是看书看出来的，是<strong>泡</strong>出来的。这里只放澳门、珠海、横琴够得着的展、馆、会，按<strong>闭展倒计时</strong>排序——快闭展的排最前，过期的经营会每 48 小时巡检下架。每条都配「老板视角」：为什么值得你去、去完能带走什么。<strong>去过的展才算自己的，收藏的展只是消费。</strong></p>
+    <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-bottom:16px">
+    <b>💱 今日汇率（你在澳门挣钱、横琴花钱、看美股，就盯这三种钱）</b>
+    <div id="fx-box" style="display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;font-size:15.5px"><span style="color:var(--text-3);font-size:13.5px">汇率读取中…</span></div>
+    <p style="font-size:12.5px;color:var(--text-3);margin:8px 0 0">来源：open.er-api.com 免费接口，打开本页自动刷新，读不到不影响看展。</p>
+  </div>
+  <div class="phase" style="margin-bottom:16px">
+    <div class="items" style="padding:14px 20px">
+      <b style="font-size:16px">🏠 衣食住行 · 澳门夜班人的过日子清单</b>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:10px;font-size:14.5px;line-height:1.75">
+        <div><b>🍜 食</b><br>夜班收工别顿顿便利店：超市晚间熟食常有折扣（时段以各门店公告为准），自己带饭一周，省下的钱够看两个展。</div>
+        <div><b>👕 衣</b><br>见客户、去摆摊，有一套干净利落的「战衣」就够——利落比名牌有说服力。</div>
+        <div><b>🏠 住</b><br>横琴租金普遍低于澳门核心区，但先算时间账：通勤+口岸排队值不值那个差价（具体租金以实地为准）。</div>
+        <div><b>🚌 行</b><br>夜班往返盯紧末班车：把轻轨/巴士末班时刻截图存手机；横琴口岸 24 小时通关兜底。</div>
+      </div>
+    </div>
+  </div>
+  <div class="dive-grid" id="life-box"><p class="lite-sub">生活圈加载中…</p></div>
+</section>
+
+<section class="wrap app-sec" id="apps">
+  <div class="sec-lite"><h2>🧭 全部功能</h2></div>
+  <p class="lite-sub">34 个板块按「厅」分好了：<b>先看世界（情报局）→ 每天练（练功房）→ 系统学（学习院）→ 想生意（商战室）</b>，生活圈和工具箱是后勤。不用全点——日课在练功房，其他的用到才进。</p>
+  <div class="gicon-grid">
+    <div class="ggroup">📡 情报局 · 先看世界</div>
+    <a class="gicon" href="#live"><span class="ic">📰</span><b>实时快讯</b><span>自动更新</span></a>
+    <a class="gicon" href="#deepread"><span class="ic">🔍</span><b>今日深读</b><span>每晚换新</span></a>
+    <a class="gicon" href="#livetv"><span class="ic">📺</span><b>直播台</b><span>港澳新闻直播</span></a>
+    <a class="gicon" href="#market"><span class="ic">📈</span><b>行情大事</b><span>钱的温度计</span></a>
+    <a class="gicon" href="#news"><span class="ic">🍱</span><b>信息渠道</b><span>一手来源</span></a>
+    <a class="gicon" href="#radar"><span class="ic">📡</span><b>同行雷达</b><span>看别人怎么赚</span></a>
+    <a class="gicon" href="#predict"><span class="ic">🔮</span><b>预测对答案</b><span>校准判断力</span></a>
+    <div class="ggroup">🏋️ 练功房 · 每天练</div>
+    <a class="gicon" href="#daily"><span class="ic">✅</span><b>今日修炼</b><span>日课打卡</span></a>
+    <a class="gicon" href="#speech"><span class="ic">🎤</span><b>口才对练</b><span>口才+粤语</span></a>
+    <a class="gicon" href="#five"><span class="ic">🧠</span><b>思辨训练</b><span>五问+视角+对照</span></a>
+    <a class="gicon" href="#coach"><span class="ic">🤖</span><b>AI 教练</b><span>一起拆新闻</span></a>
+    <a class="gicon" href="#hype"><span class="ic">🫧</span><b>鉴别风口</b><span>七条尺子</span></a>
+    <a class="gicon" href="#feeling"><span class="ic">🎚️</span><b>体感评测</b><span>你的标准</span></a>
+    <a class="gicon" href="#review"><span class="ic">🔁</span><b>回顾</b><span id="review-badge">记忆曲线</span></a>
+    <div class="ggroup">🎓 学习院 · 系统学</div>
+    <a class="gicon" href="#learn"><span class="ic">🚀</span><b>学习</b><span>路径生成</span></a>
+    <a class="gicon" href="#videos"><span class="ic">▶️</span><b>视频课</b><span>直接能看</span></a>
+    <a class="gicon" href="#books"><span class="ic">📚</span><b>仓库</b><span>书籍+素材+金句</span></a>
+    <a class="gicon" href="#ttsknow"><span class="ic">🔊</span><b>TTS 入门</b><span>行业课</span></a>
+    <a class="gicon" href="#course"><span class="ic">🎬</span><b>自制课件</b><span>网安第一课</span></a>
+    <a class="gicon" href="#cert"><span class="ic">📜</span><b>语言考证</b><span>雅思到粤语</span></a>
+    <a class="gicon" href="#skills"><span class="ic">🧰</span><b>技能武器库</b><span>必先利其器</span></a>
+    <div class="ggroup">⚔️ 商战室 · 想生意</div>
+    <a class="gicon" href="#moat"><span class="ic">🏯</span><b>差异化</b><span>文化护城河</span></a>
+    <a class="gicon" href="#corps"><span class="ic">⚖️</span><b>公司生死簿</b><span>成败案例</span></a>
+    <a class="gicon" href="#policy"><span class="ic">🌊</span><b>政策与风浪</b><span>游戏规则</span></a>
+    <a class="gicon" href="#gate"><span class="ic">🚦</span><b>验证闸门</b><span>开工前五关</span></a>
+    <a class="gicon" href="#tribes"><span class="ic">🧭</span><b>社区与定价</b><span>人在哪钱在哪</span></a>
+    <a class="gicon" href="#team"><span class="ic">🧑‍💼</span><b>AI 员工</b><span>虚拟团队</span></a>
+    <a class="gicon" href="#masters"><span class="ic">🏆</span><b>高手拆解</b><span>学打法</span></a>
+    <a class="gicon" href="#roadmap"><span class="ic">🗺️</span><b>路线图</b><span>四阶段</span></a>
+    <a class="gicon" href="#stages"><span class="ic">🪜</span><b>三段跃迁</b><span>30 个领域</span></a>
+    <div class="ggroup">🌉 生活圈 · 过日子</div>
+    <a class="gicon" href="#life"><span class="ic">🌉</span><b>老板生活圈</b><span>见世面日历</span></a>
+    <a class="gicon" href="#body"><span class="ic">💪</span><b>自我管理</b><span>身体+精力+气质</span></a>
+    <div class="ggroup">🧰 工具箱 · 叫帮手</div>
+    <a class="gicon" href="#aitools"><span class="ic">🛠️</span><b>AI 工具</b><span>替你打工</span></a>
+    <a class="gicon" href="#tasks"><span class="ic">📋</span><b>任务栏</b><span>秘书台</span></a>
+  </div>
+
+  <div class="case" style="margin-top:18px">
+    <div class="tag">生态全景</div>
+    <h3>这些模块不是列表，是一条流水线</h3>
+    <p><b>输入</b>：实时快讯 · 信息渠道 · 视频课　→　<b>拆解</b>：五问 · AI 教练 · 思辨 · 鉴别风口　→　<b>吸收</b>：高手拆解 · 同行雷达 · 公司生死簿 · 政策与风浪　→　<b>输出</b>：口才 · 粤语对练　→　<b>复盘</b>：今日修炼打卡 · 回顾（记忆曲线）· 预测对答案</p>
+    <p><b>系统的自我迭代</b>：每晚 18:33 简报自动生成、更新深读；每 48 小时经营会巡检全站、发现问题就修。网站和你一样，每天长一点——<b>你练的是判断力，它练的是服务你的能力。</b></p>
+  </div>
+</section>
+
+<!-- ============ 今日修炼 ============ -->
+<section class="wrap" id="daily">
+  <div class="sec-head">
+    <div class="no">MODULE 00 · 每天的第一站</div>
+    <h2>今日修炼</h2>
+    <p>前瞻性没有捷径，就是每天攒一点。<strong>7 件核心日课 + 1 件轮修</strong>，做完一件勾一件——<strong>全部勾完，今天才算收工</strong>。断一天，连击清零，重新来过。</p>
+  </div>
+  <div style="background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-bottom:16px">
+    <b style="color:var(--gold)">📌 今日顺序（夜班人精力有限，别贪多）</b>
+    <ol style="margin:8px 0 0;padding-left:20px;line-height:1.9;font-size:15px">
+      <li><b>优先 ①</b> 三餐播报 + 快讯扫一遍（约 15 分钟）——先知道今天世界变了什么，重点新闻都在里面</li>
+      <li><b>优先 ②</b> 口才对练开口 3 分钟——讲出来的才算学会</li>
+      <li><b>次要 ③</b> 五问拆解一条重点新闻——把新闻变成判断</li>
+      <li><b>次要 ④</b> 书籍库 / 学习 20 分钟——长线积累不断粮</li>
+      <li><b>选做 ⑤</b> 生活圈逛一眼——有快闭展的就排进休息日</li>
+    </ol>
+    <p style="font-size:13px;color:var(--text-3);margin:8px 0 0">优先两件做完就算赢，次要做一件赚一件——全做完是 bonus，不是义务。</p>
+  </div>
+
+  <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">训练闭环：这不是五个模块，是一条流水线</h3>
+  <div class="loop">
+    <a href="#news"><b>① 情报输入</b><span>信息食谱 30 分钟</span></a>
+    <i>→</i>
+    <a href="#five"><b>② 五问拆解</b><span>把新闻变成判断</span></a>
+    <i>→</i>
+    <a href="#speech"><b>③ 表达输出</b><span>把判断讲出来</span></a>
+    <i>→</i>
+    <a href="#daily"><b>④ 打卡复盘</b><span>连击累积成嗅觉</span></a>
+    <i>↺</i>
+  </div>
+  <p style="font-size:13.5px;color:var(--text-3);margin-bottom:18px">在任何一个模块里完成动作，下面的日课会<strong>自动打勾</strong>——系统是连着的，练的是同一条思维回路。</p>
+  <div class="progress-wrap" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:14px;color:var(--text-3)">连续修炼</div>
+      <div class="pct" style="font-size:30px" id="streak">0 天</div>
+    </div>
+    <div style="flex:1;min-width:180px">
+      <div style="font-size:14px;color:var(--text-3);margin-bottom:4px">今日进度 <span class="pct" id="dpct">0%</span> · <span id="dcount">0 / 8</span></div>
+      <div class="progress-bar"><i id="dbar"></i></div>
+    </div>
+  </div>
+  <div class="phase" style="margin-top:18px">
+    <div class="items" style="padding:8px 20px 14px">
+      <label class="check"><input type="checkbox" data-d="body"><span><b>体能 20 分钟</b>（夜班后的发动机维护：快走或徒手训练）</span></label>
+      <label class="check"><input type="checkbox" data-d="eng"><span><b>英语 20 分钟</b>（词汇 + 跟读，雅思是每天攒出来的）<a href="https://www.bilibili.com/" target="_blank" rel="noopener" style="margin-left:8px;font-size:13px">去 B站 ↗</a></span></label>
+      <label class="check"><input type="checkbox" data-d="intel"><span><b>情报 20 分钟</b>（读每晚送达的老板简报 10′ + 挑一条深挖 10′）<a href="https://www.jiqizhixin.com/" target="_blank" rel="noopener" style="margin-left:8px;font-size:13px">机器之心 ↗</a><a href="https://news.gov.mo/" target="_blank" rel="noopener" style="margin-left:8px;font-size:13px">澳门新闻局 ↗</a><a href="https://wallstreetcn.com/" target="_blank" rel="noopener" style="margin-left:8px;font-size:13px">华尔街见闻 ↗</a></span></label>
+      <label class="check"><input type="checkbox" data-d="five"><span><b>五问笔记 1 条</b>（把今天最重要的一条新闻过一遍五问）<a href="#five" style="margin-left:8px;font-size:13px">去写 ↓</a></span></label>
+      <label class="check"><input type="checkbox" data-d="speak"><span><b>口才录音 60 秒</b>（抽一题，录音，回放找一个毛病）<a href="#speech" style="margin-left:8px;font-size:13px">去抽题 ↓</a></span></label>
+      <label class="check"><input type="checkbox" data-d="char"><span><b>气质修炼 1 项</b>（体态 / 声音 / 眼神，每天一项）<a href="#body" style="margin-left:8px;font-size:13px">去抽 ↓</a></span></label>
+      <label class="check"><input type="checkbox" data-d="out"><span><b>输出一次</b>（把今天学到的一件事讲出来或写下来——没输出 = 没学习）<a href="#learn" style="margin-left:8px;font-size:13px">去学 ↓</a></span></label>
+      <label class="check"><input type="checkbox" data-d="rot"><span><b>今日轮修 1 项</b>（<span id="rot-label">今天</span>的支线任务，见下方排程表）</span></label>
+    </div>
+  </div>
+
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">每周轮修：七条支线，一天一条，不用想，照做</h3>
+  <p style="font-size:13.5px;color:var(--text-3);margin-bottom:12px">核心日课练天天都要的基本功；轮修把<b>「什么都懂一点」</b>拆开排到一周七天——金色边框那条就是今天该做的。</p>
+  <div style="display:grid;gap:10px">
+    <div data-day="1" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周一 · 体态日</b>　夜班低头族的自救：靠墙站 5 分钟（后脑、肩胛、臀部、脚跟四点贴墙）+ 颈部回缩 10 次 × 3 组 + 胸椎伸展 1 分钟。老板的威严先从站姿开始。<a href="#body" style="font-size:13px;margin-left:8px">身体模块 ↓</a>
+    </div>
+    <div data-day="2" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周二 · 技术日</b>　读 1 篇语音/TTS 论文摘要（复制给 AI 翻译成人话），或看一条技术视频课。看不懂名词就追问——这正是练提问。<a href="#news" style="font-size:13px;margin-left:8px">TTS 渠道 ↓</a><a href="#videos" style="font-size:13px;margin-left:8px">视频课 ↓</a>
+    </div>
+    <div data-day="3" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周三 · 商业日</b>　从生死簿或同行雷达挑一家公司，写三行：它做对了什么 / 死于什么 / 换我怎么不一样。半年攒 26 条，商业嗅觉就是这么来的。<a href="#corps" style="font-size:13px;margin-left:8px">生死簿 ↓</a><a href="#radar" style="font-size:13px;margin-left:8px">同行雷达 ↓</a>
+    </div>
+    <div data-day="4" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周四 · 粤语日</b>　你的主战场。粤语对练抽一条任务，再录 60 秒粤语播报回听找毛病——三个月后跟第一条对比。<a href="#speech" style="font-size:13px;margin-left:8px">口才对练 ↓</a>
+    </div>
+    <div data-day="5" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周五 · 政策日</b>　扫两个页面：澳门新闻局 + 劳工局培训计划页。<b>带截止日期的机会优先看</b>——报名期只有两周的事，过期不候。<a href="https://news.gov.mo/" target="_blank" rel="noopener" style="font-size:13px;margin-left:8px">新闻局 ↗</a><a href="https://www.dsal.gov.mo/zh_tw/text/huawei_ai_2026.html" target="_blank" rel="noopener" style="font-size:13px;margin-left:8px">劳工局培训 ↗</a>
+    </div>
+    <div data-day="6" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周六 · 财务日</b>　记这一周的账，再亲手算一单想象中的生意：获客花多少、一单赚多少、多久回本。对钱没体感的人做不了老板。<a href="#stages" style="font-size:13px;margin-left:8px">钱的体感验收标准 ↓</a>
+    </div>
+    <div data-day="0" style="border:1px solid var(--line);border-radius:12px;padding:12px 16px">
+      <b>周日 · 复盘日</b>　打开预测对答案，核对本周判断应验没有；读周报；把一条新规律口述给我存档。<b>判断不对答案 = 白判断。</b><a href="#predict" style="font-size:13px;margin-left:8px">对答案 ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 老板五问 ============ -->
+<section class="wrap" id="five">
+  <div class="sec-head">
+    <div class="no">MODULE 01</div>
+    <h2>思辨训练：五问 · 六视角 · 对照台</h2>
+    <p>普通人看新闻看热闹，老板看新闻看<strong>钱、人、势</strong>。看到任何一条新闻，用这五个问题过一遍——坚持 90 天，你的判断力会脱胎换骨。存下的笔记会自动排进 <a href="#review">「回顾」</a>的记忆曲线，到期翻出来考你。</p>
+  </div>
+  <div class="qtool">
+    <div class="step-dots" id="dots" aria-hidden="true"></div>
+    <form id="qform">
+      <label id="qlabel" for="qinput"></label>
+      <div class="hint" id="qhint"></div>
+      <textarea id="qinput" placeholder="在这里写下你的思考……"></textarea>
+      <div class="row">
+        <button type="button" class="btn ghost" id="qback">上一问</button>
+        <button type="submit" class="btn" id="qnext">下一问</button>
+      </div>
+      <div id="qchain" style="margin-top:14px;font-size:14px;color:var(--ok);display:none">笔记已存，日课已自动打勾。下一步：用 60 秒把这条判断讲出来 → <a href="#speech">去口才训练 ↓</a></div>
+    </form>
+    <div class="note-list" id="notes"></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">🔬 六视角思辨：一件事戴六顶帽子</h3>
+  <h3 style="font-size:19px;margin-bottom:14px">一件事，六个视角（思辨体操）</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">理</span><div><b>逻辑视角</b><p>它的论证链条是什么？前提成立吗？有没有偷换概念、以偏概全？</p></div></div>
+    <div class="chain-step"><span class="n">数</span><div><b>数据视角</b><p>样本多大？是相对数还是绝对数？「增长 100%」可能是从 1 涨到 2。永远问：基数是多少？</p></div></div>
+    <div class="chain-step"><span class="n">利</span><div><b>利益视角</b><p>谁说这话？他从中得到什么？专家、媒体、政府、厂商——每个立场都有动机。</p></div></div>
+    <div class="chain-step"><span class="n">时</span><div><b>时间视角</b><p>这是短期噪声还是长期趋势？三年后回看，这事还重要吗？</p></div></div>
+    <div class="chain-step"><span class="n">反</span><div><b>反面视角</b><p>如果我是反方，最强的反驳是什么？能在心里替对手辩论，才算真正懂了。</p></div></div>
+    <div class="chain-step"><span class="n">我</span><div><b>行动视角</b><p>想清楚之后：这改变了我的哪个决定？没有行动指向的思考只是消遣。</p></div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:32px 0 14px">专业知识从哪来：论文与统计的读法</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">论文搜索</span><h3><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar ↗</a></h3><p>搜「Cantonese TTS」「speech synthesis education」，看学术界在做什么。</p><div class="boss-view"><b>老板读法：</b>只读摘要和结论，图表看趋势，方法细节交给技术人员。</div></div>
+    <div class="src"><span class="tag">中文论文</span><h3><a href="https://www.cnki.net/" target="_blank" rel="noopener">中国知网 CNKI ↗</a></h3><p>中文期刊与学位论文库，查教育技术、语音合成的国内研究。</p><div class="boss-view"><b>老板读法：</b>看「研究综述」类论文，一篇顶五十篇，快速建立领域地图。</div></div>
+    <div class="src"><span class="tag">论文速递</span><h3><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv ↗</a></h3><p>AI 领域最新论文首发地，语音合成在 eess.AS 分类下。</p><div class="boss-view"><b>老板读法：</b>看不懂就丢给 AI：「用做生意的人能懂的话讲这篇论文」。</div></div>
+    <div class="src"><span class="tag">统计素养</span><h3><a href="https://www.gapminder.org/" target="_blank" rel="noopener">Gapminder ↗</a></h3><p>用真实数据纠正你对世界的错误印象，训练数据直觉。</p><div class="boss-view"><b>老板读法：</b>做它的测试题——大多数人的世界观比随机猜测还差，这就是你的机会。</div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">认知纪律</div>
+    <h3>统计防骗三问（看到任何数字先问）</h3>
+    <p><b>① 谁数的？</b>「市场规模百亿」——是卖报告的机构说的，还是独立审计的？</p>
+    <p><b>② 跟谁比？</b>「效率提升 50%」——从多低的基数提升？对照组是什么？</p>
+    <p><b>③ 没说的是什么？</b>平均值漂亮，分布可能很难看。正态分布之外的极端值，往往才是风险所在。</p>
+    <p style="margin-top:12px"><b>思辨的日常练法：</b>每天从「信息食谱」里挑一条新闻，用上面六个视角各写一句话。三个月后，你不会再被任何单一叙事牵着走。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">🪞 观点对照台：他们说 vs 我们说</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">舆情 · 持续观察</span><h3>「AI 会抢走所有工作」</h3><p><b>他们说：</b>AI 一来人人失业，评论区一片焦虑。</p><p><b>我们说：</b>AI 取代的是重复，不是判断。就业公式 = 重复交给系统，人做判断、担责、共情。我们每做一个产品就要造一类新岗位：语料标注师、跟读教练、防伪审计员。</p><div class="recipe"><b>验证：</b>每季度数一次澳门/横琴 AI 相关招聘岗位数，看增减。</div></div>
+    <div class="tool"><span class="role">行业 · 核心判断</span><h3>「粤语 TTS 没市场，所以大厂不做」</h3><p><b>他们说：</b>小语种不赚钱，大厂不碰就是证明。</p><p><b>我们说：</b>2026 年三篇主流论文（OmniVoice、FireRedTTS3 等）都公开承认粤语是短板——不是没市场，是没人肯啃硬骨头。《从0到1》：垄断从被忽视的小市场开始。</p><div class="recipe"><b>验证：</b>每年对一次：粤语语料/模型发布数、语音类产品用户增长。</div></div>
+    <div class="tool"><span class="role">舆情 · 主战场</span><h3>「AI 语音 = 诈骗工具，该禁」</h3><p><b>他们说：</b>AI 变声害人，喊打喊杀。</p><p><b>我们说：</b>问题不在声音，在不可追溯。菜刀伤人不靠禁菜刀，靠实名制和溯源。防伪水印 + 行业标准（欧盟 AI 法 Art.50 已强制标识）才是解药——这正是我们的生意。</p><div class="recipe"><b>验证：</b>盯水印技术采用率和各国标识立法进度。</div></div>
+    <div class="tool"><span class="role">方法论 · 防迷信</span><h3>「机器评分就是权威」</h3><p><b>他们说：</b>AI 评分客观，照着练就行。</p><p><b>我们说：</b>机器也会错——粤语懒音、口音变体经常被误判。双引擎交叉 + 人耳终审。质疑精神，首先包括对机器的质疑。</p><div class="recipe"><b>验证：</b>每次跟读录音双引擎比对存档，月度统计一致率。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">入库流水线（没有「我们说」的观点不准入库）</h3>
+  <div class="pipe">
+    <span>雷达/插件<br><small style="color:var(--text-3)">抓到观点</small></span><i>→</i><span>写下「他们说」<br><small style="color:var(--text-3)">来源+日期</small></span><i>→</i><span>逼写「我们说」<br><small style="color:var(--text-3)">写不出 = 没资格收</small></span><i>→</i><span>定验证方式</span><i>→</i><span>到点对答案<br><small style="color:var(--text-3)">接「预测对答案」</small></span>
+  </div>
+  <div class="boss-view" style="margin-top:14px"><b>质疑分级制（防神经叨叨）：</b>🔴 红灯——涉及钱、法、人身安全的事实，必查到底；🟡 黄灯——双信源不一致，标黄挂起，一周内复核；🟢 绿灯——双信源一致，放行执行。<b>万事可质疑，但不是万事都现在质疑。分级，才不会瘫痪。</b></div>
+</section>
+
+<!-- ============ AI 教练·一起拆新闻 ============ -->
+<section class="wrap" id="coach">
+  <div class="sec-head">
+    <div class="no">MODULE 02</div>
+    <h2>AI 教练</h2>
+    <p>思维模式不是写出来的，是练出来的。贴一条你今天看到的真新闻，教练一轮一问带你拆——<strong>你先答，教练再示范，最后教你一句提示词，拿真 AI 继续深挖</strong>。思考的过程，我们一起走完。</p>
+  </div>
+  <div class="qtool">
+    <div id="coach-start">
+      <label for="coach-input" style="display:block;color:var(--gold);font-weight:700;margin-bottom:6px;font-size:15px">第一步：把新闻贴进来</label>
+      <div class="hint" style="color:var(--text-3);font-size:13.5px;margin-bottom:12px">标题、链接或正文片段都行。还没选？去 <a href="#news">信息食谱</a> 挑一条今天的。</div>
+      <textarea id="coach-input" placeholder="例如：某公司发布新的语音大模型，支持 30 种语言……" style="width:100%;min-height:88px;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical"></textarea>
+      <div class="row" style="margin-top:16px"><button class="btn" id="coach-begin">开始拆解</button></div>
+    </div>
+    <div id="coach-flow" style="display:none">
+      <div class="step-dots" id="coach-dots" aria-hidden="true"></div>
+      <div id="coach-news" style="font-size:13.5px;color:var(--text-3);border-left:3px solid var(--gold);padding-left:12px;margin-bottom:16px"></div>
+      <label id="coach-q" style="display:block;color:var(--gold);font-weight:700;margin-bottom:6px;font-size:15.5px"></label>
+      <div class="hint" id="coach-hint" style="color:var(--text-3);font-size:13.5px;margin-bottom:10px"></div>
+      <details style="margin-bottom:12px"><summary style="cursor:pointer;color:var(--text-2);font-size:13.5px;min-height:44px;display:inline-flex;align-items:center">想不出来？看提示 ▸</summary><div id="coach-angle" style="background:var(--ink-3);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--text-2);margin-top:8px"></div></details>
+      <textarea id="coach-answer" placeholder="先写下你自己的答案——这一步不许跳过，想了再看提示……" style="width:100%;min-height:80px;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical"></textarea>
+      <div class="case" style="margin-top:12px;padding:14px 18px">
+        <div class="tag" style="margin-bottom:4px">拿真 AI 继续挖</div>
+        <p id="coach-prompt" style="font-size:13.5px;color:var(--text-2);margin-bottom:8px"></p>
+        <button type="button" class="btn ghost" id="coach-copy" style="padding:8px 16px;min-height:44px;font-size:13.5px">复制这句提示词</button>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <button type="button" class="btn" id="coach-next">下一轮</button>
+        <button type="button" class="btn ghost" id="coach-quit">换一条新闻</button>
+      </div>
+    </div>
+    <div id="coach-done" style="display:none;text-align:center;padding:24px 0">
+      <p class="serif" style="font-size:20px;color:var(--gold);margin-bottom:10px">拆解完成。</p>
+      <p style="font-size:14.5px;color:var(--text-2);margin-bottom:16px">笔记已存入下方列表，日课「五问」已自动打勾。<br>最后一步：用 60 秒把你的结论讲出来 → <a href="#speech">去口才训练</a></p>
+      <button class="btn" id="coach-again">再拆一条</button>
+    </div>
+    <div class="note-list" id="coach-notes"></div>
+  </div>
+</section>
+
+<!-- ============ 信息食谱 ============ -->
+<section class="wrap" id="news">
+  <div class="sec-head">
+    <div class="no">MODULE 03</div>
+    <h2>信息渠道</h2>
+    <p>楼上的实时快讯和深读每天自动送到；<strong>这里是想自己动手挖时的渠道库（长期订阅）；想「现在就点开看」的课在视频课</strong>——AI、澳门政策、金融、同行、一手频道，全按一二三手分好级。记住一条：<b style="color:var(--gold)">三手信息只能当线索，不能当依据。</b></p>
+    <div class="legend">
+      <div class="legend-item"><span class="lv lv1">一手</span><span>原始出处：政府公告、论文、代码、财报——没被加工过，最可信</span></div>
+      <div class="legend-item"><span class="lv lv2">二手</span><span>专业媒体解读：有编辑加工，快但要带思辨看</span></div>
+      <div class="legend-item"><span class="lv lv3">三手</span><span>自媒体转述：最快最通俗，失真也最多——只能当线索，不能当依据</span></div>
+    </div>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <button type="button" class="mini-btn" id="opml-btn">📡 一键导出全部信源（OPML）</button>
+      <span style="font-size:13px;color:var(--text-3)">下载后导入 Feedly / Inoreader，这几十个源就变成你自己的自动雷达——不用每天回来点。</span>
+    </div>
+  </div>
+  <div class="case" style="margin-top:0;margin-bottom:22px">
+    <div class="tag">情报工作流 · 信息要流动，不是堆放</div>
+    <h3>捕获 → 分级 → 判断 → 归档，四步闭环</h3>
+    <p><b>① 捕获：</b>每晚 18:33 的「每日老板简报」自动把五个领域扫完送上门——你只需要读；白天有时间再到下面的分类源深挖一个点，只记让你「哦？」一下的。</p>
+    <p><b>② 分级：</b>按一手 / 二手 / 三手打标签——三手信息只能当线索，不能当依据。</p>
+    <p><b>③ 判断：</b>每天挑最重要的一条过「老板五问」，写下你的判断。</p>
+    <p><b>④ 归档：</b>判断和素材存进本地知识库（digests/ 文件夹）。<b>每周复盘时回看——信息只有被回看才变成资产，否则只是消费。</b></p>
+  </div>
+
+  <div class="case" style="margin-top:0;margin-bottom:22px">
+    <div class="tag">溯源法 · 二手怎么变一手</div>
+    <h3>顺藤摸瓜：好博主的信源，才是你的信源</h3>
+    <p><b>摸到出处：</b>靠谱博主说「研究表明」「数据显示」时，一定会给出处链接——点进去，读原文，从此以后你只引用原文，不引用他。他帮你筛选，你拿走源头。</p>
+    <p><b>摸关注列表：</b>在 X / YouTube 上找到一个一线人物，别急着刷他的推文——先看<b>他关注了谁、转发了谁</b>。大牛的关注列表就是现成的雷达图，顺三层，必到源头。</p>
+    <p><b>摸论文：</b>任何「AI 新突破」的新闻，搜标题关键词 + arXiv，30 秒找到论文原文。看摘要和结论就够，你不需要读懂公式，只需要知道「谁做的、做到了什么、没做到什么」。</p>
+    <p><b>摸到自动：</b>把溯源找到的一手源全部塞进 Feedly，再在 Google Scholar 设几个关键词快讯。从此雷达自动转——<b>别人刷算法喂的，你收自己选的。</b>新增「溯源与人」分类（下面标签页里），人手和工具都给你备好了。</p>
+  </div>
+
+  <div class="tabs" id="newstabs" role="tablist"></div>
+  <p class="cat-desc" id="catdesc"></p>
+  <div class="src-grid" id="srcgrid"></div>
+</section>
+
+<!-- ============ 股市解读 ============ -->
+<section class="wrap" id="market">
+  <div class="sec-head">
+    <div class="no">MODULE 04</div>
+    <h2>行情与大事</h2>
+    <p>老板看股市不为炒股，而是为了<strong>读懂行业的温度计</strong>。芯片股涨、AI 股跌、某公司 CEO 传出新闻——每一条都在告诉你钱在往哪里流。下面是你的行情入口和一套「大事解读链条」。</p>
+  </div>
+  
+  <div class="tv-wrap" id="tvwrap">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+    </div>
+    <noscript><p style="padding:16px;color:var(--text-2)">行情组件需要浏览器联网加载，也可直接访问下方行情网站。</p></noscript>
+  </div>
+  <div class="src-grid" style="margin-bottom:8px">
+    <div class="src"><span class="tag">全球行情</span><h3><a href="https://cn.tradingview.com/markets/" target="_blank" rel="noopener">TradingView 行情中心 ↗</a></h3><p>美股、港股、A 股一站式行情，免费且专业。快讯与数据日历（华尔街见闻、金十数据）统一收在 <a href="#news">信息食谱 · 金融商业</a>，不重复收藏。</p></div>
+  </div>
+
+  <h3 style="margin-top:32px;font-size:19px">大事解读链条：一条 CEO 新闻，老板要想到第五层</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">1</span><div><b>事实层</b><p>发生了什么？消息来源可靠吗？（例：某芯片巨头 CEO 传出负面新闻，当日股价下跌）</p></div></div>
+    <div class="chain-step"><span class="n">2</span><div><b>情绪层</b><p>市场第一反应是恐慌还是无视？跌的是公司本身，还是整个板块被连累？</p></div></div>
+    <div class="chain-step"><span class="n">3</span><div><b>产业层</b><p>这家公司在产业链的什么位置？它打喷嚏，谁跟着感冒——供应商、客户、竞争对手？</p></div></div>
+    <div class="chain-step"><span class="n">4</span><div><b>时间层</b><p>三个月后这事还重要吗？多数丑闻是噪声，技术路线和订单才是信号。</p></div></div>
+    <div class="chain-step"><span class="n">5</span><div><b>我的层</b><p>对我的粤语 TTS 计划有什么影响？芯片涨价会不会推高语音合成的算力成本？竞争对手动荡是不是我挖人的窗口？</p></div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">实战示范 · 教学案例</div>
+    <h3>假设案例：「某 AI 芯片巨头 CEO 传出丑闻，股价单日跌 5%」</h3>
+    <p><b>普通人看到：</b>八卦和热闹。</p>
+    <p><b>股民看到：</b>要不要抛？</p>
+    <p><b>老板看到：</b>① 丑闻会不会动摇大客户对这家公司的信任？② 它的竞争对手会不会趁机抢订单？③ 如果芯片供应链波动，我未来买算力的成本会不会变？④ 这家公司动荡期间，它的语音团队人才会不会流动——我能不能接触？</p>
+    <p><b>关键纪律：</b>个人丑闻类新闻 90% 是短期噪声，老板只关心它是否改变了<strong>钱、人、技术路线</strong>这三件事的走向。</p>
+  </div>
+
+  </section>
+
+<!-- ============ AI 兵器库 ============ -->
+<section class="wrap" id="aitools">
+  <div class="sec-head">
+    <div class="no">MODULE 05</div>
+    <h2>AI 工具</h2>
+    <p>未来的老板不是自己什么都会，而是<strong>最会调用 AI 的人</strong>。每个平台都有脾气，用对场景，一个夜班打工人可以撬动一个小团队的产出。</p>
+  </div>
+    <div class="tool-grid">
+    <div class="tool"><span class="role">深度思考 · 战略顾问</span><h3><a href="https://www.kimi.com/" target="_blank" rel="noopener">Kimi ↗</a></h3><p>长文档阅读和深度分析的强项：把政策文件、招股书、行业报告丢给它读。</p><div class="recipe"><b>老板用法：</b>「把横琴这份政策文件读一遍，告诉我我的 TTS 公司能申请哪几项资助，条件是什么」</div></div>
+    <div class="tool"><span class="role">推理 · 代码 · 数学</span><h3><a href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek ↗</a></h3><p>开源、便宜、推理强。学编程、算商业模型、拆解技术方案的首选。</p><div class="recipe"><b>老板用法：</b>「用 Python 帮我写一个脚本，把 100 篇粤语课文批量转成语音」</div></div>
+    <div class="tool"><span class="role">通用全能 · 英文</span><h3><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT ↗</a></h3><p>英文表达和国际视野最好，适合练英语口语、写英文邮件、了解海外客户视角。</p><div class="recipe"><b>老板用法：</b>「扮演雅思口语考官，每天问我 5 个问题并纠正我的语法」</div></div>
+    <div class="tool"><span class="role">写作 · 分析</span><h3><a href="https://claude.ai/" target="_blank" rel="noopener">Claude ↗</a></h3><p>长文写作和细腻分析见长，适合打磨商业计划书、演讲稿。</p><div class="recipe"><b>老板用法：</b>「把我的融资演讲稿改得更有说服力，保留我的口语风格」</div></div>
+    <div class="tool"><span class="role">模型 · 数据集</span><h3><a href="https://huggingface.co/" target="_blank" rel="noopener">Hugging Face ↗</a></h3><p>全球最大开源模型社区，TTS 模型（GPT-SoVITS、CosyVoice、Fish Speech）都在这里。</p><div class="recipe"><b>老板用法：</b>每周看一次 TTS 板块趋势，判断技术走到了哪一步</div></div>
+    <div class="tool"><span class="role">零代码做产品原型</span><h3><a href="https://www.coze.cn/" target="_blank" rel="noopener">扣子 Coze ↗</a></h3><p>字节跳动的零代码 AI 应用平台：不写代码就能把 AI 能力包成一个可用的小应用/机器人。</p><div class="recipe"><b>老板用法：</b>把「粤语课文朗读」先做成一个扣子 Bot 给老师试——验证需求不需要等会写代码（开源 TTS 项目库在「信息食谱 · TTS 与语音」）。</div></div>
+    <div class="tool"><span class="role">文献与资料库</span><h3><a href="https://github.com/teng-lin/notebooklm-py" target="_blank" rel="noopener">NotebookLM + 开源调用 ↗</a></h3><p>谷歌的 AI 笔记本：把资料丢进去，它读完随便你问。开源项目 notebooklm-py（2 万星）让你用脚本批量管理文献、常驻人设——比网页版手动操作强一档。</p><div class="recipe"><b>老板用法：</b>把粤语 TTS 的论文和竞品资料全丢进去，变成你的「行业知识库」——问它任何问题，它只根据你给的材料回答，不瞎编。</div></div>
+    <div class="tool"><span class="role">AI 新闻雷达 · 开源自部署</span><h3><a href="https://github.com/Thysrael/Horizon" target="_blank" rel="noopener">Horizon ↗</a></h3><p>1.4 万星的开源情报雷达：RSS、Hacker News、Reddit、X、GitHub 全抓，AI 筛选后出中英文日报，自动去重。核心玩法是「Profile」——你告诉它看科技新闻要背景、看长文要方法论。</p><div class="recipe"><b>老板用法：</b>这就是你这个网站的「成年形态」——先学会看它怎么设计，再想你的情报台缺什么。</div></div>
+    <div class="tool"><span class="role">盯频道 · 开源自部署</span><h3><a href="https://github.com/SunFish98/VideoDigestAgent" target="_blank" rel="noopener">VideoDigestAgent ↗</a></h3><p>监控你关注的 YouTube 博主：出新视频自动语音转文字、AI 总结、邮件推给你，可按关键词和播放量过滤。用 Gemini 免费额度就能跑。</p><div class="recipe"><b>老板用法：</b>把上面那 20 个一手频道交给它盯，你只看摘要——省下的时间拿去练粤语。</div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">调用心法</div>
+    <h3>调用 AI 的三条铁律（未来十年的核心竞争力）</h3>
+    <p><b>一、给背景，不给空题。</b>「帮我写方案」是废指令；「我在澳门做粤语 TTS，目标客户是中小学，预算 5 万，帮我写一页合作方案」才是老板的指令。</p>
+    <p><b>二、让 AI 质问你。</b>「请扮演投资人，找出我这个想法的 5 个漏洞」——会用 AI 挑自己毛病的人，进步速度是别人的三倍。</p>
+    <p><b>三、AI 给草稿，人做判断。</b>AI 可以写 80%，但最后拍板、核实事实、承担责任的永远是你。这正是「不丧失思考能力」的边界。</p>
+  </div>
+
+  </section>
+
+<!-- ============ 必修课 ============ -->
+
+
+<!-- ============ 思辨认知 ============ -->
+
+
+<!-- ============ 口才训练 ============ -->
+<style>
+.tp{max-height:260px;overflow-y:auto;background:#fbf7ee;border:1px solid var(--line,#e5ddcf);border-radius:12px;padding:16px;font-size:17.5px;line-height:1.9;white-space:pre-wrap}
+.vrate{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+</style>
+<section class="wrap" id="speech">
+  <div class="sec-head">
+    <div class="no">MODULE 08</div>
+    <h2>口才与粤语对练：每天开口 3 分钟</h2>
+    <p>能言善辩不是天赋，是肌肉记忆。这里一页练两样：<strong>上半页练口才框架（普通话/通用表达），下半页练粤语实战（主播播报+AI考官对练）</strong>——规则不变：抽题、录音、回放、找一个毛病。每天开口，一年 365 次。</p>
+  </div>
+  <div class="speech-card">
+    <div class="label">今日一练</div>
+    <div class="topic" id="topic">点击下方按钮，抽取今天的演讲题</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn" id="draw">抽一题</button>
+      <button class="btn ghost" id="speakdone">练完了，打卡</button>
+    </div>
+    <div class="minirec" data-rec="今日一练"></div>
+  </div>
+  <div class="framework">
+    <h3>万能表达框架：PREP（30 秒说清楚一件事）</h3>
+    <div class="fw-steps">
+      <div class="fw"><b>P · 观点</b><span>先说结论：「我认为粤语 TTS 是被低估的市场。」</span></div>
+      <div class="fw"><b>R · 理由</b><span>一句话说为什么：「因为主流厂商的粤语支持远弱于普通话。」</span></div>
+      <div class="fw"><b>E · 例子</b><span>给一个具体证据：「澳门中小学的课件朗读至今靠人工录音。」</span></div>
+      <div class="fw"><b>P · 重申</b><span>回到结论并给行动：「所以我想先做教育场景，你呢，要不要聊聊？」</span></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:19px;margin:26px 0 6px;color:var(--gold)">🗣️ 粤语对练：做 TTS 的人，先当声音的内行</h3>
+  <p style="color:var(--text-2);font-size:15px;margin-bottom:14px">每天用粤语开口练——既提升对话能力，又从用户视角理解「什么声音才算好」，录下的音频还是将来自家声音模型的第一批素材。</p>
+<div class="case" style="margin-top:22px">
+    <div class="tag">生产线示例 · 刚出炉</div>
+    <h3>听：这段播报从头到尾没有真人</h3>
+    <p>写稿 → AI 合成 → 发布，一条流水线走完。这段是国语示例，用的还是通用声音——<b>换成地道粤语、换成你调教的声音，就是你要做的产品。</b>听的时候顺便用体感评测的五个维度给它打个分。</p>
+    <audio controls preload="metadata" src="./assets/demo-broadcast.mp3" style="width:100%;margin-top:12px;border-radius:10px"></audio>
+    <div class="vrate" data-rate-id="demo-broadcast" style="margin-top:6px"></div>
+    <p style="font-size:13px;color:var(--text-3);margin-top:8px">以后每晚的简报也会配上这样的音频版——你听它的过程，就是在收集体感数据。</p>
+  </div>
+  <div>
+    <div class="panel gold">
+      <h3>今日播报 · 做 60 秒新闻主播</h3>
+      <p class="sub">从今天的情报里挑一条新闻，用粤语像电台主播一样播出来，录音。</p>
+      <div class="speech-card" style="padding:20px;margin-top:6px">
+        <div class="topic" id="vnews" style="min-height:2.2em;font-size:17px">点击抽一条播报任务</div>
+        <div id="vnews-material" style="margin-top:10px"></div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn" id="vnews-draw">抽播报任务</button>
+          <button class="btn ghost" id="vnews-done">录完了，打卡</button>
+        </div>
+        <div class="minirec" data-rec="60秒主播"></div>
+      </div>
+    </div>
+  </div>
+  <div class="case" style="margin-top:16px">
+    <div class="tag">对练升级 · 有人逼你才算练</div>
+    <h3>🤖 AI 考官 · 它出题，你接招</h3>
+    <p>规矩：抽题 → 60 秒回答（下面就有录音）→ 回放对照量规 → 点「找 Kimi 评分」。<b>题库已合并：通用考题 + 粤语突发情景（原「今日会谈」已并入这里，一页不再重复出题）</b>。想要连环追问？点「复制考官口令」发给 Kimi 实时对练。</p>
+    <div class="speech-card" style="padding:20px;margin-top:6px">
+      <div class="topic" id="exam-q" style="min-height:2.2em;font-size:17px">点击抽一道考题</div>
+      <div id="exam-rubric" style="font-size:13.5px;color:var(--text-3);margin-top:8px"></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px">
+        <button class="btn" id="exam-draw">抽考题</button>
+        <button class="btn ghost" id="exam-copy">复制考官口令（找 Kimi 实时对练）</button>
+      </div>
+      <div class="minirec" data-rec="AI考官对练"></div>
+    </div>
+  </div>
+  <div class="case" style="margin-top:16px">
+    <div class="tag">粤语 TTS 军火库 · 情报部 2026-11 核验</div>
+    <h3>你的技术底座候选（许可证已逐个核验，看清再上手）</h3>
+    <p><b>先记住规矩：选型三问——① 许可证让不让商用？② 谁在维护，会不会跑路？③ 粤语效果实测过没有？</b>（Chatterbox 就是反面教材：2026 年 8 月官方停更，公司转型——工具说死就死。）</p>
+    <div class="hscroll" style="margin-top:12px">
+      <div class="vcard link">
+        <a class="thumb" href="https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue" target="_blank" rel="noopener">🗄️</a>
+        <div class="vb"><b><a href="https://huggingface.co/datasets/ASLP-lab/WenetSpeech-Yue" target="_blank" rel="noopener">WenetSpeech-Yue 语料库 ↗</a></b><span>21,800 小时粤语语音+多维标注，全球首个。<b>注意：CC-BY-NC 许可证=学习研究免费，商用要另外授权。</b>你的「数据空白」判断已过期——护城河要换成教育场景和服务。</span></div>
+      </div>
+      <div class="vcard link">
+        <a class="thumb" href="https://huggingface.co/ASLP-lab/WSYue-TTS" target="_blank" rel="noopener">🔊</a>
+        <div class="vb"><b><a href="https://huggingface.co/ASLP-lab/WSYue-TTS" target="_blank" rel="noopener">WSYue-TTS 粤语模型 ↗</a></b><span>用上面语料库微调好的现成粤语 TTS，在线能试听。<b>模型本体标 Apache-2.0（可商用），但它用 CC-BY-NC 语料训练——商用前给作者发邮件确认最稳。</b>先听它哪里不自然——那就是你的体感评测第一练。</span></div>
+      </div>
+      <div class="vcard link">
+        <a class="thumb" href="https://huggingface.co/inclusionAI/Ming-omni-tts-16.8B-A3B" target="_blank" rel="noopener">🥇</a>
+        <div class="vb"><b><a href="https://huggingface.co/inclusionAI/Ming-omni-tts-16.8B-A3B" target="_blank" rel="noopener">Ming-omni-tts（蚂蚁） ↗</a></b><span>Apache 2.0 免费商用（已核验），官方报告粤语方言控制准确率约 93%。底座首选。</span></div>
+      </div>
+      <div class="vcard link">
+        <a class="thumb" href="https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base" target="_blank" rel="noopener">🥈</a>
+        <div class="vb"><b><a href="https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base" target="_blank" rel="noopener">Qwen3-TTS（阿里） ↗</a></b><span>Apache 2.0 免费商用（已核验），Base 版用几秒音频即可克隆声音。底座备选。</span></div>
+      </div>
+      <div class="vcard link">
+        <a class="thumb" href="https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512" target="_blank" rel="noopener">🥉</a>
+        <div class="vb"><b><a href="https://huggingface.co/FunAudioLLM/Fun-CosyVoice3-0.5B-2512" target="_blank" rel="noopener">CosyVoice 3（通义） ↗</a></b><span>Apache 2.0 免费商用（已核验），官方支持 18+ 种中国方言含粤语。方言路数的参照系。</span></div>
+      </div>
+      <div class="vcard link">
+        <a class="thumb" href="https://github.com/livekit/agents" target="_blank" rel="noopener">📞</a>
+        <div class="vb"><b><a href="https://github.com/livekit/agents" target="_blank" rel="noopener">LiveKit Agents（语音智能体骨架）↗</a></b><span>开源实时语音 AI 框架：电话打进打出、语义判断「你说完了没」不抢话、MCP 一行接入——OpenAI 语音模式的底层就是这家（公开合作）。<b>你要做的「AI 接电话/AI 客服」的骨架就是它：骨架免费，缺的是粤语嗓子——那就是你。</b>（Apache-2.0，上手前再核一眼许可证）</span></div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--text-3);margin-top:8px">情报部纪律：此表每两周随经营会复核一次——许可证变更、模型停更、新王登基都会更新。</p>
+    <div class="boss-view" style="margin-top:12px"><b>🎧 实测样本 · edge-tts 粤语 baseline（2026-11-19 真机生成）</b><br>
+    测试文本（课文朗读场景）：「各位同學早晨，今日我哋一齊嚟讀呢篇課文。讀書唔係為咗考試，係為咗睇清呢個世界點樣運作。」三个免费粤语音色同题对比，你的任务：<b>逐个听，给每个打 1–5 分，写下哪里不自然</b>——这就是体感评测第一练，也是以后验收所有底座的基准线。</div>
+    <div style="display:grid;gap:8px;margin-top:10px">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="min-width:150px">晓佳（女声）</b><audio controls preload="none" src="assets/audio/sample-hiugaai.mp3" style="height:36px;flex:1;min-width:220px"></audio><span class="vrate" data-rate-id="sample-hiugaai"></span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="min-width:150px">晓文（女声）</b><audio controls preload="none" src="assets/audio/sample-hiumaan.mp3" style="height:36px;flex:1;min-width:220px"></audio><span class="vrate" data-rate-id="sample-hiumaan"></span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="min-width:150px">云龙（男声）</b><audio controls preload="none" src="assets/audio/sample-wanlung.mp3" style="height:36px;flex:1;min-width:220px"></audio><span class="vrate" data-rate-id="sample-wanlung"></span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><b style="min-width:150px">🥈 Qwen3-TTS（远程实测）</b><audio controls preload="none" src="assets/audio/sample-qwen3tts.mp3" style="height:36px;flex:1;min-width:220px"></audio><span class="vrate" data-rate-id="sample-qwen3tts"></span></div>
+    </div>
+    <div style="margin-top:10px"><button class="mini-btn" id="vrate-export">📋 导出我的声音评分（给情报部调口味）</button></div>
+    <p style="font-size:13px;color:var(--text-3);margin-top:8px">实测记录（2026-11-19 真机）：edge-tts 免费但偶发失败（云龙第一次生成失败，重试才成功）——免费服务的稳定性本身就是痛点。Qwen3-TTS 官方试用远程调用成功，17 秒出活，指令写的是「温柔的广东话女老师」。<b>你的任务不变：四个样本逐个听、打分、写下哪里不自然。</b>另记：粤语专用模型 WSYue-TTS 的官方试用空间当前处于故障状态（CONFIG_ERROR）——学术项目维护不稳，正是商业产品的机会缝隙。CosyVoice 3 实测排队中（官方试用需登录授权）。</p>
+    <div class="boss-view" style="margin-top:12px"><b>🛡️ 防伪水印：你的声音能不能认祖归宗（2026-11-19 核验）</b><br>
+    你担心的事有现成答案：<b>音频水印技术已经成熟，而且最好的一个免费开源</b>。<br>
+    · <b>AudioSeal（Meta，MIT 协议免费商用）</b>：给每段 AI 音频嵌入人耳听不出的标记，压缩、转码、加噪音后仍能检出——诈骗电话录音也能验。它还能嵌入 16 位信息：<b>哪一段音频是哪个客户生成的，可以追溯</b>。<br>
+    · <b>SynthID Audio（Google）</b>：谷歌云 TTS 已自动嵌入，扛得住重新编码。<br>
+    · <b>C2PA 内容凭证</b>：密码学签名记录「谁生成的」，但容易被抹掉——和水印互补不替代。<br>
+    · <b>行业现状=你的机会</b>：现实中大部分 AI 音频（包括 ElevenLabs）<b>没有嵌任何水印</b>，检测还是「法医式」难题。谁先把「每段音频可溯源」做成标配，谁就拿到政府和学校客户的信任票。<br>
+    · <b>合规已是硬门槛</b>：欧盟 AI Act 第 50 条 2026 年 8 月起强制「机器可读水印 + 明示 AI 生成」，违者最高罚 1500 万欧元或全球营业额 3%；中国的标识办法方向一致。<b>你第一天就嵌水印 = 入场券 + 卖点，一鱼两吃。</b></div>
+  </div>
+  <div class="panel gold" style="margin-top:16px" id="readaloud">
+    <h3>📢 朗读台 · 每晚一篇老板分享稿</h3>
+    <p class="sub">每晚简报自动从当天最重要的新闻里提炼一篇<b>老板视角分享稿</b>，附上「我是怎么分析的」五层拆解——你照着念练嘴，看着拆解练脑。念完就在下面录——录音按钮已搬到稿旁边，跟着文稿往下拉着读。</p>
+    <div id="readaloud-box" style="margin-top:12px"></div>
+    <div class="boss-view" style="margin-top:14px"><b>任意文章变朗读稿（把这段口令和文章一起发给 Kimi）：</b>「你是我的稿件工厂。读完这篇文章，给我三样东西：①五层分析（事实层/利益链/二阶影响/对我的意义/可证伪判断，每层两三句，说人话）；②你的分析思路复盘——你为什么挑这些重点；③一篇 60 秒老板视角粤语朗读稿（繁体、澳门口语、有金句、结尾留一个问题）。」</div>
+  </div>
+  <div class="panel gold" style="margin-top:16px" id="recstudio">
+    <h3>🗃️ 语音数据集 · 管理台</h3>
+    <p class="sub"><b>录音已经搬到上面每张练习卡里</b>（今日一练/60秒主播/AI考官/朗读台，就地就录）。这里是仓库：回放、下载、导出你的全部录音——每条都标了来自哪个练习，三个月就是 90 条带标注的声音资产。下面这个录音键是「自由麦」，不设题目随便录。<br><b>回放听两遍：</b>第一遍当学习者——数语气词（嗯、嗰个、即系）、听语速均不均、句尾有没有降调；第二遍当产品经理——问「这段若是 AI 合成我会挑什么毛病」，你挑出的每个毛病，就是产品要解决的清单。</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px">
+      <button class="btn" id="rec-toggle">● 开始录音</button>
+      <button class="btn ghost" id="rec-export">导出全部录音</button>
+    </div>
+    <div id="rec-status" style="text-align:center;margin-top:12px;font-size:14px;color:var(--text-3)">准备好就按开始。说话 60 秒，别追求完美，追求开口。</div>
+    <div id="rec-result" style="display:none;margin-top:14px"></div>
+    <div id="rec-stats" style="text-align:center;margin-top:14px;font-size:14px"></div>
+    <div id="rec-list" style="margin-top:12px"></div>
+  </div>
+</section>
+
+<!-- ============ 粤语语音对练 ============ -->
+
+
+<!-- ============ 身体与大脑 ============ -->
+<section class="wrap" id="body">
+  <div class="sec-head">
+    <div class="no">MODULE 10</div>
+    <h2>自我管理：身体 · 精力 · 气质</h2>
+    <p>公司可以倒闭再来，判断力垮了就没有翻盘的本钱。对夜班打工人来说，<strong>睡眠和体能不是养生，是保生产力的战略投资</strong>——大脑缺氧 1 小时，做的决定就要用 10 小时来弥补。</p>
+  </div>
+  <div class="habit-grid">
+    <div class="habit"><h3>睡眠：唯一不可妥协</h3><p>夜班后固定睡满 7 小时，遮光窗帘 + 耳塞 + 手机飞行模式。睡前 1 小时不碰短视频——那是判断力最大的小偷。</p></div>
+    <div class="habit"><h3>运动：给大脑供血</h3><p>每天 20 分钟快走起步，每周 1 次徒手训练（深蹲、俯卧撑、平板支撑各 3 组）。不为身材，为下午学习时大脑不宕机。</p></div>
+    <div class="habit"><h3>饮食：稳定血糖</h3><p>夜班中少吃精制糖和油炸，备坚果和水。血糖大起大落时做的决定，第二天多半会后悔。</p></div>
+    <div class="habit"><h3>决策纪律：大事不过夜疲劳时</h3><p>重要决定（辞职、投资、签协议）只在睡醒后的黄金 2 小时内做。疲惫时的「果断」多半是冲动。</p></div>
+    <div class="habit"><h3>防退化：AI 时代的思考肌肉</h3><p>AI 给草稿，人做判断。每天留一件「不让 AI 碰、自己想透」的事——比如今天的五问笔记，先自己写，再让 AI 挑毛病。</p></div>
+    <div class="habit"><h3>复盘：每周 30 分钟</h3><p>回看本周的五问笔记和学习记录：哪些判断对了？哪些错了？老板的认知就是在一次次对答案中升级的。</p></div>
+    <div class="habit"><h3>嗓音：你的生产资料</h3><p>做 TTS、练口才、录素材，嗓子就是设备。每天开工前 5 分钟哼鸣开嗓；多喝温水，少喊；连续录音 40 分钟必须休 10 分钟——声带损伤是不可逆的。</p></div>
+    <div class="habit"><h3>眼睛：夜班的第一损耗</h3><p>屏幕 20 分钟，看远 20 秒（20-20-20 法则）；夜间屏幕色温调暖。眼睛累的时候做的第一件事是休息，不是硬扛。</p></div>
+    <div class="habit"><h3>工间微运动：不求健身卡</h3><p>夜班每隔 2 小时起身 3 分钟：靠墙站、转肩、踮脚。夜班族的腰椎和颈椎就是这么保下来的——频率比强度重要。</p></div>
+    <div class="habit"><h3>体检：每年一次，四项必查</h3><p>血压、血糖、肝功能、甲状腺。澳门卫生局和镜湖都有体检套餐，几百澳门元买一份安心——你的身体数据就是你公司的资产负债表。</p></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">🎯 精力分配：什么自己抓，什么借力</h3>
+  <div class="duo">
+    <div class="panel gold">
+      <h3>必须精通（老板的命根子）</h3>
+      <p class="sub">这些决定了公司生死，别人替代不了你做判断。</p>
+      <div class="skill-item"><b>判断力：看懂钱往哪流</b><p>读懂新闻背后的利益结构。工具：本页「五问法」，每天一条，雷打不动。</p></div>
+      <div class="skill-item"><b>表达力：说清楚、说服人</b><p>融资、招人、谈客户全靠一张嘴。工具：下方「口才训练」的 PREP 框架，每天开口练 3 分钟。</p></div>
+      <div class="skill-item"><b>本行业的一线体感</b><p>你做的是粤语 TTS——必须亲手做过 Demo、亲自访谈过老师和用户。可以不懂算法细节，但必须知道这项技术能做到什么、做不到什么。</p></div>
+      <div class="skill-item"><b>财务常识</b><p>看得懂三张表（损益、资产负债、现金流），算得清一单生意赚不赚钱。不需要会做账，需要会问会计问题。</p></div>
+    </div>
+    <div class="panel">
+      <h3>可以借力（知道找谁、怎么验收）</h3>
+      <p class="sub">这些你只要懂框架和标准，执行交给别人或 AI。</p>
+      <div class="skill-item"><b>编程与技术实现</b><p>用 AI 辅助写代码、用开源模型（GPT-SoVITS、CosyVoice）搭 Demo。你验收结果，不亲手造轮子。</p></div>
+      <div class="skill-item"><b>法律与税务</b><p>知道澳门公司注册、横琴政策申请找哪个部门、问什么问题即可，具体交给专业人士。</p></div>
+      <div class="skill-item"><b>设计、文案、运营</b><p>早期全部可以用 AI + 模板解决。你的审美要求是「干净可信」，不是「惊艳」。</p></div>
+      <div class="skill-item"><b>多语言细节</b><p>英语学到能谈生意（雅思 6.5），葡语学到能打招呼读政策标题。深度翻译交给工具和译员。</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">👔 气质表达：老板范儿可以练</h3>
+  <h3 style="font-size:19px;margin-bottom:14px">看山三境：认知的三层楼</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">壹</span><div><b>看山是山 · 打工思维</b><p>看到什么信什么。新闻说行业火就冲进去，老板画饼就拼命。大多数人在这一层——信息喂什么吃什么。</p></div></div>
+    <div class="chain-step"><span class="n">贰</span><div><b>看山不是山 · 解构思维</b><p>开始拆解：这件事背后是谁的利益？数据有没有水分？政策为什么这个时候出？「思辨认知」模块训练的就是这一层。但停在这层的人会变成愤世嫉俗的「杠精」——什么都看穿，什么都不做。</p></div></div>
+    <div class="chain-step"><span class="n">叁</span><div><b>看山还是山 · 老板思维</b><p>看透之后返璞归真：知道世界复杂，依然能把一件复杂的事用一句话讲明白、带着人往前干。真正的睿智不是显得深奥，而是<strong>深入浅出</strong>——能把 TTS 的技术路线讲给澳门的阿婆听懂，才算到家。</p></div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:32px 0 14px">气场是练出来的：四个可训练项</h3>
+  <div class="habit-grid">
+    <div class="habit"><h3>身体：气场的地基</h3><p>不需要练成健美先生，但要<strong>站得直</strong>。每天靠墙站 5 分钟（后脑、肩胛、臀、脚跟贴墙），三周后体态肉眼可见地改变。含胸驼背的人说话没人信，这是生理，不是玄学。</p></div>
+    <div class="habit"><h3>声音：低音、慢速、停顿</h3><p>领导人的共同特征：语速比常人慢 20%，句尾降调，敢停顿。练习：每天朗读一段新闻，录音回放，把「嗯、然后、就是」数出来，目标是清零。</p></div>
+    <div class="habit"><h3>眼神：稳定的注视</h3><p>说话时看对方眉心，不飘不躲。紧张就看鼻梁。这一条在谈客户、面试员工时价值千金，在家对着镜子就能练。</p></div>
+    <div class="habit"><h3>着装：干净的制服感</h3><p>不需要名牌，需要「稳定」：固定两三套干净合身的搭配。乔布斯的黑毛衣不是懒，是把决策精力省下来给公司。</p></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:32px 0 14px">语言魅力：讲故事的人领导讲道理的人</h3>
+  <div class="duo">
+    <div class="panel gold">
+      <h3>要做</h3>
+      <p class="sub">有魅力的表达长这样</p>
+      <div class="skill-item"><b>用画面代替形容词</b><p>不说「市场很大」，说「澳门每间补习社都还在用人工录音」。</p></div>
+      <div class="skill-item"><b>用数字锚定</b><p>「全球 8000 万粤语使用者，主流厂商的粤语支持不到普通话的三成」——数字自带权威感。</p></div>
+      <div class="skill-item"><b>会讲故事</b><p>万能结构：困境 → 转折 → 行动 → 结果。「我夜班下班那天，听到两个学生在听 AI 读课文，粤语全是错的——那一刻我知道这事能做。」</p></div>
+      <div class="skill-item"><b>敢停顿、敢沉默</b><p>说完重点停两秒，让对方消化。急着填满沉默的人，显得心虚。</p></div>
+    </div>
+    <div class="panel">
+      <h3>不要做</h3>
+      <p class="sub">这些话一出口，气场就塌了</p>
+      <div class="skill-item"><b>不抱怨</b><p>老板可以承认困难，但永远附带解决方案。「很难，但我们这样打」和「太难了没办法」，是两个物种。</p></div>
+      <div class="skill-item"><b>不辩解</b><p>被质疑时先复述对方观点（「你的意思是……」），再回应。急着辩解的人显得怕输。</p></div>
+      <div class="skill-item"><b>不装懂</b><p>「这个问题我不确定，查实后明天答复你」比硬撑的回答有魅力十倍。睿智 = 清楚自己不知道什么。</p></div>
+      <div class="skill-item"><b>不轻易承诺</b><p>说出口的就是债。宁可少承诺、多兑现，信用是老板唯一的抵押品。</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:19px;margin:32px 0 14px">教导力：老板的最高境界是当老师</h3>
+  <div class="case" style="margin-top:0">
+    <div class="tag">带团队 = 带认知</div>
+    <h3>你能把多少人教明白，就能领导多大的公司</h3>
+    <p><b>费曼检验法：</b>学完任何东西，试着讲给一个完全不懂的人听。讲不明白的地方，就是你没真懂的地方。这和「看山还是山」是同一件事——深入浅出是最高级的懂。</p>
+    <p><b>日常练法：</b>每周把学到的一个概念（利率、TTS 原理、一个政策）用 3 分钟讲给朋友或家人听。对方听懂了，你晋级了；对方走神了，回看是哪里讲得不像人话。</p>
+    <p><b>为什么这对你的 TTS 事业是双料投资：</b>你要做的产品是「AI 教人学语言」，而你自己先成为「会教的人」——教育产品的灵魂，永远是教育者的认知。</p>
+  </div>
+
+  <div class="speech-card" style="margin-top:24px">
+    <div class="label">今日修炼</div>
+    <div class="topic" id="chtopic">点击下方按钮，抽取今天的气质修炼</div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn" id="chdraw">抽一项</button>
+      <button class="btn ghost" id="chardone">练完了，打卡</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 领袖气质 ============ -->
+
+
+<!-- ============ 学习引擎 ============ -->
+<section class="wrap" id="learn">
+  <div class="sec-head">
+    <div class="no">MODULE 12</div>
+    <h2>学习路径</h2>
+    <p>互联网上的资料多到沉底——小红书、B站、YouTube、播客、论文，每个平台脾气不同、用法不同。<strong>老板学东西不是乱逛，是先定路线再出发。</strong>选一个方向，生成你的学习安排。</p>
+  </div>
+  
+  <div class="case" style="margin-top:0;margin-bottom:18px">
+    <div class="tag">学习教练 · 随时候命</div>
+    <h3 style="margin-bottom:6px">卡住就问，对话框就是教练</h3>
+    <p>这个网站的教练不在网页里——<b>就是 Kimi 对话本身</b>。任何概念不懂、题目卡壳、想让人帮你过一遍思路，直接在对话框里问。学习不用约时间，问题不过夜。</p>
+  </div>
+  <div class="case" style="margin-bottom:18px">
+    <div class="tag">🧠 学习地图的科学底座 · 每条规矩都有论文撑腰</div>
+    <h3 style="margin-bottom:6px">先看人怎么学得牢，再决定地图怎么画</h3>
+    <p>下面的结论不是我编的——全部来自高引用论文（被引次数 = 全世界研究者引用了多少次，数字越大越靠谱）。<b>你的学习路径、打卡、跟读、AI 考官，全都按这些原理排布。</b></p>
+  </div>
+  <div class="duo" style="margin-bottom:18px">
+    <div class="panel gold">
+      <h3>A · 人怎么学得牢：五条铁律</h3>
+      <p class="sub">学习科学几十年实验的共识，适合夜班碎片时间</p>
+      <div class="skill-item"><b>① 考自己 > 反复看（提取练习）</b><p>合上书把内容讲出来，比再看三遍记得牢。「讲不出 = 没学会」是有实验依据的，不是鸡汤。<span style="color:var(--text-3);font-size:12px">Karpicke & Roediger 2007（被引 602）· Carpenter 等 2022《Nature Reviews Psychology》（被引 423）</span></p></div>
+      <div class="skill-item"><b>② 间隔 > 突击（间隔重复）</b><p>同样的总时长，分散到几天学比一天猛灌，长期保留率高得多。所以打卡设计成「每天一点」，不设计「周末补一天」。<span style="color:var(--text-3);font-size:12px">Kang 2016（被引 899）</span></p></div>
+      <div class="skill-item"><b>③ 外语词汇：等距复习最稳</b><p>专门针对外语单词的实验：每天固定间隔的「考自己」，比「先密集后放松」的长期效果更好——你的英语 20 分钟就照这个排。<span style="color:var(--text-3);font-size:12px">Kang 等 2014 外语词汇实验（被引 175）</span></p></div>
+      <div class="skill-item"><b>④ 交错 > 单刷</b><p>同一天里混合不同主题（英语+行业+口才），比一周只啃一样，迁移能力更强。<span style="color:var(--text-3);font-size:12px">Carpenter 等 2022</span></p></div>
+      <div class="skill-item"><b>⑤ 输出才算数</b><p>能把一件事讲给外行听懂，才算学会（费曼检验法）。这就是本站铁规「没输出 = 没学习」的出处。</p></div>
+    </div>
+    <div class="panel">
+      <h3>B · 用 AI 学：四条军规</h3>
+      <p class="sub">AI 导师有用，但用法错了会废掉你的脑子</p>
+      <div class="skill-item"><b>先说好消息</b><p>系统综述：设计得当的智能导师，让学生超过传统课堂 75% 的同龄人；大模型对话式导师在 200 人实测中提升学习成效。<span style="color:var(--text-3);font-size:12px">Sharma 等 2025（被引 299）· Schmucker 等 2024（N=200）</span></p></div>
+      <div class="skill-item"><b>再说风险</b><p>把思考整个外包给 AI，批判性思维和「知道自己会不会」的判断力（元认知）会退化——学界叫「依赖陷阱」。<span style="color:var(--text-3);font-size:12px">Vendrell & Johnston 2026（被引 144）· An 等 2026 · Yan 等 2025（被引 159）</span></p></div>
+      <div class="skill-item"><b>军规 ① 先想再问</b><p>任何问题先写 3 行自己的思路，再问 AI——保住「认知自主权」（大脑的肌肉不练就萎缩）。</p></div>
+      <div class="skill-item"><b>军规 ② 让 AI 出题考你，别让它替你答题</b><p>AI 当考官不当枪手——正好兑现铁律①的提取练习。本页的「AI 考官」就是这么设计的。</p></div>
+      <div class="skill-item"><b>军规 ③ 对答案</b><p>AI 每段回答，追问一句「和我原本想的差在哪、为什么」——这一下就是在练元认知。</p></div>
+      <div class="skill-item"><b>军规 ④ 每周留一段「无 AI 时间」</b><p>哪怕 30 分钟，纸笔想一个问题。防依赖成习惯。</p></div>
+    </div>
+  </div>
+  <div class="panel gold" style="margin-bottom:18px">
+    <h3>C · 画你自己的地图：三步走</h3>
+    <p class="sub">方法来自「知识地图」研究：地图 = 概念节点 + 学习路径 + 社区互证（Li, Hasegawa & Kashihara 2015）</p>
+    <div class="skill-item"><b>第 1 步 · 终点倒推</b><p>写下「18 个月后我要能用 X 做成 Y」（例：用粤语 TTS 做出一个学校愿付费的课件），拆成能力清单——下面的路径就是这么倒推出来的。</p></div>
+    <div class="skill-item"><b>第 2 步 · 分层排布</b><p>地基（不学后面全塌：英语、表达）→ 主干（核心竞争力：TTS 行业、教育场景）→ 枝叶（锦上添花：金融、政治嗅觉）。先地基后枝叶，顺序错了全白学。</p></div>
+    <div class="skill-item"><b>第 3 步 · 每个节点挂一个「输出检验」</b><p>没有检验标准的节点不算学会：英语节点挂「雅思模考分数」，口才节点挂「60 秒不卡壳」，行业节点挂「能说出 3 个没人做好的场景」。</p></div>
+  </div>
+  <div class="boss-view" style="margin-bottom:28px"><b>功能对照表（这个站的每个功能对应哪条原理）：</b>今日修炼打卡+回顾 → 间隔重复（Kang 2016）｜跟读重录、60 秒主播 → 提取练习（Karpicke & Roediger 2007）｜老板五问 → 精细加工·把新知识和旧经验挂钩（Carpenter 2022）｜AI 考官、情景对练 → AI 导师+即时反馈（Sharma 2025）｜预测对答案 → 元认知校准（Yan 2025）｜英语 20 分钟每日等距 → 等距间隔提取（Kang 2014）。<b>论文原文链接收在「思辨认知」模块的 Google Scholar 入口，搜标题即达。</b></div>
+  <div class="tabs" id="learntabs" role="tablist"></div>
+  <div class="qtool" id="learnplan" style="margin-bottom:28px"></div>
+
+  <h3 style="font-size:19px;margin-bottom:14px">全维度资源库：每个平台的正确打开方式</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">视频 · 系统课</span><h3><a href="https://www.bilibili.com/" target="_blank" rel="noopener">B站 ↗</a></h3><p>中文系统课程最多的免费大学：Python、雅思、AI、商业案例都有完整系列。</p><div class="boss-view"><b>老板用法：</b>只追「完整合集」，不看零散短视频。搜「雅思 全科」「Python 入门 合集」。</div></div>
+    <div class="src"><span class="tag">视频 · 国际</span><h3><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube ↗</a></h3><p>全球最顶级的免费课堂：李宏毅 AI 课、freeCodeCamp、TED 演讲都在这。</p><div class="boss-view"><b>老板用法：</b>开英文字幕看，一石二鸟——学专业 + 磨耳朵练英语。</div></div>
+    <div class="src"><span class="tag">碎片 · 经验贴</span><h3><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener">小红书 ↗</a></h3><p>普通人的实战经验库：雅思备考时间表、澳门政策申请亲历、副业踩坑记录。</p><div class="boss-view"><b>老板用法：</b>只用搜索，不刷推荐——算法会把你困在茧房里，搜完就关。</div></div>
+    <div class="src"><span class="tag">听觉 · 通勤</span><h3><a href="https://www.xiaoyuzhoufm.com/" target="_blank" rel="noopener">小宇宙播客 ↗</a></h3><p>中文播客平台：商业访谈、AI 评论、创业故事。夜班通勤和做家务时的第二课堂。</p><div class="boss-view"><b>老板用法：</b>耳朵是你的备用通道——眼睛累了用耳朵学，这也是你做 TTS 的行业直觉训练。</div></div>
+    <div class="src"><span class="tag">视频 · 学英语</span><h3><a href="https://www.voicetube.com/" target="_blank" rel="noopener">VoiceTube ↗</a></h3><p>看影片学英文的鼻祖：TED、新闻、电影片段配双语字幕和单句复读，澳门可直接用。</p><div class="boss-view"><b>老板用法：</b>你的「英语 20 分钟」就用它——每天精看一支短片，跟读字幕，比干背单词记得牢。顺便研究它的产品设计：字幕点查、复读、测验——这些功能你的语言产品也会用到。</div></div>
+    <div class="src"><span class="tag">AI · 学习搭子</span><h3><a href="https://solvely.ai/" target="_blank" rel="noopener">Solvely AI ↗</a></h3><p>拍照解题的 AI 学习助手：题目拍上去，不只给答案，还一步步讲为什么。</p><div class="boss-view"><b>老板用法：</b>遇到看不懂的概念/习题直接拍给它。更重要：它是「AI+教育」订阅制的活样本——看它怎么定价、怎么留住学生，你的粤语产品可以照着拆。</div></div>
+    <div class="src"><span class="tag">国际课程</span><h3><a href="https://www.coursera.org/" target="_blank" rel="noopener">Coursera ↗</a></h3><p>世界名校正式课程（可旁听免费），完成还有证书，为简历和人才计划加分。</p><div class="boss-view"><b>老板用法：</b>优先选带证书的商业、AI 课程——学习和背书一次搞定。</div></div>
+    <div class="src"><span class="tag">中文系统课 · 证书</span><h3><a href="https://www.icourse163.org/" target="_blank" rel="noopener">中国大学 MOOC ↗</a></h3><p>国内高校正式课程平台，免费旁听、付费拿证书——传播学、教育心理学、Python 都有完整体系课。</p><div class="boss-view"><b>老板用法：</b>你传媒出身，补「教育心理学」从这里系统学（查论文去「思辨认知」的 Google Scholar，不重复）。</div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">视听学习法</div>
+    <h3>老板怎么看视频：主动三遍，不是被动一躺</h3>
+    <p><b>看前·带一个问题：</b>打开视频前先写下「我想从这个视频得到什么」。没有问题意识的观看，看完就忘。</p>
+    <p><b>看中·只记三点：</b>倍速看（1.25–1.5x），暂停只记三个要点。记超过三点说明你在抄，不在学。</p>
+    <p><b>看后·讲一遍：</b>关掉视频，用 60 秒把刚学的东西讲出来（对着手机录音）。讲得出来才是你的——这就是把「口才训练」和「学习」合成一个动作。</p>
+    <p style="margin-top:12px"><b>防沉迷红线：</b>视频平台的设计目标是留住你，不是教会你。给自己定规矩：收藏 ≠ 学会，<strong>看完必须有输出</strong>（一条五问笔记 / 一段录音 / 一次实操），否则这一小时算娱乐，不算学习。</p>
+  </div>
+
+  </section>
+
+<!-- ============ 书籍库 ============ -->
+<section class="wrap" id="books">
+  <div class="sec-head">
+    <div class="no">MODULE · 弹药仓</div>
+    <h2>📚 仓库：书籍、素材、金句——调研和学习的血肉</h2>
+    <p>骨架搭得再多，没有书垫底就是空架子。这里每本都是核实过的真书，按你的赛道分好，<strong>每月一本，一年 12 本</strong>——夜班人的节奏，不贪多。澳门公共图书馆和微信读书基本都能借到，标注「免费公开」的网上直接看。</p>
+  </div>
+  <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">底层逻辑（先长脑子）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">思维</span><h3>《思考，快与慢》</h3><p>卡尼曼。大脑有两套系统：快的凭直觉，慢的靠计算。你练「可证伪判断」就是在训练慢系统。</p><div class="recipe"><b>老板用法：</b>每次快讯里下判断前，问自己是系统一还是系统二在说话。</div></div>
+    <div class="tool"><span class="role">思辨</span><h3>《学会提问》</h3><p>尼尔·布朗。批判性思维入门：别人给你一个结论，你怎么拆它的证据链。</p><div class="recipe"><b>老板用法：</b>和「思辨六视角」配套练，读新闻时逐条套用。</div></div>
+    <div class="tool"><span class="role">格局</span><h3>《穷查理宝典》</h3><p>查理·芒格。多元思维模型：老板的脑子里要同时装着会计、心理、工程、传播——不是全精通，是问得出对的问题。</p><div class="recipe"><b>老板用法：</b>当字典用，每月翻一个思维模型，套到自己的生意上。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">商业与战略（你的缝隙理论课本）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">必读 · 阶段1</span><h3>《从0到1》</h3><p>彼得·蒂尔。垄断从被忽视的小市场开始——「粤语 AI 语音」就是你的从 0 到 1。</p><div class="recipe"><b>老板用法：</b>读「秘密」那一章，写下三个「大多数人不信但你信」的判断，存进预测对答案。</div></div>
+    <div class="tool"><span class="role">定位</span><h3>《定位》</h3><p>里斯 & 特劳特。用户脑子里一个词只能站一个品牌——「粤语 AI 语音」这个词怎么占住。</p><div class="recipe"><b>老板用法：</b>以后所有对外介绍，只许用一个词，就是你在占的那个位。</div></div>
+    <div class="tool"><span class="role">巨头盲区</span><h3>《创新者的窘境》</h3><p>克里斯坦森。巨头为什么看不见小市场——不是笨，是他们的客户不让他们看。你的缝隙就是这么来的。</p><div class="recipe"><b>老板用法：</b>每次担心「大厂下场怎么办」就重读第一章。</div></div>
+    <div class="tool"><span class="role">免费公开</span><h3>《纳瓦尔宝典》</h3><p>Naval Ravikant。杠杆、专长、一人公司哲学——「媒体和代码，是无需许可的杠杆」。</p><div class="recipe"><b>老板用法：</b>navalmanack.com 免费看。你的内容飞轮就是媒体杠杆。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">AI 与技术（研究者的地基）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">免费公开 · 圣经</span><h3>《Speech and Language Processing》</h3><p>Jurafsky & Martin。语音与语言处理的标准教科书，第三版草稿网上免费公开（web.stanford.edu/~jurafsky/slp3/）。TTS、语音识别、韵律建模的章节就是你的技术地图。</p><div class="recipe"><b>老板用法：</b>不啃全书——当字典用。军火库每个术语回来这里查准确定义，写论文时它是引用源。</div></div>
+    <div class="tool"><span class="role">免费公开 · 备查</span><h3>《深度学习》</h3><p>Goodfellow。deeplearningbook.org 免费公开。不从头读，概念模糊时回来查。</p><div class="recipe"><b>老板用法：</b>配合 3Blue1Brown 的视频直觉 + 这本书的严格定义。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">学习科学、语言与传播（产品的里子）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">必读 · 阶段0</span><h3>《认知天性》</h3><p>Make It Stick。学习科学：为什么「测试+间隔+跟读」比「看课」有效十倍——你的打卡、跟读重录、练兵场全是照它的原理设计的。</p><div class="recipe"><b>老板用法：</b>这本书同时是你的产品设计说明书——教育产品的每个功能都要能在这里找到依据。</div></div>
+    <div class="tool"><span class="role">英语地基</span><h3>《English Grammar in Use》</h3><p>Murphy。全世界英语老师都在用的语法圣经，从零到中级最稳的路线。</p><div class="recipe"><b>老板用法：</b>配合你的每日 20 分钟英语，每天一个单元，不跳跃。</div></div>
+    <div class="tool"><span class="role">文化浪潮课本</span><h3>《传播学教程》</h3><p>郭庆光。中国传播学标准教材：议程设置、沉默的螺旋、培养理论——你做「文化飞轮」和「定义议题」的学术底座。</p><div class="recipe"><b>老板用法：</b>每策划一轮内容，回来对一遍「议程设置」那一章。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">读懂中国、澳门与创业</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">必读 · 申请资助前</span><h3>《置身事内》</h3><p>兰小欢。中国政府怎么运转、钱怎么流动、政策怎么落地——申请科技基金和横琴配套前必读。</p><div class="recipe"><b>老板用法：</b>读完你就明白为什么「就业叙事」比技术参数管用。</div></div>
+    <div class="tool"><span class="role">心力</span><h3>《鞋狗》</h3><p>菲尔·奈特。Nike 创始人亲笔：十几年濒临倒闭又活过来的实录。创业最大的成本不是钱，是心力。</p><div class="recipe"><b>老板用法：</b>夜班撑不住的那几天翻几页——不是鸡汤，是战地日记。</div></div>
+  </div>
+  <div class="boss-view" style="margin-top:14px"><b>用法纪律：</b>① 每月只读一本，读透比读多重要；② 每本书读完在「回顾」里写三条「哪一点能马上用在我的生意上」；③ 免费公开的两本（SLP3、纳瓦尔）本周就能开始，零成本。<b>书单是血肉，但读完写下的三条应用，才是你的血肉。</b></div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">📦 素材库：语料、文化、语言</h3>
+  <h3 style="font-size:19px;margin-bottom:14px">一、语音与语料弹药（TTS 公司的命根）</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">开源语料 <span class="lv lv1">一手</span></span><h3><a href="https://commonvoice.mozilla.org/" target="_blank" rel="noopener">Mozilla Common Voice ↗</a></h3><p>全球最大开源语音数据集，有粤语（yue）分区，可用于训练，许可清晰。</p><div class="boss-view"><b>老板看这里：</b>你的第一批训练数据，零成本起步。</div></div>
+    <div class="src"><span class="tag">开源语料 <span class="lv lv1">一手</span></span><h3><a href="https://huggingface.co/datasets?search=cantonese" target="_blank" rel="noopener">Hugging Face 粤语数据集 ↗</a></h3><p>搜「Cantonese」「yue」，学术机构和社区上传的粤语语音/文本数据集持续增加。</p><div class="boss-view"><b>老板看这里：</b>每周扫一次，新数据集出现就是技术机会出现。</div></div>
+    <div class="src"><span class="tag">发音标准 <span class="lv lv1">一手</span></span><h3><a href="https://humanum.arts.cuhk.edu.hk/Lexis/lexi-can/" target="_blank" rel="noopener">粤语审音配词字库（香港中文大学） ↗</a></h3><p>学术界公认的粤语发音权威参考，每个字的粤拼、例词、发音都有据可查。</p><div class="boss-view"><b>老板看这里：</b>你的 TTS 发音准不准，拿它当裁判。</div></div>
+    <div class="src"><span class="tag">词典 · 文化 <span class="lv lv1">一手</span></span><h3><a href="https://words.hk/" target="_blank" rel="noopener">粵典 words.hk ↗</a></h3><p>最认真的粤语口语词典：俚语、潮语、语气词都有解释和例句。</p><div class="boss-view"><b>老板看这里：</b>做「会说地道粤语」的 TTS，语气词库就是差异化。</div></div>
+    <div class="src"><span class="tag">真实声音 <span class="lv lv2">二手</span></span><h3><a href="https://www.rthk.hk/" target="_blank" rel="noopener">香港电台 RTHK ↗</a> · <a href="https://www.tdm.com.mo/" target="_blank" rel="noopener">澳门 TDM ↗</a></h3><p>标准粤语广播音频：新闻、访谈、戏剧——研究发音、韵律和语气的活教材。</p><div class="boss-view"><b>老板看这里：</b>学习参考没问题，直接拿去训练模型有版权风险——语料合规是底线。</div></div>
+  </div>
+  <div class="case">
+    <div class="tag">核心认知</div>
+    <h3>语料合规：小公司最容易死的地方</h3>
+    <p>网上的音频<strong>不等于</strong>可以拿来训练。三条路是安全的：① 开源许可允许商用的数据集；② 自己录（找澳门本地人录音并签授权，顺便建立你的独家语料库）；③ 和机构合作换数据。谁拥有合规的独家粤语语料，谁就拥有别人抄不走的护城河。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">二、文化素材：TTS 的灵魂不在技术，在语境</h3>
+  <div class="duo">
+    <div class="panel gold">
+      <h3>为什么要懂本地文化</h3>
+      <p class="sub">机器合成的声音技术上完美，但澳门阿婆一听就知道「不是我们的人」</p>
+      <div class="skill-item"><b>语气与口吻</b><p>粤语问候、敬语、语气词（嘅、喎、啫）的使用场景，决定合成声音「地不地道」。</p></div>
+      <div class="skill-item"><b>文化语境</b><p>茶餐厅文化、粤剧、赛马、节庆——教育内容和广告配音里全是这些梗，不懂就做不出共鸣。</p></div>
+      <div class="skill-item"><b>流行文化参照</b><p>港乐、港片、栋笃笑是粤语语气的黄金样本——黄子华的停顿和节奏，就是最好的韵律课。</p></div>
+    </div>
+    <div class="panel">
+      <h3>怎么积累（每天顺手做）</h3>
+      <p class="sub">文化素材靠攒，不靠找</p>
+      <div class="skill-item"><b>建一个「粤语金句本」</b><p>听到地道的说法、精彩的语气，立刻记进手机备忘录——一年后这就是你的内容弹药库。</p></div>
+      <div class="skill-item"><b>每周看一部港片/一集栋笃笑</b><p>带着任务看：这个人的语气节奏为什么抓人？记下三点。</p></div>
+      <div class="skill-item"><b>和不同年龄的澳门人聊天</b><p>阿婆的粤语和学生的粤语是两种语言——你的产品要说哪一种？这是产品定位问题。</p></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">三、多语言布局：每门语言都是一条产品线</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">粤</span><div><b>粤语 · 主战场</b><p>差异化根基。你懂的文化和语料，大厂懒得做。</p></div></div>
+    <div class="chain-step"><span class="n">普</span><div><b>普通话 · 基本盘</b><p>教育市场的最大需求（学生学普通话），用成熟开源模型即可，你提供的是场景不是技术。</p></div></div>
+    <div class="chain-step"><span class="n">英</span><div><b>英语 · 国际门票</b><p>雅思 6.5 不只是证书——它让你能读论文、谈海外客户、用国际工具。TTS 产品同样要吃语言学习的刚需。</p></div></div>
+    <div class="chain-step"><span class="n">葡</span><div><b>葡语 · 澳门独有的牌</b><p>中葡平台是国家给澳门的定位，全球 2.6 亿葡语人口。全世界做「粤语+葡语」语音产品的人屈指可数——这是只有站在澳门才能打出的牌。</p></div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">四、跨学科知识储备：考它不为当官，为长脑子</h3>
+  <div class="duo">
+    <div class="panel">
+      <h3>公务员考试内容 → 政策理解力</h3>
+      <p class="sub">不当公务员也要学，因为它教你看懂政府怎么运转</p>
+      <p style="font-size:14px;color:var(--text-2)">行测的逻辑推理、申论的政策分析——正是读政策文件、写资助申请书需要的能力。申请澳门科技基金、横琴资助时，写材料就是一场申论考试。</p>
+    </div>
+    <div class="panel">
+      <h3>传媒视角 · 传播学 → 产品表达力</h3>
+      <p class="sub">懂传播的人做产品，天然会讲故事</p>
+      <p style="font-size:14px;color:var(--text-2)">受众是谁、框架怎么定、情绪怎么调动——B站搜「传播学 公开课」免费学。你的 TTS 产品本质是「声音的传播」，传媒训练让你比纯技术团队更懂用户。</p>
+    </div>
+    <div class="panel">
+      <h3>法学常识 → 公司护身符</h3>
+      <p class="sub">不用考证，懂框架就行</p>
+      <p style="font-size:14px;color:var(--text-2)">合同法、著作权法（你的语料合规）、公司法（注册与股权）。遇事知道「这里要问律师」，比自以为懂强一百倍。</p>
+    </div>
+    <div class="panel">
+      <h3>教育心理学 → 产品的里子</h3>
+      <p class="sub">做教育产品的人必须懂人怎么学</p>
+      <p style="font-size:14px;color:var(--text-2)">遗忘曲线、间隔重复、最近发展区——B站搜「教育心理学 公开课」。这些直接决定你的语言学习产品怎么设计。</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="tag">资料库方法论</div>
+    <h3>怎么把这些攒成「自己的资料库」</h3>
+    <p><b>工具从简：</b>一个笔记 App（flomo / Obsidian / 甚至微信收藏）就够了，工具不重要，规则重要。</p>
+    <p><b>三条规则：</b>① 凡是让你「哦？」一下的东西，立刻记一条，写明来源和日期；② 每条素材打标签：语料 / 文化 / 政策 / 商业 / 灵感；③ 每周日花 20 分钟翻一遍本周的素材——<b>资料库的价值不在收藏，在回看时产生的连接</b>：一条文化素材 + 一条政策 + 一个技术能力 = 一个产品点子。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 10px;color:var(--gold)">🎲 粤讲粤过瘾：每日一句广东话</h3>
+  <p class="sub">工具让人用一次，<b>文化让人天天来</b>。这些金句是澳门街头巷尾的活语言——每条配真机生成的粤语音频，能听、能学、能跟着念。这也是你的产品预告片：<b>未来的粤语 TTS，播的就是这种东西</b>。</p>
+  <div id="culture-list" style="display:grid;gap:12px;margin-top:16px"></div>
+  <div class="boss-view" style="margin-top:14px"><b>怎么玩：</b>① 先听一遍，别看书面意思，猜猜啥意思；② 看拆解，学一句背后的文化；③ 跟着音频念三遍，去「录音棚」录下你的版本——<b>你的跟读录音，就是你产品的第一批评测数据</b>。觉得好玩？转发给澳门朋友考考他，这就是最便宜的获客。</div>
+  <div class="case" style="margin-top:16px">
+    <div class="tag">战略 · 文化浪潮</div>
+    <h3>让粤语重新变「潮」：AI 文化飞轮</h3>
+    <p><b>历史的证据：</b>韩语靠韩流、日语靠动漫崛起——语言从不靠课本崛起，靠「想懂那个内容」的冲动。粤语自己就验证过：八九十年代港片港乐让全中国主动学粤语。浪潮退了，粤语才退回方言。<b>AI 给你的杠杆：以前做内容要一个电视台，现在一个人就能量产。</b></p>
+    <p><b>飞轮五步：</b>① 内容钩住人（金句、粤语梗、AI 短视频）→ ② 玩法留住人（跟读挑战、配音游戏）→ ③ 社区放大（用户晒作品、互相考）→ ④ 数据沉淀（每条授权跟读都是语料）→ ⑤ 产品收钱（教育、粤配、授权）。</p>
+    <p><b>为什么别人抄不走：</b>韩语 APP 只是消费韩流，而你的社区玩法直接生产语料——用户玩得越开心，TTS 越准，对手越追不上。</p>
+    <p style="color:var(--text-2);font-size:14px"><b>顺序警告：</b>社区需要冷启动。先做「一人媒体」持续出内容攒同好，再开社区——社区是果，内容是因。</p>
+  </div>
+</section>
+
+<!-- ============ 技能武器库 ============ -->
+<section class="wrap" id="skills">
+  <div class="sec-head">
+    <div class="no">MODULE · 兵器谱</div>
+    <h2>🧰 技能武器库：工欲善其事，必先利其器</h2>
+    <p>以下每件武器都于 2026-11-19 经 GitHub 官方接口当场核验，<strong>星数真实、链接可点、一件都不编</strong>。原则：每个领域只认一件主武器，用熟了再扩展。</p>
+  </div>
+  <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">💻 开发学习（你的主战场）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">53.9 万星 · 总入口</span><h3><a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener" style="color:inherit">awesome ↗</a></h3><p>万物精选清单的总入口，几乎任何领域都有一份「awesome 清单」。</p><div class="recipe"><b>老板用法：</b>想进任何新领域，先搜「awesome + 领域名」，十分钟看清全貌。</div></div>
+    <div class="tool"><span class="role">37.2 万星 · 地图</span><h3><a href="https://github.com/nilbuild/developer-roadmap" target="_blank" rel="noopener" style="color:inherit">developer-roadmap ↗</a></h3><p>程序员成长地图：前端、后端、AI、DevOps 路线全画好，交互式可勾选。</p><div class="recipe"><b>老板用法：</b>对着 AI 工程师路线勾自己的位置，缺哪块补哪块。</div></div>
+    <div class="tool"><span class="role">36.5 万星 · 课表</span><h3><a href="https://github.com/jwasham/coding-interview-university" target="_blank" rel="noopener" style="color:inherit">coding-interview-university ↗</a></h3><p>零基础到软件工程师的完整自学计划，作者靠它从非科班进了大厂。</p><div class="recipe"><b>老板用法：</b>当你的 CS 地基课表，每天夜班后啃一小节。</div></div>
+    <div class="tool"><span class="role">26 万星 · 速查</span><h3><a href="https://github.com/trimstray/the-book-of-secret-knowledge" target="_blank" rel="noopener" style="color:inherit">the-book-of-secret-knowledge ↗</a></h3><p>运维与网络安全的速查宝典：命令、清单、工具、技巧。</p><div class="recipe"><b>老板用法：</b>当字典用——服务器或安全出问题，先回这里查。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">⚡ 效率办公（自动化即员工）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">21.1 万星 · 主武器</span><h3><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener" style="color:inherit">n8n ↗</a></h3><p>可视化自动化平台，400+ 集成，自己架不收钱。拖拖拽拽就把重复工作交给机器。</p><div class="recipe"><b>老板用法：</b>我们雷达的「民用版」——未来公司内部流程全用它串。</div></div>
+    <div class="tool"><span class="role">2.6 万星 · 模板库</span><h3><a href="https://github.com/enescingoz/awesome-n8n-templates" target="_blank" rel="noopener" style="color:inherit">awesome-n8n-templates ↗</a></h3><p>280+ 现成自动化模板：邮件、表格、AI 客服、文档处理都有。</p><div class="recipe"><b>老板用法：</b>直接抄作业，改成自己的流程，省下从零摸索。</div></div>
+    <div class="tool"><span class="role">33.8 万星 · 免费库</span><h3><a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noopener" style="color:inherit">awesome-selfhosted ↗</a></h3><p>能架在自己服务器上的免费软件大全——网盘、邮箱、协作、分析全有。</p><div class="recipe"><b>老板用法：</b>「不花钱原则」的武器来源，要什么先来这里找。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">🎨 创意设计（内容的皮相）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">4.2 万星 · 经典</span><h3><a href="https://github.com/goabstract/Awesome-Design-Tools" target="_blank" rel="noopener" style="color:inherit">Awesome-Design-Tools ↗</a></h3><p>设计工具与插件的最全清单：界面、字体、配色、原型、动画分门别类。</p><div class="recipe"><b>老板用法：</b>做课件封面、金句卡片前来这里挑工具。</div></div>
+    <div class="tool"><span class="role">3.7 千星 · 2026 新</span><h3><a href="https://github.com/bergside/awesome-design-skills" target="_blank" rel="noopener" style="color:inherit">awesome-design-skills ↗</a></h3><p>67 个写给 AI 用的设计技能文件——AI 时代的设计不是手画，是把品味写成规则喂给 AI。</p><div class="recipe"><b>老板用法：</b>学「怎么让 AI 替你做设计」，这正是我们自己的玩法。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">🧊 3D 生成（文化输出的炮弹）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">DeepSeek 出品 · 3 千星</span><h3><a href="https://github.com/deepseek-ai/DreamCraft3D" target="_blank" rel="noopener" style="color:inherit">DreamCraft3D ↗</a></h3><p>一张图片变成 3D 模型，DeepSeek 官方实现，ICLR 2024 论文。</p><div class="recipe"><b>老板用法：</b>粤语文化 IP（舞狮、大三巴）3D 化的第一块砖。</div></div>
+    <div class="tool"><span class="role">961 星 · 场景</span><h3><a href="https://github.com/VAST-AI-Research/MIDI-3D" target="_blank" rel="noopener" style="color:inherit">MIDI-3D ↗</a></h3><p>一张图生成整个 3D 场景，CVPR 2025。</p><div class="recipe"><b>老板用法：</b>虚拟主播、教学场景的快速搭建。</div></div>
+    <div class="tool"><span class="role">903 星 · 高保真</span><h3><a href="https://github.com/stepfun-ai/Step1X-3D" target="_blank" rel="noopener" style="color:inherit">Step1X-3D ↗</a></h3><p>高保真带纹理的 3D 资产生成，阶跃星辰出品。</p><div class="recipe"><b>老板用法：</b>需要精细模型时的备选武器。</div></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">🔬 研究情报（知己知彼）</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">1.9 千星 · 安全</span><h3><a href="https://github.com/ydyjya/Awesome-LLM-Safety" target="_blank" rel="noopener" style="color:inherit">Awesome-LLM-Safety ↗</a></h3><p>LLM 安全论文与资源大全：攻击、防护、对齐、滥用检测。</p><div class="recipe"><b>老板用法：</b>防伪水印、防诈骗、漏洞自愈的理论弹药库。</div></div>
+    <div class="tool"><span class="role">1.9 千星 · 压缩</span><h3><a href="https://github.com/HuangOwen/Awesome-LLM-Compression" target="_blank" rel="noopener" style="color:inherit">Awesome-LLM-Compression ↗</a></h3><p>模型压缩精选论文与工具——把大模型塞进手机的技术。</p><div class="recipe"><b>老板用法：</b>未来做离线粤语 TTS（端侧部署）的必读清单。</div></div>
+    <div class="tool"><span class="role">534 星 · 微调</span><h3><a href="https://github.com/Curated-Awesome-Lists/awesome-llms-fine-tuning" target="_blank" rel="noopener" style="color:inherit">awesome-llms-fine-tuning ↗</a></h3><p>微调从入门到进阶的资源、教程、工具集。</p><div class="recipe"><b>老板用法：</b>你拿粤语录音微调底座那一天的路线图。</div></div>
+  </div>
+  <div class="boss-view" style="margin-top:14px"><b>武器纪律：</b>① 收藏 ≠ 学会——每件武器每周至少真正打开用一次，才算「入列」；② 星数会变动，每次做重大技术选型前重新核验；③ 一个领域一件主武器，贪多嚼不烂；④ 我们自己的插件（学术、GitHub、行情）就是侦察兵，找新武器先用它们，不靠道听途说。</div>
+</section>
+
+<!-- ============ 自制课件 ============ -->
+<section class="wrap" id="course">
+  <div class="sec-head">
+    <div class="no">MODULE · 生产线</div>
+    <h2>🎬 自制课件：我们自己的内容生产线</h2>
+    <p>做博主不能只做搬运工。每一课都是<strong>一鱼四吃</strong>：雷达抓料 → 深读成稿 → 粤语 TTS 配音 → 上线开课——同一份东西，是你的学习材料、我们的内容资产、TTS 引擎的实测场、和未来课程的样品。</p>
+  </div>
+  <div class="panel gold" style="margin-bottom:18px">
+    <img src="assets/img/course-security-1.png" alt="网络安全第一课封面" style="width:100%;border-radius:10px;display:block;margin-bottom:12px">
+    <h3>第一课 · 网络安全：保住你的数字身家</h3>
+    <p class="sub">为什么第一课选网安：你点名要「黑客能力和防范」；而且第四招就是 AI 语音诈骗——我们防伪水印事业要打的仗，先在你身上练一遍。</p>
+    <audio controls preload="none" src="assets/audio/course-security-1.mp3" style="width:100%;height:38px;margin:10px 0 2px"></audio>
+    <div style="font-size:13px;color:var(--text-3)">晓佳（粤语女声 · edge-tts 实产）· 约 2 分钟 · 打开对稿可跟读重录</div>
+    <details style="margin-top:10px"><summary style="cursor:pointer;color:var(--gold)">📜 打开粤语对稿（跟读用，练口才 + 验 TTS 一鱼两吃）</summary>
+      <p style="font-size:14px;line-height:1.9;margin-top:8px">欢迎收睇老板成长中枢自制课件，网络安全第一课：保住你嘅数字身家。今日唔讲高深理论，净系教你五招保命基本功。第一招，密码就好似底裤，唔好同人共用，唔好一个地方用到晒，装个密码管理器帮你记。第二招，开双重认证，等于多一道门闩，最好用验证器 App，唔好净靠短信。第三招，钓鱼链接专扮熟人，任何链接停三秒，睇真网址先好㩒；记住，官方永远唔会问你要验证码。第四招，而家 AI 可以扮你老细、扮你屋企人把声嗌你转账，应对方法好简单：挂断，打返去原本个号码亲口确认。呢个正正系我哋做防伪水印要解决嘅行业痛点。第五招，公共 WiFi 唔好办正事，手机电脑系统更新唔好拖，更新就系补墙。学好呢五招，你已经叻过九成网民。我哋下一课见。</p>
+    </details>
+  </div>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">第 1 招</span><h3>🩲 密码是底裤</h3><p>不与人共用、不各处重用、不写在明处。装一个密码管理器（如 Bitwarden，免费）帮你记。</p></div>
+    <div class="tool"><span class="role">第 2 招</span><h3>🚪 双重认证是门闩</h3><p>重要账号全开 2FA。优先用验证器 App，少用手机短信——短信能被截。</p></div>
+    <div class="tool"><span class="role">第 3 招</span><h3>🎣 钓鱼专扮熟人</h3><p>任何链接停 3 秒，看清网址再点。记住铁律：官方永远不会问你要验证码。</p></div>
+    <div class="tool"><span class="role">第 4 招 · 我们的战场</span><h3>🤖 AI 扮声诈骗</h3><p>听到「老板/家人」的声音叫转账：挂断，打回原本号码亲口确认。声音能伪造，追溯才是解药——这就是防伪水印存在的意义。</p></div>
+    <div class="tool"><span class="role">第 5 招</span><h3>🧱 更新就是补墙</h3><p>公共 Wi-Fi 不办正事；手机和电脑的系统更新不要拖——每个补丁都是在堵已知的洞。</p></div>
+  </div>
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">课件生产线 · 排产表</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">第二课 · 备料中</span><h3>🎣 钓鱼与社工拆解</h3><p>从雷达抓真实钓鱼案例，拆给你看骗子的话术结构。</p></div>
+    <div class="tool"><span class="role">第三课 · 主战场</span><h3>💧 AI 语音诈骗与防伪水印</h3><p>AudioSeal、C2PA、欧盟 AI 法——我们的护城河怎么建成行业标准。</p></div>
+    <div class="tool"><span class="role">第四课 · 联动</span><h3>🔊 TTS 入门实操</h3><p>配合「TTS 入门」模块，从听懂到亲手合成第一句粤语。</p></div>
+  </div>
+  <div class="boss-view" style="margin-top:14px"><b>生产纪律：</b>① 每课必须先过「验证闸门」五关（法律、道德、精准、同行、客户）才准上线；② 课件音频 = 当期 TTS 引擎实测样本，一举两得；③ 你每周跟读重录一课，口才和质检同时练；④ 课件攒到 10 课，就是对外发布的第一批免费内容——<b>我们不是卖课的，是用免费课件立标杆的。</b></div>
+</section>
+
+<!-- ============ 观点对照台 ============ -->
+
+
+<!-- ============ 社区与定价情报 ============ -->
+<section class="wrap" id="tribes">
+  <div class="sec-head">
+    <div class="no">MODULE · 民情与行情</div>
+    <h2>🧭 社区与定价：人在哪、痛在哪、钱怎么算</h2>
+    <p>2026-11-19 实地调研（GitHub Issues、网易、CSDN、各厂官网定价页多源交叉）。<strong>情报部纪律：社区不是发广告的地方，是先蹲三个月听吐槽的地方——抱怨集中在哪，需求就在哪。</strong></p>
+  </div>
+
+  <div class="case">
+    <div class="tag">社区地图 · 怎么混进去</div>
+    <div class="tool-grid">
+      <div class="tool"><span class="role">技术社区</span><h3>GitHub Issues = 痛点排行榜</h3><p>GPT-SoVITS 光 open issues 就有 900+ 条，按 👍 排序就是用户痛点榜。真实吐槽：新手十大坑（CUDA 爆显存、参考音频格式不对、长文本卡顿）、情感切换要手动换参考音频。</p><div class="recipe"><b>用法：</b>每周翻一次 GPT-SoVITS / CosyVoice 的 issues，吐槽即需求清单。</div></div>
+      <div class="tool"><span class="role">技术社区</span><h3>Discord 官方群</h3><p>GPT-SoVITS、Fish Audio 等项目 README 里有邀请链接。里面天天有人发对比音频、晒踩坑。</p><div class="recipe"><b>用法：</b>先进去当三个月「潜水员」，混熟脸再发言。</div></div>
+      <div class="tool"><span class="role">学习者社区</span><h3>Reddit r/Cantonese</h3><p>全球粤语学习者大本营：吐槽教材、晒打卡、问发音。（雷达直连被 403，浏览器直接逛。）</p><div class="recipe"><b>用法：</b>看学习者骂什么——他们骂的就是现有产品的窟窿。</div></div>
+      <div class="tool"><span class="role">内容社区</span><h3>B站 / 小红书评论区</h3><p>搜「粤语教学」「TTS 教程」，别看视频看评论——抱怨在哪，需求在哪。老师聚集在教师类公众号和小红书教师圈。</p><div class="recipe"><b>用法：</b>老师痛点三连：课件配音没时间、自己声音录到哑、粤语材料少。</div></div>
+    </div>
+  </div>
+
+  <div class="case" style="margin-top:16px">
+    <div class="tag">学习者三大痛 · 网易 2026-07 调研佐证</div>
+    <div class="chain">
+      <div class="chain-step"><span class="n">痛1</span><div><b>九声六调跑偏不自知</b><p>「唔该」读成「唔改」，自己听不出来 → 我们的跟读双引擎评分，治的就是这个。</p></div></div>
+      <div class="chain-step"><span class="n">痛2</span><div><b>会背不会说</b><p>背了一肚子词，茶餐厅点餐开不了口 → 场景对话练习治这个。</p></div></div>
+      <div class="chain-step"><span class="n">痛3</span><div><b>枯燥坚持不了</b><p>三天打鱼两天晒网 → 金句打卡、每日轮换治这个。</p></div></div>
+      <div class="chain-step"><span class="n">痛4</span><div><b>连输入都是洼地</b><p>多邻国粤语课的粤拼输入让人抓狂（要频繁切键盘）——输入、识别、合成、评测，粤语全链路都缺好工具，这就是我们的全链路机会。</p></div></div>
+    </div>
+  </div>
+
+  <div class="case" style="margin-top:16px">
+    <div class="tag">API 定价 · 会不会统一</div>
+    <h3>TTS 行情表（每百万字符，2026 下半年，多源交叉，以官网为准）</h3>
+    <div class="tool-grid">
+      <div class="tool"><span class="role">价格战区间</span><h3>$4–20 / 百万字符</h3><p>Grok TTS $4.2、SpeechifyAI Simba $6-10、Google 标准档 $4、OpenAI $15、Azure $15（每月送 50 万字符）、阿里云 Qwen-TTS $14-20。</p></div>
+      <div class="tool"><span class="role">高端区间</span><h3>$100-300</h3><p>ElevenLabs 最贵，但 2026 年已降价 55% 推 Flash 版——价格战已经打到高端。</p></div>
+      <div class="tool"><span class="role">国内</span><h3>免费层很厚</h3><p>讯飞每月 10 万字符永久免费；腾讯云基础音色 800 万字符免费；火山、阿里约 ¥4-13/百万字符。</p></div>
+      <div class="tool"><span class="role">趋势</span><h3>正在统一</h3><p>计费模式向「按字符」收敛；主流价格带 2026 年底下探到 $10-20/百万字符；开源（Qwen3-TTS、CosyVoice3）音质已逼近商用。</p></div>
+    </div>
+    <p style="margin-top:12px"><b>我们的打法（写死）：</b>① <b>不做 API 转售</b>——中转站已是红海，赚差价没有护城河；② <b>底座开源自部署</b>——零边际成本，不被价格战绑架；③ <b>卖「粤语」不卖「语音」</b>——价格战打的是普通话产能，我们卖的是别人没有的；④ <b>警惕隐藏成本</b>——云端音色退订即失效，自有音色 + 自有语料才是带得走的资产。</p>
+  </div>
+</section>
+
+<!-- ============ TTS 知识堂 ============ -->
+<section class="wrap" id="ttsknow">
+  <div class="sec-head">
+    <div class="no">MODULE 13</div>
+    <h2>TTS 入门课</h2>
+    <p>做一行先要懂一行。这一页是粤语 TTS 的<strong>入门真知识</strong>——读完你能听懂行内人聊天，也能判断别人是不是在忽悠你。</p>
+  </div>
+  
+  <div class="panel gold" style="margin-bottom:22px">
+    <h3>第一课：TTS 是怎么把文字变成声音的</h3>
+    <p class="sub">一句话：让机器完成「看懂文字 → 决定怎么读 → 发出声音」三件事。</p>
+    <div class="pipe">
+      <span>文字输入</span><i>→</i><span>前端分析<br><small style="color:var(--text-3)">分词 · 注音 · 预测停顿和语气</small></span><i>→</i><span>声学模型<br><small style="color:var(--text-3)">决定每个音的音色、音高、节奏</small></span><i>→</i><span>声码器<br><small style="color:var(--text-3)">把声学特征变成真实声波</small></span><i>→</i><span>语音输出</span>
+    </div>
+    <p style="font-size:14px;color:var(--text-2)">以前这四步是四个独立部件；2023 年后的端到端模型（VITS、GPT-SoVITS、CosyVoice 等）把它们融合进一个神经网络，效果突飞猛进——<b style="color:var(--gold)">这正是你现在入场的原因：技术门槛刚降到普通人够得着，而大厂还没顾上粤语这个细分。</b></p>
+  </div>
+
+  <h3 style="font-size:19px;margin-bottom:6px">第二课：必懂术语表</h3>
+  <p style="font-size:14px;color:var(--text-3);margin-bottom:4px">和投资人、工程师、客户聊天时会反复出现的词。</p>
+  <div class="gloss">
+    <div class="gterm"><b>音素（Phoneme）</b><span>语言里最小的发音单位。TTS 的「拼音积木」，粤语的音素表和普通话不同。</span></div>
+    <div class="gterm"><b>韵律（Prosody）</b><span>语调、停顿、重音——决定声音「像不像人」的关键，也是目前机器最难做好的部分。</span></div>
+    <div class="gterm"><b>声码器（Vocoder）</b><span>把模型算出的声学特征变成真实声波的部件，类似「乐器的琴身」。</span></div>
+    <div class="gterm"><b>语音克隆（Voice Cloning）</b><span>用几分钟录音模仿一个人的声音。开源工具已能做到「几句话克隆」。</span></div>
+    <div class="gterm"><b>微调（Fine-tuning）</b><span>在现成大模型基础上用自己的数据再训练——你用粤语录音微调，就能得到粤语模型。</span></div>
+    <div class="gterm"><b>情感控制</b><span>让合成声音带上喜怒哀乐。教育场景的刚需：给小孩读课文不能是机器人腔。</span></div>
+    <div class="gterm"><b>MOS 评分</b><span>真人给合成音打 1–5 分的行业标准，4.0 以上接近真人。看论文先看这个数。</span></div>
+    <div class="gterm"><b>端到端（End-to-End）</b><span>一个模型直接从文字到声音，省掉中间环节——当前主流方向。</span></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">第三课：为什么粤语是「难做的缝隙市场」</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">调</span><div><b>九声六调</b><p>普通话 4 个声调，粤语学界公认 6 个调类（传统说法九声）。声调错一点，「买」就变成「卖」——合成难度成倍上升。</p></div></div>
+    <div class="chain-step"><span class="n">懒</span><div><b>懒音与变体</b><p>「你」读 nǐ 还是 léi？香港、广州、澳门口音各有习惯。模型要为谁的标准服务，本身就是产品决策。</p></div></div>
+    <div class="chain-step"><span class="n">夹</span><div><b>粤英夹杂</b><p>港澳日常说话中英混用（「今日个 deadline 好赶」）。中英切换的合成是纯粤语或纯英语模型都做不好的真空地带。</p></div></div>
+    <div class="chain-step"><span class="n">写</span><div><b>口语书面语分裂</b><p>粤语口语字（佢、哋、咗）和书面中文差异巨大。读课文要书面语，做广告要口语——同一引擎要会两种模式。</p></div></div>
+    <div class="chain-step"><span class="n">料</span><div><b>语料稀缺</b><p>高质量标注的粤语语音数据远少于普通话。谁能积累合规语料，谁就有护城河——这是你小公司的机会所在。</p></div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">2026 实况 · 大厂到哪了，缝隙还在不在（本站检索核实）</div>
+    <h3>粤语在主流模型里的真实位置</h3>
+    <p><b>阿里 Qwen3-TTS</b>（2026 年开源）：官方语言列表为中、英、日、韩、德、法、俄、葡、西、意 10 种——<b>没有粤语</b>。粤语只活在「方言指令」里：CosyVoice / Qwen-Audio-TTS 的复刻音色支持约 20 种中文方言（含广东话），要靠指令参数调出来。</p>
+    <p><b>CosyVoice 3</b>（Apache-2.0，可商用）：官方列出 18+ 种中文方言含粤语，支持零样本克隆 + 方言合成——这是你起步阶段最现实的技术底座。</p>
+    <p><b>蚂蚁 Ming-omni-tts</b>（开源，16.8B）：粤语方言控制准确率约 93%，但情感控制准确率仅约 47%——<b>「说得对」快被解决了，「说得有感情」还远，教育场景要的感情恰恰在这里。</b></p>
+    <p><b>edge-tts</b>：免费、自带粤语（zh-HK）音色，做原型演示零成本。</p>
+    <p style="margin-top:8px"><b>结论：</b>缝隙判断被一手资料证实——大厂把粤语当「方言参数」，没人当「主战场」。你的技术路线：edge-tts 做演示 → CosyVoice / Ming-omni-tts 复刻音色做产品 → 独家粤语语料做壁垒。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">第四课：教育场景怎么落地（附验证方法）</h3>
+  <div class="duo">
+    <div class="panel">
+      <h3>课文朗读 · 三语教学</h3>
+      <p class="sub">澳门学校普、粤、英三语并行，课件配音至今大量靠老师人工录。</p>
+      <p style="font-size:14px;color:var(--text-2)"><b style="color:var(--gold)">验证方法：</b>找 3 位老师，问「如果有人把下学期的课文全部配好音，你愿意付多少钱？」——价格都说得出口，需求就是真的。</p>
+    </div>
+    <div class="panel">
+      <h3>语言跟读 · 发音纠正</h3>
+      <p class="sub">学生跟读 AI 标准音，慢速、可调、无限次重复。</p>
+      <p style="font-size:14px;color:var(--text-2)"><b style="color:var(--gold)">验证方法：</b>做一个最简陋的网页 Demo 给 10 个学生用一周，看他们会不会主动再用。</p>
+    </div>
+    <div class="panel">
+      <h3>特殊教育 · 无障碍</h3>
+      <p class="sub">视障人士的屏幕朗读、读写障碍儿童的语音辅助——社福机构有预算，竞争者少。</p>
+      <p style="font-size:14px;color:var(--text-2)"><b style="color:var(--gold)">验证方法：</b>约访澳门 2 家社福机构，问他们现在用什么工具、痛点在哪。</p>
+    </div>
+    <div class="panel">
+      <h3>教师减负 · 课件配音</h3>
+      <p class="sub">把教师的备课文字一键变成配音课件，省的是老师最缺的嗓子与时间。</p>
+      <p style="font-size:14px;color:var(--text-2)"><b style="color:var(--gold)">验证方法：</b>免费帮 1 所学校配一学期课件，换一封推荐信和真实使用数据。</p>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="tag">真实数据 · 澳门教育市场有多大（澳门年鉴 2025 · 教青局统计）</div>
+    <h3>76 所学校 · 88,135 名学生 · 8,071 位教师</h3>
+    <p>2024/2025 学年：全澳 76 所非高等教育学校（116 个校部），学生 88,135 人（小学 37,403 · 中学 33,734 · 幼儿 15,052），教学人员 8,071 人；有特殊教育需要的学生 3,840 人。横琴方向：2025 年合作区在读澳门学生 844 人，一年增长 63.9%。</p>
+    <p style="margin-top:8px"><b>老板怎么算这笔账（示范）：</b>假设「课文配音 + 跟读工具」每校每年收 1 万澳门元，拿下 10% 的学校（约 8 所）就是约 8 万年收入——这是「澳门试点」的真实量级；天花板在大湾区 8000 万粤语人口。<b>小市场验证，大市场复制。</b></p>
+    <p style="margin-top:8px"><b>再看结构：</b>私立学校 68 所（占 89%），采购决策在校方而不在政府招标——意味着你<b>可以直接约校长谈</b>，不必等标案。这决定你的获客打法是「地推 + 口碑」，不是「投标」。</p>
+  </div>
+
+  <div class="case">
+    <div class="tag">学完检验</div>
+    <h3>自测：你能向外行讲明白这三件事吗？</h3>
+    <p>① TTS 从文字到声音经过哪几步？② 为什么粤语的 TTS 比普通话难做？③ 教育场景里谁会为你的产品付钱？</p>
+    <p style="margin-top:10px">讲不明白就回到对应那一课重读——<b>能讲出来，知识才是你的。</b>（把答案录成 60 秒音频，顺便完成今天的口才训练。）</p>
+  </div>
+
+  </section>
+
+<!-- ============ 语言考证 ============ -->
+<section class="wrap" id="cert">
+  <div class="sec-head">
+    <div class="no">MODULE 14 · 语言考证</div>
+    <h2>证书：让别人三秒钟信你</h2>
+    <p>做语言生意的人，自己得先有语言凭证。证书不是目的，是敲门砖：投标、谈合作、招人时，对方没耐心听你讲故事，先看证。</p>
+  </div>
+
+  <div class="src-grid">
+    <div class="src"><span class="tag">英语 · 国际通行 <span class="lv lv1">官网</span></span><h3><a href="https://www.ielts.org/" target="_blank" rel="noopener">雅思 IELTS ↗</a></h3><p>全球最认的英语凭证，留学、移民、外企通用。澳门有考点，机考出分快。目标先定 6.5，再到 7.5。</p><div class="boss-view"><b>怎么用：</b>每天 30 分钟：BBC 6 Minute English 磨耳朵 + 跟读录音对比。口语题库直接拿来练口才模块。</div></div>
+    <div class="src"><span class="tag">英语 · 学术向 <span class="lv lv1">官网</span></span><h3><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener">托福 TOEFL ↗</a></h3><p>偏学术英语，想去北美读研究生就选它。听力占比重，正好喂给你的 TTS 耳朵。</p><div class="boss-view"><b>怎么用：</b>和雅思二选一先考。澳门、珠海都有考点，别两头烧钱。</div></div>
+    <div class="src"><span class="tag">翻译 · 国内含金量 <span class="lv lv1">官网</span></span><h3><a href="https://www.catticenter.com/" target="_blank" rel="noopener">CATTI 翻译资格证 ↗</a></h3><p>国内最硬的翻译证，口译方向和你的语音赛道直接相关。三级起步，二级能接单。</p><div class="boss-view"><b>怎么用：</b>考口译的过程就是练「听-转-说」的闭环，和你做语音产品的底层能力是同一条肌肉。</div></div>
+    <div class="src"><span class="tag">普通话 · 基础盘 <span class="lv lv1">官网</span></span><h3><a href="http://www.cltt.org/" target="_blank" rel="noopener">普通话水平测试 PSC ↗</a></h3><p>做语音产品，自己的发音就是样品。一级乙等以上是播音员水平，二级甲等是及格线。</p><div class="boss-view"><b>怎么用：</b>测试的「朗读短文 + 命题说话」环节就是现成的口才训练材料，一举两得。</div></div>
+    <div class="src"><span class="tag">粤语 · 没有证</span><h3>粤语：恰恰没有权威证书</h3><p>英语有雅思，普通话有 PSC，粤语呢？没有公认的国际凭证——这本身就是信号：这个领域的标准还没人立。</p><div class="boss-view"><b>机会在这：</b>你的自证方式不是考证，是作品：一段地道的粤语 TTS  demo、一套体感评测标准（见「体感评测」模块）、一个被别人引用的语料库。</div></div>
+    <div class="src"><span class="tag">研究生 · 长线</span><h3>研究生：按需，不为面子</h3><p>语言学、计算语言学、教育技术三个方向和你最相关。港澳高校（港大、港中文、澳大）都有相关硕士，部分可兼读。</p><div class="boss-view"><b>怎么用：</b>先把雅思/托福考出来——它是所有港澳研究生的入场券，考完证再决定读不读，选择权在自己手里。</div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:32px 0 14px">免费的名校课：考什么就补什么</h3>
+  <p class="cat-desc">这些是世界顶尖学校的<b>官方开源课</b>，免费、随时看。比刷短视频贵，比交学费便宜太多。</p>
+  <div class="src-grid">
+    <div class="src"><span class="tag">NLP · 斯坦福 <span class="lv lv1">一手</span></span><h3><a href="https://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener">Stanford CS224n ↗</a></h3><p>自然语言处理最出名的公开课，讲义、作业、视频全公开。语音和语言模型的地基课。</p><div class="boss-view"><b>怎么用：</b>不用全跟，挑「Speech」相关那几讲先看，配合 TTS 知识堂食用。</div></div>
+    <div class="src"><span class="tag">AI · 入门首选 <span class="lv lv1">一手</span></span><h3><a href="https://www.deeplearning.ai/" target="_blank" rel="noopener">DeepLearning.AI（吴恩达） ↗</a></h3><p>零基础到能动手的最短路径，短课程制，一门几小时。AI for Everyone 那门先看完。</p><div class="boss-view"><b>怎么用：</b>夜班空闲看一节，用五问模块拆一节，知识过夜就变成判断。</div></div>
+    <div class="src"><span class="tag">工程 · 实战 <span class="lv lv1">一手</span></span><h3><a href="https://www.fast.ai/" target="_blank" rel="noopener">fast.ai ↗</a></h3><p>「先跑起来再懂原理」的实战派课程，免费。适合学完吴恩达之后进阶。</p><div class="boss-view"><b>怎么用：</b>等你路线图走到第二阶段再碰，现在知道它在哪就行。</div></div>
+    <div class="src"><span class="tag">综合 · MIT <span class="lv lv1">一手</span></span><h3><a href="https://ocw.mit.edu/" target="_blank" rel="noopener">MIT OpenCourseWare ↗</a></h3><p>MIT 把全校课程放上网，计算机、数学、语言学都有，永远免费。</p><div class="boss-view"><b>怎么用：</b>当字典用，别当饭吃——哪个概念卡住了，来这里找对应课程章节。</div></div>
+    <div class="src"><span class="tag">中文 · 国内高校 <span class="lv lv1">一手</span></span><h3><a href="https://www.icourse163.org/" target="_blank" rel="noopener">中国大学MOOC ↗</a></h3><p>北大、浙大等高校的中文公开课。搜「语言学概论」「语音学」，中文听着不累。</p><div class="boss-view"><b>怎么用：</b>英语底子还弱时，先用中文课把语言学概念补齐，再上英文原版课。</div></div>
+    <div class="src"><span class="tag">播客 · 磨耳朵</span><h3>BBC / NPR / 香港电台</h3><p>英语听 BBC Learning English，粤语听香港电台（rthk.hk）。都是免费的一手语音素材，也是你 TTS 的参考标杆。</p><div class="boss-view"><b>怎么用：</b>通勤听，听到「这句话说得真好」就记下来——这就是你的语感素材库。</div></div>
+  </div>
+</section>
+
+<!-- ============ 体感评测 ============ -->
+<section class="wrap" id="feeling">
+  <div class="sec-head">
+    <div class="no">MODULE 15 · 体感评测</div>
+    <h2>体感分：技术参数之外，没人做的事</h2>
+    <p>现在全行业评 TTS 就看 MOS 分（专不专业的人听几秒打个分）。但没人回答真正重要的问题：<b>这段声音，人听 30 分钟累不累？信不信它？愿不愿意让它教自己孩子？</b>——技术参数大厂都有，体感参数没人立。你立，你就是标准。</p>
+  </div>
+
+  <div class="panel gold" style="margin-bottom:22px">
+    <h3>怎么用</h3>
+    <p style="font-size:14.5px;color:var(--text-2);margin-top:6px">随便找一段 AI 声音（豆包、讯飞、ElevenLabs 都行），认真听 3 分钟，然后凭感觉给下面五个维度打分。每周评一段，分数攒下来，半年后你就有一份别人没有的「粤语语音体感数据库」。</p>
+  </div>
+
+  <div class="qtool">
+    <div id="feel-form"></div>
+    <div class="row">
+      <button type="button" class="btn" id="feel-save">记下这次评测</button>
+    </div>
+  </div>
+
+  <div id="feel-history-wrap" style="margin-top:24px;display:none">
+    <h3 style="font-size:18px;margin-bottom:12px">我的体感档案</h3>
+    <div id="feel-radar" style="display:grid;place-items:center;margin-bottom:16px"></div>
+    <div class="note-list" id="feel-list"></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">这就是壁垒</div>
+    <h3>为什么这个打分表值钱</h3>
+    <p>大厂优化的是「听起来清楚」，因为清楚可以量化；没人优化「听起来像隔壁阿姐」，因为亲切没法写进论文。你的评测维度——自然、亲切、清晰、耐听、信任——全部来自真实用户感受。攒够 100 条评测，你就可以发布第一份《粤语 TTS 体感报告》，名字你来起，标准你来定。</p>
+  </div>
+</section>
+
+<!-- ============ 资源弹药库 ============ -->
+
+
+<!-- ============ 粤讲粤过瘾 · 本土文化 ============ -->
+
+
+<!-- ============ 高手拆解 ============ -->
+<section class="wrap" id="masters">
+  <div class="sec-head">
+    <div class="no">MODULE 17</div>
+    <h2>高手拆解</h2>
+    <p>想学高手怎么思考，最好的办法不是看书，是<strong>拆解高手怎么拆问题</strong>。每周拆一条顶级解释者的内容，半年后你的思维结构会向他们靠拢。<b style="color:var(--gold)">划线：本页只拆「高手怎么想问题」；看谁在赚钱去「同行在怎么做」，看公司怎么死、怎么防去「公司生死簿」和「政策与风浪」——三页各管一件事。</b></p>
+  </div>
+  
+  <div class="case" style="margin-top:0">
+    <div class="tag">高手方法 · AI 产品经理实战（零经验转行派）</div>
+    <h3>小选题大胜算：一个 Demo 讲清「需求 → 设计 → 评测」闭环</h3>
+    <p><b>心法一句话：</b>选题越小，越能体现产品 sense。「AI 求职助手」收窄成「只针对简历追问漏洞的小工具」，问题具体、效果可验证——比堆十个技术名词有竞争力一百倍。</p>
+    <p><b>先验证，再动手：</b>访谈 5–10 个目标用户，只问三句：你现在怎么解决这件事？哪里最不好用？如果有个工具帮你搞定，你愿意付多少钱？访谈本身就是成果。</p>
+    <p><b>第一版只做四个功能的闭环：</b>一套提示词能解决的问题，不上 RAG 不上 agent。能走完完整流程，比功能多重要。</p>
+    <p><b>做评测，比写「熟悉 Prompt」值钱：</b>攒 30–50 条真实测试样例，记录发现了什么问题、怎么定位、怎么改——失败案例和迭代过程，才是真正的能力证明。</p>
+    <p><b>翻译到你的赛道（你的「简历项目」）：</b>把「粤语课文配音 Demo」当这个小选题做——收窄到只做「上传课文 → AI 粤语配音 → 学生跟读 → 发音纠错」四个环节；先访谈 3–5 位澳门老师问上面三句话；用 30 篇真实课文做测试集，逐条听哪些字读错、哪种语气不对，按失败案例迭代。做完这个，你就有了一人公司的第一份「可展示的成果」。</p>
+  </div>
+
+  <div class="case">
+    <div class="tag">高手方法 · AI 博主三招（新媒体人实战）</div>
+    <h3>平行迁移法：热点是别人的，赛道是你的</h3>
+    <p><b>爆款的本质是迁移。</b>MBTI 火了，感情赛道做「INFP 喜欢的男生」，职场赛道做「INFP 晋升指南」。迁移到你的赛道：「AI 配音」火了，你就做「粤语配音为什么难」「澳门老师怎么用 AI 读课文」。热点是公共的，视角是你的。</p>
+    <p><b>工具选零门槛的。</b>本地部署能卡死 90% 的人——先用网页版工具跑通流程，说人话讲清需求 + 上传参考图就能出活。会做比会装重要。</p>
+    <p><b>边做边学边分享。</b>AI 不是学科是工具，会提问就会用。把你的学习过程发出来（小红书/B站），内容本身就是学习路径——这跟你做「粤语 TTS」是同一条路：先做 60 秒播报，再谈产品。</p>
+  </div>
+
+  <div class="case">
+    <div class="tag">高手方法 · 一人公司内容流水线（小红书 @吴师傅 实战）</div>
+    <h3>一个人管 17 个号的三步流：技能文件 → AI 剪辑 → 一键多发</h3>
+    <p><b>第一步 · 给 AI 写一份「技能说明书」。</b>把每个平台的尺寸、视频风格、字幕字体、音效习惯全部写进一个技能文件，AI 每次干活前先读它——不用每次重新交代。<b>这个思路你已经在用：</b>你的「每日简报」任务说明书，本质就是一份写给 AI 的技能文件。</p>
+    <p><b>第二步 · AI 连工具干活，不只聊天。</b>关键是选「能连工具（MCP）的 AI」：AI 把素材和脚本传给剪辑工具，自动加字幕、音效、贴图，剪完还能随时让 AI 看后台数据、聊下一条拍什么。只会聊天的 AI，跑不动这条流水线。</p>
+    <p><b>第三步 · 一键发到所有平台。</b>发布工具接上 AI，IG、TikTok、YouTube、LinkedIn、X 一次发完，连别的 App 都不用打开。</p>
+    <p><b>翻译到你的赛道：</b>你未来的「粤语内容获客流水线」就是这个结构——① 技能文件写死你的粤语风格规范（语气词、节奏、粤英夹杂习惯）；② AI + TTS 工具批量出内容（课文朗读、粤语金句短视频）；③ 一键多发到小红书 / B站 / YouTube。<b>你现在的系统已经有了一（简报任务）和三（自动发布到网站），中间的内容生产环节就是下一阶段要补的。</b></p>
+  </div>
+
+  <div class="case">
+    <div class="tag">高手方法 · 小满的AI日记本（小红书）</div>
+    <h3>需求六问：动手之前先过一遍</h3>
+    <p><b>她的方法一句话：</b>任何项目开工前，先答六句——给谁用？在什么场景下？完成什么任务？现在怎么做、卡在哪里？用户输入什么、输出什么？第一版先验证什么、暂时不做什么？</p>
+    <p><b>为什么值钱：</b>大多数项目死在「需求模糊」上，不是死在技术上。六问问完，模糊需求就变成了能开工的清单。</p>
+    <p><b>翻译到你的赛道：</b>拿这六问问你的粤语配音 Demo——给谁用（澳门小学老师）？什么场景（备课时生成课文朗读）？输入什么输出什么（课文文本 → 粤语音频）？第一版验证什么（老师愿不愿意真的用），暂时不做什么（不做 App、不做账号系统）。</p>
+  </div>
+
+  <div class="case">
+    <div class="tag">高手方法 · 是盐不是糖（小红书，前大厂产品）</div>
+    <h3>AI 汇报流水线：先定口径，再让 AI 干活</h3>
+    <p><b>她的流程：</b>① 先定口径——这次汇报是同步进度还是争取资源，重点完全不同；② 把散材料交给 AI 整理成底稿；③ 事实和结论自己核对，不硬给漂亮答案；④ 文稿转演示，逐页打磨重点；⑤ 关键流程配演示视频。</p>
+    <p><b>为什么值钱：</b>「该自己做的判断认真做，能让 AI 接过去的活就让它分担」——这就是人机分工的边界感，比任何提示词技巧都重要。</p>
+    <p><b>翻译到你的赛道：</b>你将来给学校提案、给政府报项目，就是这套流程。口径先行、AI 打底、人来把关——现在就用每日简报练这个手感。</p>
+  </div>
+
+  <div class="case">
+    <div class="tag">高手方法 · Dan Koe</div>
+    <h3>用 AI 把学习速度提高十倍：先定目标，边做边学</h3>
+    <p><b>核心一句话：</b>学得慢的人，是看了六个月教程却拿不出任何成果的人。学习必须以「做」为目的。</p>
+    <p><b>四步框架：</b>① 先定目标再学习——先想清楚用这个技能做成什么事，再倒推要学什么；② 项目驱动——直接启动一个项目（你的网站、你的 TTS Demo 就是项目），卡住了才去查资料问 AI，知识跟「解决问题」绑在一起才记得牢；③ 每天四块时间——项目实操 30–90 分钟、系统学习 30–60 分钟、散步听内容 30 分钟、写作输出单独安排；④ 输出倒逼输入——学完用自己的话讲出来，讲不通的地方就是盲区。</p>
+    <p><b>用在你身上的翻译：</b>别问「怎么学 TTS」，问「我要做出一个能给澳门学校用的粤语配音 Demo」——然后所有学习都围着它转。这和本站的「看完必须有输出」是同一条纪律。</p>
+  </div>
+
+  <div class="case" style="margin-top:22px">
+    <div class="tag">示范拆解 · 小Lin说</div>
+    <h3>一条视频的思维解剖：「为什么打仗了，黄金不涨反跌？」</h3>
+    <p><b>第 1 招 · 反直觉提问。</b>她不开门见山讲知识，而是先抛出一个「违反常识」的矛盾——打仗黄金应该涨，为什么跌了？<b>好问题是好内容的一半。</b>学到自己身上的用法：以后做任何表达，先找到那个「诶？为什么会这样」的钩子。</p>
+    <p><b>第 2 招 · 拆因果链。</b>她不说「市场很复杂」，而是一层一层拆：战争 → 避险情绪 → 但同时美元走强、利率、央行购金……谁在买、谁在卖、谁的力量大。<b>老板思维就是拒绝模糊答案，追问下一层。</b></p>
+    <p><b>第 3 招 · 类比降维。</b>宏观金融全部翻译成生活场景——这是她百万播放的核心：不是懂得多，是<strong>能把懂的讲给不懂的人</strong>（就是本站说的「看山还是山」）。</p>
+    <p><b>第 4 招 · 数据收口。</b>观点再漂亮，最后一定用图表和历史数据验证。<b>没有数据的观点只是观点。</b></p>
+    <p><b>第 5 招 · 落到行动。</b>结尾永远回答「所以普通人该怎么办」——思考必须有行动指向，和本站五问的第五问是同一个逻辑。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">每周一拆：高手内容解剖练习</h3>
+  <p style="font-size:14.5px;color:var(--text-2);margin-bottom:14px">每周挑一条下面的高手内容，看完回答五个问题（可以直接用本站「老板五问」记成笔记）：</p>
+  <div class="chain">
+    <div class="chain-step"><span class="n">1</span><div><b>他问的核心问题是什么？</b><p>这个问题为什么抓人？它违反了什么常识？</p></div></div>
+    <div class="chain-step"><span class="n">2</span><div><b>他的因果链有几层？</b><p>试着画出来：A → B → C，每层之间凭什么成立？</p></div></div>
+    <div class="chain-step"><span class="n">3</span><div><b>他用了什么类比？</b><p>这个类比好在哪里？换我来讲会用什么？</p></div></div>
+    <div class="chain-step"><span class="n">4</span><div><b>他的数据哪来的？</b><p>是一手数据还是转述？回到本站的信息分级想一想。</p></div></div>
+    <div class="chain-step"><span class="n">5</span><div><b>换成我，结尾会给什么行动建议？</b><p>如果我是这个领域的小老板，这条信息对我意味着什么？</p></div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">值得长期拆解的高手清单</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">财经科普</span><h3><a href="https://www.youtube.com/@xiao-lin" target="_blank" rel="noopener">小Lin说 ↗</a></h3><p>把宏观经济、商业案例讲成故事的顶级高手，YouTube / B站 / 小红书都有。</p><div class="boss-view"><b>拆解重点：</b>她怎么提问、怎么用类比、怎么收口到行动。</div></div>
+    <div class="src"><span class="tag">商业逻辑</span><h3><a href="https://space.bilibili.com/37663924" target="_blank" rel="noopener">半佛仙人 ↗</a></h3><p>用利益视角拆商业现象的高手——「谁赚钱、谁买单」的分析套路值得学。</p><div class="boss-view"><b>拆解重点：</b>他怎么找到一件事里真正的利益方。</div></div>
+    <div class="src"><span class="tag">科技科普</span><h3><a href="https://space.bilibili.com/344490605" target="_blank" rel="noopener">智能路障 ↗</a></h3><p>AI 与科技话题的深度科普，论文和数据的运用方式很扎实。</p><div class="boss-view"><b>拆解重点：</b>他怎么把论文变成人话——你做 TTS 内容用得上。</div></div>
+    <div class="src"><span class="tag">表达大师课</span><h3><a href="https://www.ted.com/" target="_blank" rel="noopener">TED ↗</a></h3><p>全球顶级演讲库，每一场 18 分钟都是 PREP 框架的满分示范。</p><div class="boss-view"><b>拆解重点：</b>开场 30 秒怎么抓人，结尾怎么收。</div></div>
+  </div>
+
+
+  </section>
+
+<!-- ============ 同行玩法雷达 ============ -->
+<section class="wrap" id="radar">
+  <div class="sec-head">
+    <div class="no">MODULE 18</div>
+    <h2>同行在怎么做</h2>
+    <p>做事之前先看同行。以下是「语音 + 教育」赛道<strong>真实赚到钱</strong>的公司，和它们验证过的商业模式——你的作业不是抄，是拆。<b style="color:var(--gold)">划线：本页只看「活着的同行靠什么赚钱」；学思维方式去「高手拆解」，看死因教训去「公司生死簿」。</b></p>
+  </div>
+    <h3 style="font-size:19px;margin-bottom:14px">同行案例：四条被验证过的路</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">对标 · 语音口语</span><h3>Speak（美国/韩国）</h3><p>AI 语音口语陪练，约 1 亿美元年经常性收入，估值 10 亿美元，OpenAI 战略投资。证明「语音交互 + 语言学习」是真实的大生意。</p><div class="boss-view"><b>我能学什么：</b>它不做粤语。同样的打法 + 你的粤语护城河 = 你的市场定位。</div></div>
+    <div class="src"><span class="tag">对标 · 虚拟形象</span><h3>Praktika</h3><p>GPT + 3D 虚拟形象，模拟不同地域口音的真人对话，主打职场英语刚需人群。</p><div class="boss-view"><b>我能学什么：</b>「真实感」是语言产品的付费点——口音、语气、临场感。</div></div>
+    <div class="src"><span class="tag">对标 · 雅思</span><h3>大宇言科技（中国）</h3><p>用多个 AI 智能体把雅思备考重做一遍：解题、出题、答疑、归因各管一段。</p><div class="boss-view"><b>我能学什么：</b>垂直考试赛道（雅思）能被 AI 重做——那粤语教学呢？</div></div>
+    <div class="src"><span class="tag">对标 · 出海</span><h3>AI Chinese（嗨你好教育）</h3><p>用 AI 模拟真人老师教外国人学中文，靠 TikTok 短视频获客，已进入印尼、越南、泰国。</p><div class="boss-view"><b>我能学什么：</b>语言产品 + 短视频获客 + 东南亚出海的路径是现成的。</div></div>
+    <div class="src"><span class="tag">对标 · 一人公司</span><h3><a href="https://github.com/jiangjiax/counsel" target="_blank" rel="noopener">鲤哥builder · counsel（AI 私董会） ↗</a></h3><p>独立开发者把「私董会」做成开源项目：12 个 AI 幕僚角色同时帮你拆一个决策，小红书系列《一人公司养成记》记录全过程。</p><div class="boss-view"><b>我能学什么：</b>一人公司不是口号——用多智能体补上「没有合伙人」的短板。同样思路可以做「12 个粤语老师帮你审一篇课文」。</div></div>
+    <div class="src"><span class="tag">对标 · 信息差生意</span><h3>小红书上的「n8n 热点捕捉器 / 定制信息日报」教程</h3><p>大量博主在教「用 n8n 搭全自动 AI 热点捕捉器」「定制专属信息日报」——评论区全在求教程。这说明「把信息自动送到面前」是真实痛点，有人已经在教、在收费。</p><div class="boss-view"><b>我能学什么：</b>两件事。① 你手上的系统（每晚五领域深挖简报 + 自动更新到网站）比那些教程做的还深——这是你 already 拥有的能力凭证；② 教程本身是一门生意：等你跑顺了，把「澳门老板情报系统」做成内容发出去，就是获客渠道。</div></div>
+    <div class="src"><span class="tag">作弊技巧 · 场景库</span><h3><a href="https://www.workbuddy.cn/work/" target="_blank" rel="noopener">WorkBuddy 专家中心 ↗</a></h3><p>腾讯系 AI 工作台，150+ 专家覆盖 12 个行业。它的专家目录就是<strong>被市场验证过的应用场景清单</strong>：合同审查、作文批改、单元备课、公众号内容团、舆情分析、竞品调研……每个专家名背后都是一个真实付费场景。</p><div class="boss-view"><b>怎么抄（挑感兴趣的模仿）：</b>①「单元备课专家团」→ 你的「粤语课件包」：课文朗读+练习+发音批改一站交付；②「作文批改专家」→「粤语发音批改」：学生跟读录音，AI 打分纠错；③「公众号内容专家团」→ 你自己的内容获客流水线；④「一人公司 OPC」→ 你的终局形态参考。记住口诀：<b>技能是工具，专家是顾问，专家团是部门</b>——你将来卖的不是 TTS 技术，是「一个部门」。</div></div>
+  </div>
+  <div class="case">
+    <div class="tag">商业模式四分法（行业通行）</div>
+    <h3>AI 教育公司赚钱只有四种方式</h3>
+    <p><b>① 卖技术</b>（把模型能力授权给机构，按量收费）· <b>② 卖产品</b>（软硬一体，如学习机、词典笔）· <b>③ 卖服务</b>（订阅制，Speak 走的就是这条）· <b>④ 卖知识</b>（AI 技能培训）。</p>
+    <p style="margin-top:8px">你的粤语 TTS 最适合从 <b>③ 卖服务</b>切入（订阅制朗读/陪练工具），做大后向 <b>① 卖技术</b>升级（把粤语语音能力授权给别的教育公司）。同时记住同行的教训：B 端（学校）看起来美，但落地速度远低于预期——先 C 端验证付费，再碰 B 端。</p>
+  </div>
+  <div class="case">
+    <div class="tag">打法 · 开源时代最快的学习是复刻</div>
+    <h3>看到好项目别想三个月——直接 fork，跑起来，改成你的</h3>
+    <p><b>第一步 · 找：</b>GitHub 搜「TTS」「voice clone」「agent」，按 Star 排序，挑最近三个月还在更新的。</p>
+    <p><b>第二步 · 跑：</b>把 README 丢给 AI：「带我一步步跑通这个项目，我是新手」。卡住就截图问——AI 就是你随叫随到的技术合伙人。</p>
+    <p><b>第三步 · 改：</b>把示例数据换成你的粤语录音，把界面文案换成澳门场景——改动 20%，它就开始变成你的产品。</p>
+    <p><b>第四步 · 发：</b>把你的版本公开发布并写上学习笔记。这就是作品集，也是别人找到你的入口——鲤哥就是这样被看见的。</p>
+  </div>
+  <h3 style="font-size:19px;margin:28px 0 14px">老板访谈情报源：听一线玩家怎么想</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">中文 · AI 一线 <span class="lv lv1">一手</span></span><h3><a href="https://space.bilibili.com/280780745" target="_blank" rel="noopener">张小珺商业访谈录 ↗</a></h3><p>采访过 Kimi 杨植麟、Manus 团队等 AI 一线创始人的深度对谈。</p><div class="boss-view"><b>怎么听：</b>注意创始人怎么讲「为什么做这件事」——那是融资级的叙事。</div></div>
+    <div class="src"><span class="tag">中文 · 消费创业 <span class="lv lv1">一手</span></span><h3><a href="https://crazy.capital/" target="_blank" rel="noopener">疯投圈 ↗</a></h3><p>黄海主持，每期拆一个真实创业公司：增长、定价、风险管控全摆上桌。</p><div class="boss-view"><b>怎么听：</b>它的每节目前置问题清单，就是最好的五问素材。</div></div>
+    <div class="src"><span class="tag">英文 · 创业故事</span><h3><a href="https://www.npr.org/series/490248027/how-i-built-this" target="_blank" rel="noopener">How I Built This ↗</a></h3><p>NPR 王牌节目，创始人亲述从零到一的真实过程。</p><div class="boss-view"><b>怎么听：</b>练英语听力 + 学创业叙事，一箭双雕。</div></div>
+    <div class="src"><span class="tag">英文 · 公司史</span><h3><a href="https://www.acquired.fm/" target="_blank" rel="noopener">Acquired ↗</a></h3><p>每期 3 小时拆一家伟大公司的完整历史，硅谷投资人的必修课。</p><div class="boss-view"><b>怎么听：</b>先挑英伟达、任天堂等熟面孔那几期。</div></div>
+  </div>
+  <div class="case">
+    <div class="tag">方法论 · Steve Blank</div>
+    <h3>客户发展：几乎所有初始想法都是错的</h3>
+    <p>硅谷「创新大师」 Steve Blank 的核心结论：Instagram、Twitter 开始做的都不是后来爆红的产品。<b>区别在于：他们走出办公室，用真实客户不断测试和修正想法。</b>对应到你：访谈 10 位老师、帮 1 所学校免费配音——这些不是「准备工作」，这就是创业本身。</p>
+  </div>
+  
+</section>
+
+<!-- ============ 泡沫鉴别器 ============ -->
+<section class="wrap" id="hype">
+  <div class="sec-head">
+    <div class="no">MODULE 19</div>
+    <h2>鉴别风口</h2>
+    <p>风口上最多的话是「这次不一样」。听到任何「机会」「风口」「颠覆」，用这七条标准过一遍——<strong>这是我们自己的尺子，不靠别人告诉我们什么是真的。</strong></p>
+  </div>
+    <div class="qtool">
+    <label style="display:block;color:var(--gold);font-weight:700;margin-bottom:6px;font-size:15px">把你要鉴别的说法写在前面</label>
+    <textarea id="hype-claim" placeholder="例如：「AI 教育是今年最大的风口，不做就晚了」" style="width:100%;min-height:64px;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical"></textarea>
+    <div class="items" style="margin-top:16px">
+      <label class="check"><input type="checkbox" data-h="h1"><span><b>有人真金白银付钱吗？</b>看付费和续费，不看下载量和「用户量」。</span></label>
+      <label class="check"><input type="checkbox" data-h="h2"><span><b>是复购还是一次性买卖？</b>能复购的才是生意，一次性的是项目。</span></label>
+      <label class="check"><input type="checkbox" data-h="h3"><span><b>数据是一手的吗？</b>「市场规模百亿」是谁数的？卖报告的人有自己的利益。</span></label>
+      <label class="check"><input type="checkbox" data-h="h4"><span><b>过 12 个月还有人谈它吗？</b>时间是最狠的过滤器，元宇宙和区块链都经历过。</span></label>
+      <label class="check"><input type="checkbox" data-h="h5"><span><b>喊「风口」的人赚什么钱？</b>卖课的赚学费，券商赚佣金——他们赚钱不需要风口是真的。</span></label>
+      <label class="check"><input type="checkbox" data-h="h6"><span><b>不用 AI 能做到 80% 吗？</b>如果能，AI 只是包装纸；真需求是「没 AI 就做不成」。</span></label>
+      <label class="check"><input type="checkbox" data-h="h7"><span><b>单位经济算得过来吗？</b>每服务一个客户，收入大于成本吗？算不清的生意做不大。</span></label>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn" id="hype-judge">出鉴别结果</button>
+      <button class="btn ghost" id="hype-reset">清空重来</button>
+    </div>
+    <div id="hype-verdict" style="margin-top:18px"></div>
+  </div>
+  <div class="case" style="margin-top:18px">
+    <div class="tag">示范 · 一次真实鉴别</div>
+    <h3>说法：「元宇宙教育是十年最大风口」（2021 年的流行语）</h3>
+    <p>逐条过：有人真金白银付钱吗（零星采购，无复购 ✗）· 能复购吗 ✗ · 数据多出自卖报告的机构 ✗ · 12 个月后无人再谈 ✗ · 喊风口的是卖课卖设备的 ✗ · 不用 VR 也能教 ✗ · 单位经济算不清 ✗ → <b>0–2 / 7，泡沫警报</b>。三年后回看：判断正确。</p>
+    <p style="margin-top:8px"><b>反过来测「AI 语音教育」：</b>大约能过 4–5 条（有人付费、可复购、部分需求没 AI 做不成），结论不是「冲」，而是「小成本验证」——这就是鉴别器的正确用法：<b>它不替你做决定，它告诉你下一步去验证什么。</b></p>
+  </div>
+  
+</section>
+
+<!-- ============ 差异化与文化护城河 ============ -->
+<section class="wrap" id="moat">
+  <div class="sec-head">
+    <div class="no">MODULE 20</div>
+    <h2>差异化：凭什么不是千篇一律</h2>
+    <p>所有人都用同一批 AI、追同一批热榜、套同一批模板——内容正在趋同。这一页解决两件事：<strong>高手到底怎么做研究、拿到一线资讯；以及你的岭南文化底蕴怎么变成别人抄不走的产品</strong>。模型会趋同，文化不会。</p>
+  </div>
+
+  <div class="case" style="margin-bottom:20px">
+    <div class="tag">总原则 · 分工论</div>
+    <h3>硬实力租用，软实力自建</h3>
+    <p>巨头有硬实力（模型、算力、资本），你有软实力（文化、社区、本地信任）。<b>这不是劣势，是分工</b>——就像有人做开发、有人管后台：模型让巨头去烧几十亿训练，你站在他们肩膀上做他们懒得做的那一层。</p>
+    <p><b>硬实力一律租用：</b>开源模型（CosyVoice / Qwen3-TTS）、云算力、平台流量（B站/小红书/YouTube）——能租的绝不自建，省下的全部投给软实力。</p>
+    <p><b>软实力必须自建：</b>粤语文化理解、独家授权语料、社区信任、学校与政府的本地关系、个人品牌——<b>凡是「别人拿不走的」，一砖一瓦都要是自己的</b>。</p>
+    <p style="color:var(--text-2);font-size:14px"><b>判断一句话：</b>巨头是发电厂，你是餐馆——电不用自己发，但菜必须自己炒。停电预案（开源模型自部署）要有，但日常绝不为了发电耽误了炒菜。</p>
+  </div>
+
+  <div class="case" style="margin-bottom:20px">
+    <div class="tag">推演 · 假如明天被围剿</div>
+    <h3>巨头全线翻脸，我们还剩什么：五件自有武器</h3>
+    <p>把最坏的情况摆上桌：API 断供、底座模型收回商用许可、价格战清场、律师函告侵权、平台封号——<b>每一招都有对应的一件自有武器</b>：</p>
+    <p>① <b>自己的声音数据</b>（对断供/收回许可）——录音棚 + 澳门本地人授权录音，攒的是任何人收不走的资产。模型可以换，独家语料换不掉。</p>
+    <p>② <b>可自部署的开源底座</b>（对 API 断供）——CosyVoice / Qwen3-TTS 权重在自己硬盘上，断供了照样出活。这就是为什么哨兵天天盯许可证。</p>
+    <p>③ <b>干净的授权链</b>（对律师函）——每段录音有签名授权书、每个模型有许可证台账、每个 AI 输出有合成标识。<b>想告你侵权，先得有缝——你不给他缝。</b></p>
+    <p>④ <b>自有渠道</b>（对平台封号）——自己的网站 + 邮件列表 + 私域联系方式。平台是租来的店面，名单才是自己的房产证。</p>
+    <p>⑤ <b>文化叙事与社区</b>（对价格战清场）——巨头可以赔本卖语音，卖不了「粤语复兴」这面旗。为使命聚过来的人，不为便宜五毛钱走。</p>
+  </div>
+
+  <div class="case" style="margin-bottom:20px">
+    <div class="tag">资产 · 活证据</div>
+    <h3>你自己就是这家公司的第一件产品</h3>
+    <p>一个澳门夜班打工人，从零开始学会多门语言、亲手搭起粤语 TTS 公司——<b>这个故事本身就是最强佐證</b>：你卖「语言可以学会」，你自己就是证据；你卖「AI 让一个人也能开公司」，你自己就是证据。</p>
+    <p><b>所以你的成长必须留痕、且公开：</b>每天打卡的记录、录音棚的声音数据集（第一周 vs 第三十周的对比就是广告）、考下的每张证书、跑通的每个 Demo——全部存证、全部可展示。<b>别人的公司要花百万做品牌故事，你的品牌故事就是你正在过的每一天。</b>成长档案 = 公司资产，这不是鸡汤，是资产负债表上的一行。</p>
+  </div>
+
+  <div class="case" style="margin-bottom:20px">
+    <div class="tag">定位 · 红线</div>
+    <h3>不做卖课的，做推动者</h3>
+    <p>教育商业化是一体两面，但终点不能是「卖课」——卖课把自己变成内容，天花板低、红海卷、停更就死。<b>推动者做的是轨道，不是车厢</b>：你定标准、造工具、开模式，全世界的人在你的轨道上跑，跑得越多你越值钱。</p>
+    <p><b>推动者的四个标志：</b>① <b>定标准</b>——粤语语音评测怎么打分、音频水印怎么嵌、录音授权书怎么签，你先把模板做出来公开，别人跟着用，你就是事实标准；② <b>造工具</b>——TTS 引擎、评测系统、MCP 接口，让老师在你的工具上开自己的课，而不是你替他们上课；③ <b>让别人赚钱</b>——录音众包让街坊赚钱、老师用你的工具提效赚钱，生态里的人赚到钱，才有人真心跟着你；④ <b>留名在节点上</b>——「粤语 AI 语音」这个词条被人提起时，第一个想到的是你。</p>
+    <p style="color:var(--text-2);font-size:14px"><b>岔路口自检：</b>以后每做一个产品决策，问一句——这是「又卖了一份课」，还是「又铺了一段轨」？只铺轨，不摆摊。</p>
+  </div>
+
+  <div class="case" style="margin-bottom:20px">
+    <div class="tag"> doctrine · 人与规矩</div>
+    <h3>就业公式、抄袭的规矩、标杆的自我要求</h3>
+    <p><b>「AI 取代人」的标准答案：</b>AI 取代的是岗位里的「重复动作」，留下的是「判断」。我们的模式把 AI 放在工具位、人放在判断位——机器量产，人做文化裁决。所以每个环节都长出新的人类岗位：录音员、标注员、评测师、文化顾问、社区运营。<b>我们不是和 AI 抢工作，是批发「AI 时代的新工作」——这就是回答社会焦虑的产品版。</b></p>
+    <p><b>抄袭与创造的规矩（诚实版）：</b>模仿是学习的必经之路，你自己也是拆高手起步的。规矩只有三条：① <b>学骨架不偷皮肉</b>——方法论可以搬，内容和数据不能搬；② <b>站在源头要致敬</b>——标注出处不是示弱，是信誉存款；③ <b>被抄袭时记住</b>：抄得走的都不是护城河——语料、社区、本地关系抄不走。从学习者到创造者的转身点：把学来的骨架，装进自己的文化血肉。</p>
+    <p><b>标杆的自我要求：</b>法律是地板，口碑是天花板。我们对自己的要求永远比法规高半格：水印和标识法规还没罚到我们头上就先做好；授权书还没人查就先签好；情感操控的灰色钱还没赚到就先声明不赚。<b>以身作则不是道德表演，是最便宜的竞争壁垒——当行业出事后，干净的人自动成为标杆。</b></p>
+  </div>
+  
+  <h3 style="font-size:19px;margin-bottom:14px">一、拆解：真材实料的博主是怎么做研究的</h3>
+  <div class="src-grid">
+    <div class="src"><span class="tag">局内人访谈 · 财经</span><h3><a href="https://www.xiaoyuzhoufm.com/" target="_blank" rel="noopener">知行小酒馆（小宇宙搜「知行小酒馆」） ↗</a></h3><p>典型打法：不聊「AI 有多厉害」，偏问「AI 的渗透率、对人的替代率，会不会根本没有想象中那么快」——<b>反共识提问</b>，再请一线操盘手（基金经理、创业者）用事实回应。评论区几百条留言在追问主持人的背景，说明一件事：真材实料的对谈，观众是能听出来的。</p><div class="boss-view"><b>偷师：</b>好选题 = 一个「大家都这么认为，但真的吗？」的问题。约不到局内人，就先听他们被深度访谈的节目。</div></div>
+    <div class="src"><span class="tag">数据深挖 · 财经科普</span><h3>小Lin说<span style="font-size:12.5px;color:var(--text-3);font-weight:400">（链接见「高手拆解」）</span></h3><p>团队化调研：选题从反直觉矛盾出发，写稿回到一手数据——财报、央行报告、原始论文，最后才用类比翻译成故事。一条 20 分钟的视频，背后是几十份原始材料。</p><div class="boss-view"><b>偷师：</b>观点可以借，数据必须自己查。查不到出处的数字，不要写进你的内容。</div></div>
+    <div class="src"><span class="tag">利益链视角</span><h3>半佛仙人<span style="font-size:12.5px;color:var(--text-3);font-weight:400">（链接见「高手拆解」）</span></h3><p>任何商业现象先问三句：谁赚钱？谁买单？谁被收割？顺着利益链找，驱动者自己会浮出来。</p><div class="boss-view"><b>偷师：</b>看不懂一件事时，把利益方画出来——零成本的研究方法。</div></div>
+    <div class="src"><span class="tag">公司史 · 英文</span><h3>Acquired<span style="font-size:12.5px;color:var(--text-3);font-weight:400">（链接见「同行玩法雷达」）</span></h3><p>每期 3 小时拆一家伟大公司，背后是数月的原始材料阅读：招股书、年报、创始人访谈、传记全部读一遍。</p><div class="boss-view"><b>偷师：</b>深度内容没有捷径，信息密度本身就是壁垒——这也是播客这种「慢媒介」反而值钱的原因。</div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">二、一线资讯侦察五步法（这就是我们的思考模式）</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">1</span><div><b>追到源头</b><p>公告、财报、论文、招股书、GitHub Release——没经过加工的那一份。信息每被转述一次，就丢一分真。</p></div></div>
+    <div class="chain-step"><span class="n">2</span><div><b>问局内人</b><p>操盘手一句话，胜过评论员十篇文章。约不到本人，就听他们的深度访谈：知行小酒馆、张小珺、疯投圈、Acquired。</p></div></div>
+    <div class="chain-step"><span class="n">3</span><div><b>泡一线社群</b><p>GitHub Issues、Discord、即刻、X——从业者的闲聊比新闻早三个月。他们反复抱怨的东西，就是没被满足的需求。</p></div></div>
+    <div class="chain-step"><span class="n">4</span><div><b>亲手验证</b><p>跑一遍 Demo、用一次产品、访谈一个用户。「我亲手试过」和「我听说」，是两种完全不同的认知。</p></div></div>
+    <div class="chain-step"><span class="n">5</span><div><b>三角验证</b><p>三个互不相关的来源说同一件事，才写进你的判断。单一来源的信息，一律标记「未验证」。</p></div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">三、本周侦察任务 <span style="font-size:13px;color:var(--text-3);font-weight:400">（每周自动重置 · <span id="recon-progress">0 / 5</span>）</span></h3>
+  <div class="qtool">
+    <label class="check"><input type="checkbox" data-r="r1"><span><b>听一期局内人访谈</b>（知行小酒馆 / 张小珺 / Acquired 任选），写三行：他的核心判断、他的信息从哪来、我不同意的一点</span></label>
+    <label class="check"><input type="checkbox" data-r="r2"><span><b>追一条热门说法到一手出处</b>（公告 / 财报 / 论文），记下中间被转述扭曲了什么</span></label>
+    <label class="check"><input type="checkbox" data-r="r3"><span><b>亲手用一个本周新出的 AI 工具</b> 30 分钟，写 100 字真实体验——「我亲手用过」和「我听说」是两回事</span></label>
+    <label class="check"><input type="checkbox" data-r="r4"><span><b>泡一次从业者聚集地</b>（GitHub Issues / 即刻 / X），记下他们闲聊里反复出现的三个词</span></label>
+    <label class="check"><input type="checkbox" data-r="r5"><span><b>把一条五问笔记改写成「只有你能写出来」的版本</b>：加一段你的真实经历、一个明确立场、一个粤语类比（用下方的改写器）</span></label>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">四、反同质化：AI 拿不走的四样东西</h3>
+  <div class="habit-grid">
+    <div class="habit"><h3>真实经历</h3><p>夜班落班听到的学生对话、澳门街头的场景——AI 没有你的生活，这就是独家素材。记下来，用进去。</p></div>
+    <div class="habit"><h3>明确立场</h3><p>AI 永远「一方面……另一方面……」。敢下判断、敢错、敢修正——有立场的人才值得被关注。</p></div>
+    <div class="habit"><h3>幽默感</h3><p>幽默 = 预期违背 + 真实痛感。自嘲、意外类比、反转结尾三招可练（下方有示范）。栋笃笑是你的免费教科书。</p></div>
+    <div class="habit"><h3>在地文化</h3><p>把 TTS 说成「老火汤」而不是「赋能生态」——粤语梗和本地类比，是你和全网 AI 腔之间最显眼的分界线。</p></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">幽默三招 · 示范</div>
+    <h3>同一句话，AI 腔 vs 你的腔</h3>
+    <p><b>AI 腔：</b>「人工智能技术正在深刻改变教育行业。」——正确、无聊、谁都能生成。</p>
+    <p><b>自嘲式：</b>「我，一个夜班打工人，英文零基础，居然想做 AI 教育——因为连 AI 都把粤语读错，我读错起码平啲。」</p>
+    <p><b>意外类比式：</b>「现在的 AI 语音就像茶餐厅的例汤：有得饮，但你一啖就知系冲出来的。我要做的是老火汤。」</p>
+    <p><b>反转式：</b>「人人都说 AI 要取代老师。我去学校问了一圈，老师最想要的其实是——有人替她把课文读一遍，让她的嗓子撑到星期五。」</p>
+    <p style="margin-top:10px"><b>规律：</b>三种改写都不靠辞藻，靠的是<b>具体场景 + 真实细节 + 意外角度</b>。这些 AI 编不出来，因为它们在你的生活里，不在训练数据里。</p>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">五、人格化改写器：每天救活一句「AI 腔」</h3>
+  <div class="qtool">
+    <label for="rw-input">抽一句 AI 腔，改写成「只有你能写出来」的话</label>
+    <div class="hint">要求：至少放进一个你的真实细节（场景、数字或粤语表达），再给它一个明确立场。攒够 30 条，就是你的表达风格库。</div>
+    <div class="note" style="margin-bottom:12px"><p id="rw-src" style="font-size:15px">点击下方按钮，抽一句 AI 腔</p></div>
+    <textarea id="rw-input" placeholder="写下你的改写……"></textarea>
+    <div class="row">
+      <button type="button" class="btn ghost" id="rw-draw">换一句</button>
+      <button type="button" class="btn" id="rw-save">存下我的改写</button>
+    </div>
+    <div class="note-list" id="rw-notes"></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:28px 0 14px">六、文化护城河：把岭南底蕴变成产品功能</h3>
+  <div class="chain">
+    <div class="chain-step"><span class="n">剧</span><div><b>粤剧粤曲念白</b><p>产品化：戏剧化朗读引擎——情感 TTS 最缺的训练素材就在戏行。「粤剧进校园」有声教材还是政策友好型产品。</p></div></div>
+    <div class="chain-step"><span class="n">笑</span><div><b>栋笃笑节奏</b><p>产品化：幽默语音包与播客音色——黄子华的停顿、节奏、反转，就是韵律模型的黄金参照。</p></div></div>
+    <div class="chain-step"><span class="n">茶</span><div><b>茶餐厅场景</b><p>产品化：情景口语课——「落单」「搭枱」「埋单」是最真实的粤语对话教材，也是语言学习者最想学的生存粤语。</p></div></div>
+    <div class="chain-step"><span class="n">影</span><div><b>港片港乐</b><p>产品化：经典台词情感语料（注意版权，用授权或自录致敬版）——几代人的共同记忆，是最强的传播杠杆。</p></div></div>
+    <div class="chain-step"><span class="n">葡</span><div><b>中葡交汇</b><p>产品化：「粤语 + 葡语」双语语音产品——全球独一份。澳门街名、土生葡语、节庆巡游解说，都是只有站在澳门才能做的内容。</p></div></div>
+    <div class="chain-step"><span class="n">节</span><div><b>醒狮与民间故事</b><p>产品化：儿童有声内容 IP——把岭南民间故事做成粤语有声书，学校和家庭都买账，还能申请文化类资助。</p></div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">核心逻辑 · 文化自信是商业策略</div>
+    <h3>大厂做的是「语言」，你做的是「地方」</h3>
+    <p>大模型公司的粤语支持会越来越好——这是事实，不用回避。但<b>技术趋同的时代，文化就是差异化</b>：模型读得出粤语，读不懂「点解茶餐厅伙记落单咁快都唔会错」里的市井智慧；合成得出声音，合成不出澳门阿婆认可的那句问候。</p>
+    <p style="margin-top:8px"><b>把文化翻译成资产负债表的语言：</b>独家语料（你的录音素材库）+ 独家语境（岭南文化理解）+ 独家审美（什么算地道的判断）= 无形资产。它不写在报表上，但收购和合作谈的就是它。</p>
+    <p style="margin-top:8px"><b>行动衔接：</b>文化素材怎么每天攒，见「资源弹药库」第二节；攒够素材后怎么用五步法验证成产品，回本模块顶部。</p>
+  </div>
+  </details>
+</section>
+
+<!-- ============ AI 员工团队 ============ -->
+<section class="wrap" id="team">
+  <div class="sec-head">
+    <div class="no">MODULE 21 · 虚拟团队</div>
+    <h2>AI 员工：一人公司，不代表一个人干</h2>
+    <p>你的公司现在就开工了——员工是 AI，不要工资、不下班。但 AI 员工和真人一样：<b>没有岗位职责，它就只会聊天；有了职责，它才会干活。</b>下面六张聘书，每张都有现成的「岗位说明书」，复制给任何 AI（Kimi、ChatGPT、豆包都行），它立刻上岗。</p>
+  </div>
+
+  <div class="src-grid">
+    <div class="src"><span class="tag">情报官 · 每天</span><h3>📡 情报官</h3><p>每天扫五个领域，按一二三级分好，只送值得看的。对应本站的每日简报和快讯。</p><div class="boss-view"><b>上岗口令：</b>「你是我的情报官。每天给我 5 条以内的新闻：AI/语音 2 条、澳门与大湾区政策 1 条、教育 1 条、金融 1 条。每条附一句话摘要、原始出处链接、对我（在澳门做粤语 TTS 初创）的影响。不要自媒体转述，只要一手来源。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+    <div class="src"><span class="tag">学习教练 · 每天</span><h3>🎓 学习教练</h3><p>排考证节奏、带你拆新闻、追连击。对应 AI 教练、五问、语言考证。</p><div class="boss-view"><b>上岗口令：</b>「你是我的学习教练。背景：澳门夜班打工人，目标做粤语 TTS 公司，在备考雅思。每周一给我排本周学习表，每晚用五个问题带我拆一条新闻，周末检查完成度。不许讲大道理，只给能执行的动作。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+    <div class="src"><span class="tag">评测员 · 每周</span><h3>🎚️ 产品评测员</h3><p>维护你的体感数据库，盯竞品的声音做得怎么样。对应体感评测模块。</p><div class="boss-view"><b>上岗口令：</b>「你是我的语音产品评测员。我给你一段 AI 语音（文字描述或链接），你从自然度、亲切感、清晰度、耐听度、信任感五个维度各打 1-5 分并说理由，最后给一句判断：该不该用在粤语教育产品里。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+    <div class="src"><span class="tag">编辑 · 每周</span><h3>✍️ 内容编辑</h3><p>把情报变成播报稿、把学到的东西变成能发的内容。对应高手拆解、视频课。</p><div class="boss-view"><b>上岗口令：</b>「你是我的内容编辑。把我给你的新闻或笔记改写成 60 秒粤语播报稿：口语化、有金句、结尾留一个让人想评论的问题。繁体字，澳门用语习惯。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+    <div class="src"><span class="tag">健康管家 · 每周</span><h3>💪 健康管家</h3><p>夜班是拿命换钱，得有个人盯着你的作息。对应身体作息模块。</p><div class="boss-view"><b>上岗口令：</b>「你是我的健康管家。我上夜班，凌晨下班。帮我排作息表，盯睡眠和锻炼。每周日检查一次我的执行，语气直接，不许客气。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+    <div class="src"><span class="tag">财务哨兵 · 每月</span><h3>💰 财务哨兵</h3><p>盯补贴、盯定价、盯成本。对应信息渠道的政策源和同行雷达。</p><div class="boss-view"><b>上岗口令：</b>「你是我的财务哨兵。盯澳门/横琴的科技补贴、创业资助、TTS 行业定价动态。每月给我一份：我现在能申请什么、竞品在收什么价、这个月该省什么。」<br><button type="button" class="mini-btn hire-btn" style="margin-top:8px">复制聘书</button></div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">每周日 30 分钟 · 经营会</div>
+    <h3>周会流程：六个员工挨个汇报，老板只做一件事——拍板</h3>
+    <p><b>① 情报官（5 分钟）：</b>本周最重要的三条情报，每条一句「对我们意味着什么」。</p>
+    <p><b>② 评测员（5 分钟）：</b>本周体感评测结果，竞品有没有进步，我们的五维雷达哪边塌了。</p>
+    <p><b>③ 学习教练（5 分钟）：</b>学习进度汇报，没完成的直说，下周计划当场排。</p>
+    <p><b>④ 内容编辑（5 分钟）：</b>本周产出了什么，哪条有人看，下周做什么。</p>
+    <p><b>⑤ 财务 + 健康（5 分钟）：</b>红线检查——钱够不够烧，身体顶不顶得住。</p>
+    <p><b>⑥ 老板拍板（5 分钟）：</b>下周只做三件事，写下来。其他全部砍掉。</p>
+    <p style="margin-top:10px"><b>用法：</b>把上面六段复制给 AI，让它扮演整个管理层跟你开会——你说结果，它追问。会开完，纪要存进五问笔记。<button type="button" class="mini-btn" id="meeting-copy" style="margin-left:8px">复制周会提示词</button></p>
+  </div>
+</section>
+
+<!-- ============ 间隔重复回顾 ============ -->
+<section class="wrap" id="review">
+  <div class="sec-head">
+    <div class="no">REVIEW · 记忆曲线</div>
+    <h2>回顾：写过的判断，不许烂在仓库里</h2>
+    <p>遗忘是有规律的——<strong>在第 1、3、7、14、30 天各翻出来一次，就再也忘不掉</strong>。这里自动把你写过的五问笔记、对过答案的预测排成复习队列：到期的先自己想，再翻面对照，最后如实打分。骗系统就是骗自己。</p>
+  </div>
+  <div id="review-stats"></div>
+  <div id="review-card"></div>
+  <div id="review-future" style="margin-top:14px"></div>
+</section>
+
+<!-- ============ 预测与对答案 ============ -->
+<section class="wrap" id="predict">
+  <div class="sec-head">
+    <div class="no">MODULE 22 · 判断校准</div>
+    <h2>预测对答案：万物兴衰，皆有周期</h2>
+    <p>每晚简报的「可证伪判断」写到这里来。判断不准不可怕，<b>从不回看自己的判断才可怕</b>——命中率是练出来的，不是天生的。行业会兴衰，公司会起落，能活下来的老板只有一种：知道自己判断准不准的人。</p>
+  </div>
+
+  <div class="qtool">
+    <label style="display:block;color:var(--gold);font-weight:700;margin-bottom:6px;font-size:15px">写下一条判断（越具体越好，别写「AI 会火」这种空话）</label>
+    <textarea id="pred-text" placeholder="例：三个月内，会有大厂推出粤语语音合成正式版——因为开源生态已经成熟到这个程度"></textarea>
+    <div class="row" style="margin-top:14px;align-items:center">
+      <label style="font-size:14px;color:var(--text-2)">检验日期 <input type="date" id="pred-date" style="background:var(--ink-3);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:8px 12px;font:inherit"></label>
+      <label style="font-size:14px;color:var(--text-2)">我的把握 <input type="range" id="pred-conf" min="50" max="95" step="5" value="70" style="accent-color:var(--gold)"> <b id="pred-conf-v" style="color:var(--gold)">70%</b></label>
+      <button type="button" class="btn" id="pred-add">记下这条判断</button>
+    </div>
+  </div>
+
+  <div id="pred-stats" style="margin-top:24px;display:none"></div>
+  <div class="note-list" id="pred-list" style="margin-top:16px"></div>
+
+  <div class="case">
+    <div class="tag">为什么要写下来</div>
+    <h3>人脑的 bug：只记得自己对的</h3>
+    <p>不写下来的预测，事后大脑会自动美化——「我早就知道」。写死在这里，到日子系统会把它翻出来逼你打分。一年之后你的命中率曲线，就是你判断力最诚实的体检报告。资源有限，把筹码押在自己验证过的方向上。</p>
+  </div>
+</section>
+
+<!-- ============ 三段跃迁 ============ -->
+<section class="wrap" id="stages">
+  <div class="sec-head">
+    <div class="no">LADDER · 三十个领域</div>
+    <h2>三段跃迁：体验者 → 领头人 → 世界老板</h2>
+    <p>顺序不能乱：<strong>没把自己泡成最深的用户，就当不了行业的头；没在行业里立住，世界规模就是空话</strong>。每段十个领域，每格都有验收标准——做到了才算数，不许自我感觉良好。<b style="color:var(--gold)">划线：本页管「每个领域练到什么深度」；什么时候做看「路线图」，什么该自己学、什么该借力看「精力分配」。</b></p>
+  </div>
+  <div class="tabs" id="stage-tabs">
+    <button type="button" class="tab-btn on" data-stage="s1">壹 · 极度体验者（0 → 1）</button>
+    <button type="button" class="tab-btn" data-stage="s2">贰 · 行业领头（1 → 10）</button>
+    <button type="button" class="tab-btn" data-stage="s3">叁 · 世界规模（10 → ∞）</button>
+  </div>
+
+  <div class="stage-grid" data-stage="s1">
+    <div class="src"><span class="tag">产品体感</span><h3>把竞品用烂</h3><p>ElevenLabs、讯飞、火山、MiniMax，每款深用 3 天，按体感五维打分存档。</p><div class="boss-view"><b>验收：</b>体感数据库 20 条以上，张口能说出每家的短板。</div></div>
+    <div class="src"><span class="tag">学习体感</span><h3>自己当学生</h3><p>用雅思备考走一遍「学不会到学会」的完整痛苦——你的产品将来就卖给学生。</p><div class="boss-view"><b>验收：</b>雅思 6.5 到手，能说清学生到底卡在哪。</div></div>
+    <div class="src"><span class="tag">声音体感</span><h3>嗓子是第一产品</h3><p>每天录音 60 秒回听找毛病，三个月对比第一条录音。做声音的人，自己的声音先过关。</p><div class="boss-view"><b>验收：</b>录音档案 90 条，前后对比明显。</div></div>
+    <div class="src"><span class="tag">平台体感</span><h3>摸透各平台脾气</h3><p>小红书、B站、YouTube、抖音各发 10 条内容，亲手感受推荐逻辑的差异。</p><div class="boss-view"><b>验收：</b>能讲清四个平台的流量逻辑为什么不同。</div></div>
+    <div class="src"><span class="tag">工具体感</span><h3>AI 工具用到能教人</h3><p>每周深用一款新工具，用到「能写测评、能教别人」的程度才算用过。</p><div class="boss-view"><b>验收：</b>工具箱里 10 款能脱口讲出适用场景。</div></div>
+    <div class="src"><span class="tag">用户体感</span><h3>访谈真实的老师和学生</h3><p>每月约 3 个人聊半小时，记录原话，不记录你的总结。</p><div class="boss-view"><b>验收：</b>12 份访谈笔记，能复述用户的原话。</div></div>
+    <div class="src"><span class="tag">失败体感</span><h3>主动做砸几件小事</h3><p>发没人看的视频、写被拒的方案——低成本失败是最便宜的学费。</p><div class="boss-view"><b>验收：</b>有一份失败清单，每条带教训。</div></div>
+    <div class="src"><span class="tag">钱的体感</span><h3>亲手算一单生意</h3><p>亲手记账，算清一次获客成本、一单毛利。对钱没体感的人做不了老板。</p><div class="boss-view"><b>验收：</b>不看计算器说清一单生意赚多少。</div></div>
+    <div class="src"><span class="tag">服务体感</span><h3>亲自当客服</h3><p>最早的用户反馈全部自己回，不外包、不模板。</p><div class="boss-view"><b>验收：</b>前 100 条用户反馈条条亲回。</div></div>
+    <div class="src"><span class="tag">圈层体感</span><h3>混进行业社群</h3><p>进 3 个语音/AI 教育社群，先潜水看三个月，再有货才发言。</p><div class="boss-view"><b>验收：</b>群里有人主动 @ 你问问题。</div></div>
+  </div>
+
+  <div class="stage-grid" data-stage="s2" style="display:none">
+    <div class="src"><span class="tag">标准</span><h3>做标准的制定者</h3><p>把你的体感五维评测写成公开标准，免费给全行业用。</p><div class="boss-view"><b>验收：</b>别人评测语音产品时引用你的维度。</div></div>
+    <div class="src"><span class="tag">作品</span><h3>做出粤语 TTS 天花板</h3><p>一个让人一听就说「这是目前最好的粤语声音」的 demo。</p><div class="boss-view"><b>验收：</b>行内人提到粤语语音就想到你。</div></div>
+    <div class="src"><span class="tag">话语</span><h3>造自己的概念</h3><p>造词并写进内容（如「体感分」），概念被使用就是影响力。</p><div class="boss-view"><b>验收：</b>你的术语被同行拿去用。</div></div>
+    <div class="src"><span class="tag">阵地</span><h3>一个平台做到品类前三</h3><p>只深耕一个主平台，先赢一个山头再谈全网。</p><div class="boss-view"><b>验收：</b>搜「粤语 TTS」，第一屏有你。</div></div>
+    <div class="src"><span class="tag">开源</span><h3>放出一份粤语数据集</h3><p>开源语料或评测集，让学术圈和开发者欠你人情。</p><div class="boss-view"><b>验收：</b>GitHub 有 star、被论文或项目引用。</div></div>
+    <div class="src"><span class="tag">人才</span><h3>写清为什么跟你干</h3><p>把使命、打法、分钱方式写成一页纸，让能人自己找上门。</p><div class="boss-view"><b>验收：</b>优秀的人主动来敲门。</div></div>
+    <div class="src"><span class="tag">商业</span><h3>跑通收钱闭环</h3><p>收费、续费、转介绍，三环都转起来才算生意。</p><div class="boss-view"><b>验收：</b>月经常性收入覆盖全部成本。</div></div>
+    <div class="src"><span class="tag">报告</span><h3>每年发一份行业年报</h3><p>《粤语语音教育年报》：数据 + 判断 + 预测，免费公开。</p><div class="boss-view"><b>验收：</b>被媒体和研究引用。</div></div>
+    <div class="src"><span class="tag">认证</span><h3>把方法变成课</h3><p>你的训练体系做成课程和认证，让别人花钱学你的方法。</p><div class="boss-view"><b>验收：</b>有付费学员完成并发证。</div></div>
+    <div class="src"><span class="tag">政策</span><h3>进入政策咨询圈</h3><p>横琴、澳门的科技政策需要行业声音——坐进那个房间。</p><div class="boss-view"><b>验收：</b>政策制定者主动找你征求意见。</div></div>
+  </div>
+
+  <div class="stage-grid" data-stage="s3" style="display:none">
+    <div class="src"><span class="tag">资本</span><h3>融资是放大器</h3><p>不为面子融资，只为验证过的规模化模型加杠杆。</p><div class="boss-view"><b>验收：</b>用别人的钱跑通一次规模化。</div></div>
+    <div class="src"><span class="tag">组织</span><h3>公司不依赖你运转</h3><p>制度、流程、关键岗位备份，全部写进系统而不是你脑子里。</p><div class="boss-view"><b>验收：</b>你离开一个月，公司照转。</div></div>
+    <div class="src"><span class="tag">品牌</span><h3>名字就是品类</h3><p>在目标市场里，让品牌名等于「粤语学习」这件事本身。</p><div class="boss-view"><b>验收：</b>用户推荐时直接说品牌名。</div></div>
+    <div class="src"><span class="tag">市场</span><h3>多市场作战</h3><p>先港澳大湾区，再马来西亚、新加坡，再全球六千万华侨。</p><div class="boss-view"><b>验收：</b>三个以上市场有付费用户。</div></div>
+    <div class="src"><span class="tag">技术</span><h3>数据飞轮</h3><p>用户越多、语料越多、声音越好、用户更多——对手抄不走的循环。</p><div class="boss-view"><b>验收：</b>后来者追你需要年，不是月。</div></div>
+    <div class="src"><span class="tag">合规</span><h3>每个市场的规矩先摸清</h3><p>数据隐私、教育资质、内容审查，进市场前先看规则。</p><div class="boss-view"><b>验收：</b>没有一个市场因合规翻车。</div></div>
+    <div class="src"><span class="tag">生态</span><h3>让别人在你平台上赚钱</h3><p>老师、创作者、机构都能靠你分到钱——生态才是规模。</p><div class="boss-view"><b>验收：</b>第三方靠你的平台获得收入。</div></div>
+    <div class="src"><span class="tag">结构</span><h3>抗周期的现金流</h3><p>订阅 + 授权 + 服务三条腿，万物兴衰，单一业务会死。</p><div class="boss-view"><b>验收：</b>任一业务归零，公司不死。</div></div>
+    <div class="src"><span class="tag">文化</span><h3>让岭南声音出海</h3><p>粤语歌、粤剧、广府故事通过你的声音被世界听见——这是别人偷不走的。</p><div class="boss-view"><b>验收：</b>非粤语用户为文化内容买单。</div></div>
+    <div class="src"><span class="tag">传承</span><h3>培养能接你班的人</h3><p>二号人物、接班梯队、决策机制，趁你最强时建好。</p><div class="boss-view"><b>验收：</b>关键会议你不在也能开成。</div></div>
+  </div>
+</section>
+
+<!-- ============ 路线图 ============ -->
+<section class="wrap" id="roadmap">
+  <div class="sec-head">
+    <div class="no">MODULE 23</div>
+    <h2>路线图：四个阶段</h2>
+    <p>勾掉一项是一项。进度会保存在这台设备的浏览器里（清除浏览器数据会丢失）。</p>
+  </div>
+  <div class="progress-wrap">
+    <div>总进度 <span class="pct" id="pct">0%</span> · <span id="done-count">0 / 0</span> 项已完成</div>
+    <div class="progress-bar"><i id="bar"></i></div>
+  </div>
+
+  <details class="phase" open>
+    <summary><span class="ph-no">阶段 0 · 第 1–12 月</span><h3>筑基：身体和系统先行</h3><span class="ph-goal">目标：夜班后依然每天学得进 1 小时</span></summary>
+    <div class="items">
+      <label class="check"><input type="checkbox" data-k="p0a"><span><b>固定作息：</b>夜班后睡满 7 小时，连续坚持 30 天</span></label>
+      <label class="check"><input type="checkbox" data-k="p0b"><span><b>体能启动：</b>每天 20 分钟快走 + 每周 1 次徒手训练</span></label>
+      <label class="check"><input type="checkbox" data-k="p0c"><span><b>英语启蒙：</b>音标 + 2000 基础词汇（每天 20 分钟）</span></label>
+      <label class="check"><input type="checkbox" data-k="p0d"><span><b>信息习惯：</b>每天 30 分钟信息食谱 + 1 条五问笔记，坚持 90 天</span></label>
+      <label class="check"><input type="checkbox" data-k="p0e"><span><b>政策摸底：</b>读完澳门《科技企业认证计划》申请条件</span></label>
+    </div>
+  </details>
+
+  <details class="phase">
+    <summary><span class="ph-no">阶段 1 · 第 1–2.5 年</span><h3>考证与技术：做出第一个作品</h3><span class="ph-goal">目标：雅思 6.5+，一个能跑的粤语 TTS Demo</span></summary>
+    <div class="items">
+      <label class="check"><input type="checkbox" data-k="p1a"><span><b>雅思 6.5：</b>系统备考 12 个月，下班黄金 1.5 小时做题</span></label>
+      <label class="check"><input type="checkbox" data-k="p1b"><span><b>Python 入门：</b>每天 1 小时，3 个月拿下基础</span></label>
+      <label class="check"><input type="checkbox" data-k="p1c"><span><b>开源实操：</b>跑通 GPT-SoVITS / CosyVoice，克隆自己的粤语声音</span></label>
+      <label class="check"><input type="checkbox" data-k="p1d"><span><b>用户访谈：</b>访谈 10 位澳门教师，找到最痛的语音需求</span></label>
+      <label class="check"><input type="checkbox" data-k="p1e"><span><b>在职硕士（可选）：</b>申请澳大/澳科大 AI 或教育科技方向</span></label>
+    </div>
+  </details>
+
+  <details class="phase">
+    <summary><span class="ph-no">阶段 2 · 第 2.5–5 年</span><h3>副业变现：第一单生意</h3><span class="ph-goal">目标：有人愿意为你的粤语语音产品付钱</span></summary>
+    <div class="items">
+      <label class="check"><input type="checkbox" data-k="p2a"><span><b>第一单：</b>为本地机构做粤语配音服务，验证付费意愿</span></label>
+      <label class="check"><input type="checkbox" data-k="p2b"><span><b>产品化：</b>把重复需求做成工具（如课文朗读小程序）</span></label>
+      <label class="check"><input type="checkbox" data-k="p2c"><span><b>注册公司：</b>澳门注册，启动科技企业认证申请</span></label>
+      <label class="check"><input type="checkbox" data-k="p2d"><span><b>政策第一桶金：</b>申请科技基金研发资助 / 横琴配套</span></label>
+    </div>
+  </details>
+
+  <details class="phase">
+    <summary><span class="ph-no">阶段 3 · 第 5 年起</span><h3>公司化：从老板到行业顶尖</h3><span class="ph-goal">目标：粤语教育语音的头部公司</span></summary>
+    <div class="items">
+      <label class="check"><input type="checkbox" data-k="p3a"><span><b>团队：</b>招第一个全职员工，学会管理</span></label>
+      <label class="check"><input type="checkbox" data-k="p3b"><span><b>双城布局：</b>澳门研发 + 横琴转化，吃透双城政策</span></label>
+      <label class="check"><input type="checkbox" data-k="p3c"><span><b>横琴大赛/攻关项目：</b>冲刺百万级资助</span></label>
+      <label class="check"><input type="checkbox" data-k="p3d"><span><b>人才身份：</b>公司成型后评估澳门人才引进计划</span></label>
+      <label class="check"><input type="checkbox" data-k="p3e"><span><b>国际化：</b>借中葡平台，把粤语/葡语语音产品推向海外华人市场</span></label>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 公司生死簿 ============ -->
+<section class="wrap" id="corps">
+  <div class="sec-head">
+    <div class="no">MODULE 24 · 成败案例库</div>
+    <h2>公司生死簿</h2>
+    <p>老板的预判力不是天生的，是<strong>看了足够多的公司怎么活、怎么死</strong>之后长出来的。每个案例只记三件事：它做对了什么 / 死于什么 / 对你的启示。<b style="color:var(--gold)">划线：本页只记「死因与启示」；活着的同行打法在「同行在怎么做」，高手怎么想问题在「高手拆解」。</b></p>
+  </div>
+
+  <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">活下来的：他们做对了什么</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">成 · 语言学习</span><h3>Duolingo 多邻国</h3><p>把学语言做成游戏：连胜打卡、排行榜、碎片化关卡，让用户「上瘾」而不是「坚持」。2022 年上线粤语课（教普通话使用者说粤语），2023 年接入 GPT-4 做 AI 陪练。</p><div class="recipe"><b>对你的启示：</b>你的赛道的巨头已经用真金白银验证了「粤语教学有需求」。它的打法——游戏化 + AI 陪练——就是你未来产品的参考系。</div></div>
+    <div class="tool"><span class="role">成 · AI 公司</span><h3>Anthropic</h3><p>2023 年收入为零，2026 年中年化收入约 470 亿美元（财新报道）。赢在三点：用「安全」做差异化定位、主攻企业客户而非消费者、Claude Code 一个爆款打穿程序员群体。</p><div class="recipe"><b>对你的启示：</b>技术不是第一也能赢——定位准（粤语+教育）、客户准（学校和老师）、一个拳头产品打透，比什么都有用。</div></div>
+    <div class="tool"><span class="role">成 · 一人开源</span><h3>GPT-SoVITS（花儿不哭）</h3><p>个人开发者做的开源语音克隆项目：5 秒音频克隆音色，支持粤语，成了全世界语音爱好者和行业都在用的底座，GitHub 数万星。</p><div class="recipe"><b>对你的启示：</b>一个人也能定义一个细分赛道。他没融资、没团队，靠的是「把一个具体痛点解决到极致」——这正是你的起点模型。</div></div>
+  </div>
+
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">倒下的：他们死于什么</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">败 · AI 硬件</span><h3>Humane AI Pin</h3><p>前苹果高管创业，融资超 2.3 亿美元，做一个「别在胸前的 AI 徽章」。2024 年发货后差评如潮（慢、热、没用），2025 年 2 月以 1.16 亿美元贱卖给惠普。</p><div class="recipe"><b>死因：</b>先造出一个酷东西，再回头找需求。<b>对你：</b>先问老师「你最痛的语音需求是什么」，再做产品——顺序不能反。</div></div>
+    <div class="tool"><span class="role">败 · 内容平台</span><h3>Quibi</h3><p>融资 17.5 亿美元，好莱坞创始人 + 硅谷 CEO 的顶配组合，做「通勤时看的 10 分钟精品短剧」。2020 年 4 月上线撞上疫情居家，12 月就关停，只活了 6 个月。</p><div class="recipe"><b>死因：</b>对用户场景的想象是错的，而且错得没有退路。<b>对你：</b>小步验证——先做一个粤语课文朗读 Bot 给 10 个老师用，别一上来就押全部。</div></div>
+    <div class="tool"><span class="role">败 · 教培巨头</span><h3>猿辅导们（双减）</h3><p>猿辅导估值一度 155 亿美元，是当年全球最贵的教育科技公司。2021 年 7 月「双减」政策落地，K12 学科培训一夜归零，整个行业被迫转行。</p><div class="recipe"><b>死因：</b>把命押在「政策允许」上，政策一变就是生死。<b>对你：</b>你选的「粤语 + 文化传承」恰恰是政策鼓励的方向——这是赛道上最重要的安全垫，记住它。</div></div>
+    <div class="tool"><span class="role">败 · AI 陪伴</span><h3>Character.AI</h3><p>AI 角色扮演顶流。2024 年一名 14 岁美国少年对它产生情感依赖后自杀，母亲提起诉讼；此后多州家庭接连起诉。2025 年 11 月被迫全面禁止未成年人使用开放式聊天，2026 年 1 月与 Google 一起同多州家庭达成和解，肯塔基、宾州检方仍在追诉。</p><div class="recipe"><b>死因：</b>把「让用户上瘾」当目标，却没给脆弱人群装刹车——伦理失控最终变成法律围剿。<b>对你：</b>你做教育语音，天生站在安全侧；但只要碰「情感陪伴」，未成年人和情绪干预机制就是第一道设计题，不是事后补丁。</div></div>
+  </div>
+
+  <div class="case">
+    <div class="tag">用法</div>
+    <h3>把生死簿变成你的预判力</h3>
+    <p>以后每晚简报里出现融资、暴雷、转型的公司新闻，<strong>用同一套三问记到这里</strong>：它做对了什么？它死于什么？换作是我，哪一步会不一样？攒够 30 条，你看新闻的眼光就和别人不一样了。</p>
+  </div>
+</section>
+
+<!-- ============ 政策与风浪 ============ -->
+<section class="wrap" id="policy">
+  <div class="sec-head">
+    <div class="no">MODULE 25 · 游戏规则</div>
+    <h2>政策与风浪</h2>
+    <p>做生意的玩家分两档：一档等政策砸到头上才知道疼，一档<strong>提前把游戏规则读了三遍</strong>。这页讲三件事：政策的三层地图、巨头卡人的常规武器、你作为老板的风控清单。</p>
+  </div>
+
+  <h3 style="font-size:17px;margin-bottom:10px;color:var(--gold)">第一层地图：和你直接相关的政策</h3>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">中国 · 与你的 TTS 直接相关</span><h3>AI 合成内容必须标识</h3><p>《互联网信息服务深度合成管理规定》（2023 年施行）要求：AI 合成的语音必须显著标识「这是 AI 合成」。2025 年 9 月《人工智能生成合成内容标识办法》生效，把这条钉得更死。</p><div class="recipe"><b>对你的意义：</b>你的粤语 TTS 产品上线第一天就要带「标识功能」——这不是选择题，是入场券。早合规 = 以后申请政府资助时的加分项。</div></div>
+    <div class="tool"><span class="role">中国 · 上线门槛</span><h3>生成式 AI 备案制</h3><p>《生成式人工智能服务管理暂行办法》（2023 年 8 月施行）：面向公众提供生成式 AI 服务，要过安全评估和备案。用别人的已备案模型做应用，比自己从头训练省心得多。</p><div class="recipe"><b>对你的意义：</b>站在已备案的开源模型（如 CosyVoice 背后的阿里系）肩膀上做应用，比自己硬闯备案流程快一年。</div></div>
+    <div class="tool"><span class="role">澳门 · 扶持面</span><h3>你的本地杠杆</h3><p>科技基金（FDCT）研发资助、横琴「澳门研发 + 横琴转化」配套、科技企业认证——这些是送分题，详细入口在「信息渠道 · 澳门与政策」。</p><div class="recipe"><b>对你的意义：</b>扶持政策的共同点：都要你先有「合规的经营主体 + 真实的研发记录」。每天打卡攒下的东西，以后都是申请材料。</div><div class="recipe" style="margin-top:8px"><b>就业叙事（万能杠杆）：</b>政府最关心就业、媒体最爱报就业、街坊最认就业。你的故事要从第一天就这么讲：<b>「粤语 AI 不是一个 App，是一条澳门人的新财路」</b>——录音众包让阿婆和学生赚外快、数据标注创造兼职、做大了需要粤语内容编辑和配音指导。哪怕第一单只有 50 块，也是「本地人因这个产业赚到了钱」的实证。申请资助、上新闻、谈合作，这个故事比技术参数管用一百倍。</div></div>
+    <div class="tool"><span class="role">欧盟 · 出海必读</span><h3>欧盟 AI Act</h3><p>2024 年 8 月生效，全球第一部 AI 综合立法：按风险分级监管，语音克隆属于「深度合成」要履行透明度义务，违规最高罚全球营业额的 7%。</p><div class="recipe"><b>对你的意义：</b>想做海外华人市场就要懂它。好消息：它的思路和中国标识办法是通的——合规做一套，两边都能用。</div></div>
+    <div class="tool"><span class="role">美国 · 成本变量</span><h3>芯片出口管制</h3><p>高端 AI 芯片对华出口受限，直接影响算力价格和可获得性——这是所有 AI 创业者头顶的成本阴云。</p><div class="recipe"><b>对你的意义：</b>TTS 推理成本受芯片价格牵动。技术选型时优先看「小模型能跑、普通显卡够用的方案」——这也是开源小模型对你格外重要的原因。</div></div>
+    <div class="tool"><span class="role">中国 · 2026 新规矩</span><h3>AI 拟人化互动管理办法</h3><p>2026 年 4 月五部门联合公布、7 月 15 日施行，全球首个 AI 陪伴专门立法：禁止诱导情感依赖和沉迷、发现自残自杀倾向必须干预、<b>不得向未成年人提供虚拟伴侣/虚拟亲属</b>、月活 10 万触发安全评估。豆包、千问、元宝卡着生效日集体下线智能体功能。</p><div class="recipe"><b>对你的意义（关键）：</b>法规明确把<b>学习教育、智能客服、知识问答、工作助手排除在监管外</b>——只要不搞「持续性情感互动」，你的教育 TTS 就在安全区。同时它明确鼓励「文化传播、适老陪伴」方向——你的粤语文化传承路线，正是政策白纸黑字鼓励的那侧。</div></div>
+  </div>
+
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">第二层地图：巨头的七种常规武器</h3>
+  <p style="font-size:13.5px;color:var(--text-3);margin-bottom:12px">巨头对小公司的「打压」很少是明着来的，更多是规则一变你就出局。认出这些套路，你就不会把命根子交到别人手里。</p>
+  <div class="tool-grid">
+    <div class="tool"><span class="role">武器 ①</span><h3>API 断供 / 封锁</h3><p>2024 年 7 月 OpenAI 封锁中国大陆 API 访问，一批「套壳」应用当场死亡。</p><div class="recipe"><b>防备：</b>核心功能永远要有「国产/开源替代方案」暖机待命。</div></div>
+    <div class="tool"><span class="role">武器 ②</span><h3>协议变更</h3><p>Unity 2023 年突然按安装量收费，开发者暴动，CEO 下台才平息；开源项目改协议（Redis、Elastic 都干过）同样一夜变脸。</p><div class="recipe"><b>防备：</b>用任何平台/框架前，先读它的协议里「能不能随时改」那一条。</div></div>
+    <div class="tool"><span class="role">武器 ③</span><h3>生态锁定</h3><p>数据存在他家、格式只有他家能读，搬走等于重做。</p><div class="recipe"><b>防备：</b>数据每天导出成通用格式（CSV / Markdown），存自己的盘。</div></div>
+    <div class="tool"><span class="role">武器 ④</span><h3>价格战清场</h3><p>巨头把 API 价格打到亏本价，烧钱熬死小玩家再涨价。DeepSeek 把价格打下来对你今天是好事，但逻辑是一样的。</p><div class="recipe"><b>防备：</b>别把商业模式建立在「永远这么便宜」上，报价留 30% 余地。</div></div>
+    <div class="tool"><span class="role">武器 ⑤</span><h3>扶持的钩子</h3><p>免费额度、创业补贴、云代金券——都是获客手段。用可以，但一开始就想好「补贴停了怎么办」。</p><div class="recipe"><b>防备：</b>享受扶持时同步算一笔「无补贴成本」，那才是一笔生意的真实账本。</div></div>
+    <div class="tool"><span class="role">武器 ⑥⑦</span><h3>平台下架 + 账号封禁</h3><p>应用商店一句话下架、平台一句「违反条款」封号，申诉期你的收入就是零。</p><div class="recipe"><b>防备：</b>客户联系方式握在自己手里（邮件列表、私域），不依赖单一平台触达。</div></div>
+  </div>
+
+  <h3 style="font-size:17px;margin:22px 0 10px;color:var(--gold)">第三层：老板的风控清单（开工前逐条打勾）</h3>
+  <div class="case">
+    <div class="tag">保命六条</div>
+    <p><b>① 技术底座选可自部署的开源</b>——GPT-SoVITS 能跑在自己电脑上，巨头再怎么变脸你都能活。</p>
+    <p><b>② 关键服务双供应商</b>——TTS 引擎、云服务、支付，每个至少两个选项。</p>
+    <p><b>③ 合规先行</b>——上线前查一遍备案和标识要求（上面第一层地图），不合规的增长是负资产。</p>
+    <p><b>④ 数据主权</b>——用户数据、语料、模型文件，每天备份在自己控制的存储里。</p>
+    <p><b>⑤ 现金储备 6 个月</b>——政策变动到收入归零之间，往往没有预警期。</p>
+    <p><b>⑥ 政策雷达每周一扫</b>——澳门新闻局、国家网信办、欧盟 AI Act 动态，每周 20 分钟，雷打不动。</p>
+  </div>
+
+  <p style="font-size:13.5px;color:var(--text-3);margin-top:14px">配合「⚖️ 公司生死簿」一起看：猿辅导死于政策突变、Humane 死于需求错位、Character.AI 死于伦理失控——巨头的武器和政策的风浪，都是死法清单上验证过的真坑。</p>
+</section>
+
+<!-- ============ 验证闸门 ============ -->
+<section class="wrap" id="gate">
+  <div class="sec-head">
+    <div class="no">MODULE 26 · 实质验证</div>
+    <h2>验证闸门：每个新方向开工前，过五关</h2>
+    <p>做东西不能只靠热情和灵感。<strong>每一个新功能、新内容、新赛道，先过这五道闸门，全绿才动工</strong>——过不了的不是不能做，是要改设计。这条规矩同样约束情报部：我交付的每一版内容也要过这五关。</p>
+  </div>
+  <div class="case">
+    <div class="tag">五道闸门</div>
+    <label class="check"><input type="checkbox" data-k="g1"><span><b>① 法律关：</b>这条赛道有没有专门法规？红线是什么？（例：AI 陪伴有《拟人化互动办法》，未成年人虚拟伴侣是红线；教育、客服、工具类明确豁免）</span></label>
+    <label class="check"><input type="checkbox" data-k="g2"><span><b>② 道德关：</b>最坏情况会不会伤到人？未成年人、老人、情绪低落的人碰到它会怎样？（Character.AI 就是死在这关——14 岁用户的命）</span></label>
+    <label class="check"><input type="checkbox" data-k="g3"><span><b>③ 精准关：</b>每个数字、名字、许可证能不能回一手来源核实？查不到就标「未核实」，不许编（军火库许可证写错的教训）</span></label>
+    <label class="check"><input type="checkbox" data-k="g4"><span><b>④ 同行关：</b>至少找 3 个做过这事的人：做成的证明需求存在，做死的研究死因。没人做过不等于没人想到——先想清楚为什么轮到你</span></label>
+    <label class="check"><input type="checkbox" data-k="g5"><span><b>⑤ 客户关：</b>潜在客户是谁、愿意为哪句话付钱？先访谈 3–5 个真人再动工。参考坐标：豆包证明语音陪伴有亿级需求；AI 客服是法规明示的安全区；合规的独家语音数据本身可以卖给模型公司</span></label>
+  </div>
+  <div class="boss-view" style="margin-top:14px"><b>用法：</b>以后你想做的新方向，先在这里五关打钩，任何一关打不上钩，就把它改成能打钩的设计——比如「AI 粤语陪聊」过不了道德关，改成「AI 粤语课文陪读（工具属性、无情感依赖设计）」就过了。</div>
+
+  <div class="case" style="margin-top:16px">
+    <div class="tag">客户地图 · B2B 锁定</div>
+    <h3>第一单生意卖给机构，不卖给个人</h3>
+    <p><b>为什么是 B2B 不是 B2C：</b>卖给个人要打流量战、补贴战、应用商店战——每一张都是要烧钱的牌，你现在一张都没有。卖给机构反过来：澳门的学校、补习社、政府部门是<b>一份数得出来的名单</b>，可以一家家拜访；而且政府资助（科技基金、横琴配套）看的就是「有没有机构在为你的东西付钱」。B2C 是未来做大了再说的故事。</p>
+    <p><b>客户金字塔（从最近的钱到最远的钱）：</b></p>
+    <p>① <b>学校与老师</b>——课文朗读、三语课件配音。需求已被人工录音的存在证明，你的访谈清单第一站。</p>
+    <p>② <b>补习社与教培</b>——粤语/普通话/英语跟读材料、测评练习。决策链最短，最快能收钱。</p>
+    <p>③ <b>政府与公共机构</b>——澳门公共服务三语（中葡英）播报、无障碍语音。门槛高但一旦进去就是最稳的现金流，还能反哺科技企业认证。</p>
+    <p>④ <b>本地商户</b>——广告配音、店内广播。单价小但量大，练交付流程的沙盒。</p>
+    <p>⑤ <b>AI 模型公司</b>——合规粤语语料与评测数据授权（B2B2Model）。你录音棚攒的每一条授权录音都是存货，这是「卖水给淘金者」。</p>
+    <p>⑥ <b>客服系统商</b>——粤语语音包授权。法规明示的安全区，等你有成熟引擎再谈。</p>
+    <p>⑦ <b>粤化与多语本地化（第二曲线）</b>——游戏、影视、短视频的「粤语版」：全球游戏配音市场 2026 年约 5.6 亿美元且亚太增速最快，AI 粤配几乎没人做，开源管线（Linly-Dubbing + CosyVoice）已能跑通原型。<b>版权关是铁律：只接官方授权的活，绝不做灰色翻配</b>；AI 合成语音必须标识。同一条 TTS 管线，教育练好了直接平移过来——这就是「做好一样，同类型全通」。</p>
+    <p style="color:var(--text-2);font-size:14px"><b>打法：</b>①②是现在，③④是第二年，⑤⑥是顺手收的钱。<b>每一层的成交记录，都是申请上一层客户的敲门砖</b>。</p>
+  </div>
+
+  <div class="case" style="margin-top:16px">
+    <div class="tag">出厂质检 · 用户视角</div>
+    <h3>均码五问：每条内容出厂前，先坐到用户的位置</h3>
+    <p><b>均码用户画像（我们的版型）：</b>港澳打工人，25–35 岁，想提升但没时间；手机刷、碎片看；粤语为主、英文弱；深夜才有空。<b>产品先按这件「均码」裁</b>——九成内容服务他；只有学校、政府这类特定机构，才量身定做。</p>
+    <label class="check"><input type="checkbox" data-k="u1"><span><b>① 三秒关：</b>他 3 秒内知道「这跟我有什么关系」吗？不知道就重写标题。</span></label>
+    <label class="check"><input type="checkbox" data-k="u2"><span><b>② 带走关：</b>30 秒能带走一个能用的点吗？（一个动作、一句话、一个判断）带不走就是水分。</span></label>
+    <label class="check"><input type="checkbox" data-k="u3"><span><b>③ 人话关：</b>每个术语都配了白话翻译吗？他零基础、英文弱——术语不翻译等于赶客。</span></label>
+    <label class="check"><input type="checkbox" data-k="u4"><span><b>④ 动作关：</b>看完有一个马上能做的动作吗？（打钩、跟读、打电话、存一张图）没有动作的内容只是噪音。</span></label>
+    <label class="check"><input type="checkbox" data-k="u5"><span><b>⑤ 回头关：</b>他明天为什么回来？（每日轮换、追更、打卡）答不上来，这条内容就是一次性消耗品。</span></label>
+    <p style="color:var(--text-2);font-size:14px;margin-top:10px"><b>规矩：</b>五问有一问答不上，这条内容不出厂。课件、播报、深读全部适用——我们自己的内容先过这关，才有资格去服务用户。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p class="quote">「老板不需要什么都会，但不能什么都不知道。」</p>
+  <p>老板成长中枢 · 数据仅保存在本机浏览器 · 每天回来打卡</p>
+  <p style="margin-top:14px;font-size:13px">v3.9.1 · 2026-11-19 · 本版：军火库全库实测核验——修正 Ming-omni-tts 名称与许可证（Apache-2.0 非 MIT）、WSYue-TTS 许可证标注（官方 Apache-2.0，语料 NC 需确认）、三个底座链接全部改指模型本体页 · 全站 80 条外链逐一实测存活 · 晨报 07:43、午报 12:47 上岗，三餐制情报开饭</p>
+</footer>
+
+<script type="module" src="./src/main.js?v=1795182681"></script>
+</body>
+</html>
