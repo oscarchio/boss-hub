@@ -878,6 +878,18 @@ async function fetchFeed(f) {
     src: f.name, tab: f.tab, region: f.region || null,
   }));
 }
+/* 注入过滤（2026-11-21 审计 P1-3）：凡从 JSON/网络入嚟嘅内容，渲染前必过闸 */
+function __stripDanger(h) {
+  return String(h == null ? '' : h)
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<(script|iframe|object|embed|form)[^>]*>/gi, '')
+    .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+    .replace(/javascript:/gi, '');
+}
+function __esc(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 /* 服务端雷达：定时任务抓好的 news.json 优先；超过 4 小时没更新或没有文件，才走浏览器直连兜底 */
 async function tryServerLive() {
   try {
@@ -1006,7 +1018,7 @@ function renderLive() {
   const loadScores = () => { try { return JSON.parse(localStorage.getItem(SCORE_KEY)) || []; } catch { return []; } };
   function renderDives(dives, tip, stamp) {
     box.innerHTML = dives.map((d, i) =>
-      `<div class="dive"><div class="k">${d.k}</div><h3>${d.t}</h3><p>${d.p}</p><div class="act"><b>今日动作：</b>${d.a}</div>` +
+      `<div class="dive"><div class="k">${__esc(d.k)}</div><h3>${__esc(d.t)}</h3><p>${__esc(d.p)}</p><div class="act"><b>今日动作：</b>${__esc(d.a)}</div>` +
       `<div style="display:flex;gap:8px;align-items:center;margin-top:6px"><span style="font-size:12.5px;color:var(--text-3)">这条情报值几分？</span>` +
       [1,2,3,4,5].map(n => `<button type="button" class="mini-btn" data-dive="${i}" data-score="${n}" style="padding:4px 12px;min-height:32px;font-size:13px">${n}</button>`).join('') +
       `</div></div>`
@@ -1065,7 +1077,7 @@ function renderLive() {
           : '';
         return '<details class="bc-item"><summary><span>' + (it.icon || '📻') + ' ' + it.meal + ' · ' + it.date.slice(5) + wd + '</span><span class="bc-arrow">▾ 点击展开</span></summary><div class="bc-body">' + audio + it.html + '</div></details>';
       }).join('');
-      boxes.forEach(box => { box.innerHTML = html; });
+      boxes.forEach(box => { box.innerHTML = __stripDanger(html); });
       if (window.mountVrates) window.mountVrates();
     })
     .catch(() => {
@@ -2027,7 +2039,7 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
     }
     html += '<div style="font-size:13px;color:var(--text-3);margin-top:8px">想照稿读？今晚的粤语朗读稿在本页底部「📢 朗读台」——稿只放一处，不重复。</div>';
     html += '</div>';
-    box.innerHTML = html;
+    box.innerHTML = __stripDanger(html);
   });
 })();
 
@@ -2238,3 +2250,42 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
     box.append(exp, imp); footer.appendChild(box);
   }
 })();
+
+/* ================= 学习证明仪表盘（2026-11-21 老板亲令：学习要有证据，唔系概念） ================= */
+(function () {
+  const statsBox = document.getElementById('lp-stats');
+  if (!statsBox) return;
+  const load = k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
+  const arr = k => { const v = load(k); return Array.isArray(v) ? v : []; };
+  const tsOf = r => r && (r.t || r.ts || r.time || 0);
+  const inDays = (r, d) => { const t = tsOf(r); return t && (Date.now() - t) < d * 864e5; };
+  // 连击（同今日修炼同一套数据）
+  let streak = 0;
+  try {
+    const days = new Set(load('boss_days_v1') || []);
+    const d = new Date();
+    if (!days.has(d.toLocaleDateString('sv'))) d.setDate(d.getDate() - 1);
+    while (days.has(d.toLocaleDateString('sv'))) { streak++; d.setDate(d.getDate() - 1); }
+  } catch {}
+  const notes = arr('boss_notes_v1'), coach = arr('boss_coach_notes_v1'),
+        preds = arr('boss_preds_v1'), scores = arr('boss_dive_scores_v1'),
+        feels = arr('boss_feel_v1'), rw = arr('boss_rewrite_v1');
+  const outputs = [...notes, ...coach, ...preds, ...scores, ...feels, ...rw];
+  const week = outputs.filter(r => inDays(r, 7)).length;
+  const lastWeek = outputs.filter(r => !inDays(r, 7) && inDays(r, 14)).length;
+  const trend = week > lastWeek ? '📈 多过上周' : week < lastWeek ? '📉 少过上周' : '➖ 同上周持平';
+  const cards = [
+    ['🔥 连续打卡', streak + ' 天'],
+    ['🧠 五问笔记', notes.length + ' 条'],
+    ['🤖 教练拆解', coach.length + ' 次'],
+    ['🔮 写下判断', preds.length + ' 条'],
+    ['⭐ 深读打分', scores.length + ' 次'],
+    ['🎚️ 体感评测', feels.length + ' 段'],
+  ];
+  statsBox.innerHTML = cards.map(c =>
+    `<div class="stat-card sc-b"><span>${c[0]}</span><b>${c[1]}</b></div>`).join('');
+  const wk = document.getElementById('lp-week');
+  if (wk) wk.innerHTML = `本周产出 <b style="color:var(--gold)">${week}</b> 件 ｜ 上周 ${lastWeek} 件 ｜ ${trend}` +
+    (week === 0 ? ' —— 今日仲未开张，由「听晨报」开始。' : '');
+})();
+
