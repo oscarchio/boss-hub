@@ -1061,7 +1061,7 @@ function renderLive() {
         const d = new Date(it.date + 'T00:00:00');
         const wd = isNaN(d) ? '' : '（周' + WD[d.getDay()] + '）';
         const audio = it.audio
-          ? '<div style="margin:12px 0 2px;background:rgba(184,145,47,.08);border-radius:10px;padding:8px 12px"><div style="font-size:12.5px;color:var(--text-3);margin-bottom:4px">🎧 语音版 · 上班路上听（我们的语音流水线生成——有一天这里会是粤语）</div><audio controls preload="none" src="' + it.audio + '?_=' + Date.now() + '" style="width:100%;height:36px"></audio><div class="vrate" data-rate-id="bc-' + it.date + '-' + it.meal + '" style="margin-top:6px"></div></div>'
+          ? '<div style="margin:12px 0 2px;background:rgba(184,145,47,.08);border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><button class="mp-handoff" data-mp-date="' + it.date + '" data-mp-meal="' + it.meal + '" style="font-size:13px;padding:5px 14px;border-radius:8px;border:1px solid rgba(212,175,55,.45);background:none;color:#c8a445;cursor:pointer">🎧 听呢段（右下角随身听）</button><span style="font-size:12px;color:var(--text-3)">文字照睇，声交畀随身听</span><div class="vrate" data-rate-id="bc-' + it.date + '-' + it.meal + '" style="margin-top:2px"></div></div>'
           : '';
         return '<details class="bc-item"><summary><span>' + (it.icon || '📻') + ' ' + it.meal + ' · ' + it.date.slice(5) + wd + '</span><span class="bc-arrow">▾ 点击展开</span></summary><div class="bc-body">' + audio + it.html + '</div></details>';
       }).join('');
@@ -2194,13 +2194,26 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
   audio.addEventListener('loadedmetadata', render);
   fab.addEventListener('click', () => { bar.classList.toggle('open'); if (bar.classList.contains('open')) render(); });
 
+  // 深读简报语音（digest-latest）归入同一队列，全站得一架播放器
+  fetch('assets/digest-latest.mp3', { method: 'HEAD' }).then(r => { if (r.ok) queue.unshift({ icon: '📻', meal: '深读简报语音', date: queue[0] ? queue[0].date : new Date().toISOString().slice(0, 10), audio: 'assets/digest-latest.mp3' }); fab.classList.add('on'); }).catch(() => {});
+
   fetch('broadcasts.json?_=' + Date.now()).then(r => r.json()).then(d => {
-    const today = (d.items || []).find(x => x.date === new Date().toISOString().slice(0, 10));
     const all = (d.items || []);
     const todayStr = all.length ? all[0].date : '';
-    queue = all.filter(x => x.date === todayStr && x.audio);
+    queue = queue.concat(all.filter(x => x.date === todayStr && x.audio));
     if (queue.length) fab.classList.add('on');
   }).catch(() => {});
+
+  // 全站「🎧 听呢段」按钮统一交畀随身听
+  window.mpPlayMeal = function (date, meal) {
+    const i = queue.findIndex(q => (date ? q.date === date : true) && q.meal === meal);
+    bar.classList.add('open');
+    if (i >= 0) playAt(i); else render();
+  };
+  document.addEventListener('click', e => {
+    const b = e.target.closest('.mp-handoff');
+    if (b) window.mpPlayMeal(b.dataset.mpDate, b.dataset.mpMeal);
+  });
 
   // ---- 秘书台数据备份/还原 ----
   const footer = document.querySelector('footer.wrap');
