@@ -2425,6 +2425,23 @@ ${meta}
   btn.href = step[2]; btn.textContent = step[3];
 })();
 
+
+/* ================= 每日练习库（2026-11-21 数据打通） ================= */
+(function () {
+  const box = document.getElementById('pb-list');
+  if (!box) return;
+  fetch('practicebank.json?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(j => {
+    if (!j || !j.items || !j.items.length) { box.innerHTML = '<div class="empty">今晚晚报之后开始累积。</div>'; return; }
+    const meta = document.getElementById('pb-meta');
+    if (meta) meta.textContent = '共存 ' + j.items.length + ' 期练习 · 最近更新 ' + (j.updated || '');
+    box.innerHTML = j.items.slice(0, 8).map(x =>
+      '<details style="border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px"><summary style="cursor:pointer;font-size:14.5px">📝 ' + __esc(x.d) + ' 练习</summary>' +
+      (x.read ? '<p style="margin-top:8px;font-size:14px"><b>跟读：</b>「' + __esc(x.read) + '」</p>' : '') +
+      (x.fill ? '<p style="font-size:13px;color:var(--text-3)"><b>填空：</b>' + __esc(x.fill) + '</p>' : '') + '</details>'
+    ).join('');
+  }).catch(() => { box.innerHTML = '<div class="empty">练习库加载失败。</div>'; });
+})();
+
 /* ================= 每日三词词库（2026-11-21：学习资产累积器） ================= */
 (function () {
   const box = document.getElementById('wb-list');
