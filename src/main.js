@@ -2252,6 +2252,28 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
 })();
 
 
+
+/* ================= 今日引导条（2026-11-21：唔俾选项墙，直接话佢知做边样） ================= */
+(function () {
+  const txt = document.getElementById('guide-text');
+  if (!txt) return;
+  const sub = document.getElementById('guide-sub'), btn = document.getElementById('guide-btn');
+  const h = new Date().getHours();
+  let daily = {};
+  try { const r = JSON.parse(localStorage.getItem('boss_daily_v1')); if (r && r.date === new Date().toLocaleDateString('sv')) daily = r.done || {}; } catch {}
+  const doneCount = Object.values(daily).filter(Boolean).length;
+  // 决策树：按时辰 + 打卡进度，净系话佢知一步
+  let step;
+  if (h >= 6 && h < 12) step = ['听今朝晨报（5–10 分钟）', '边听边记住今日三个词', '#live', '去听 ▶'];
+  else if (h >= 12 && h < 18) step = ['听午报 + 做两题真题', '题喺「学习与考证」，开卷即做', '#cert', '去做题 ▶'];
+  else if (h >= 18 || h < 2) step = ['听今晚深读（15–30 分钟）', '夜班路上听，听完谂嗰个思考钩子', '#deepread', '去听 ▶'];
+  else step = ['抽张口语卡录 2 分钟', '雅思战备卡，录完数自己有冇四根柱', '#cert', '去录音 ▶'];
+  if (doneCount >= 4) step = ['今日四门已打晒卡，叻', '可以睇深读或者早唞——唔好硬挤', '#deepread', '睇深读 ▶'];
+  txt.textContent = step[0];
+  sub.textContent = step[1] + ' · 今日已打卡 ' + doneCount + '/4';
+  btn.href = step[2]; btn.textContent = step[3];
+})();
+
 /* ================= 每日三词词库（2026-11-21：学习资产累积器） ================= */
 (function () {
   const box = document.getElementById('wb-list');
