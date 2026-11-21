@@ -2406,6 +2406,48 @@ ${meta}
 
 
 
+
+/* ================= 全站搜寻（2026-11-21：料越储越多，冇搜寻等于冇累积） ================= */
+(function () {
+  const inp = document.getElementById('gsearch'), out = document.getElementById('gsearch-out');
+  if (!inp) return;
+  const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  let idx = null;
+  async function build() {
+    if (idx) return idx;
+    idx = [];
+    document.querySelectorAll('.gicon').forEach(a => {
+      const b = a.querySelector('b'), sp = a.querySelector('span:not(.ic)');
+      if (b) idx.push({ t: b.textContent + ' ' + (sp ? sp.textContent : ''), label: '板块 · ' + b.textContent, href: a.getAttribute('href') });
+    });
+    const grabs = [
+      ['news.json', d => (d.items || []).slice(0, 400).map(x => ({ t: x.t, label: '快讯 · ' + x.src, href: x.u, ext: 1 }))],
+      ['wordbank.json', d => (d.words || []).map(x => ({ t: x.t + ' ' + (x.m || ''), label: '词库 · ' + x.t, href: '#cert' }))],
+      ['practicebank.json', d => (d.items || []).map(x => ({ t: (x.read || '') + (x.fill || ''), label: '练习 · ' + x.d, href: '#cert' }))],
+      ['digest.json', d => (d.dives || []).map(x => ({ t: x.t + ' ' + x.p, label: '深读 · ' + x.t.slice(0, 30), href: '#deepread' }))],
+    ];
+    await Promise.all(grabs.map(([f, fn]) => fetch(f + '?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(d => { if (d) idx.push(...fn(d)); }).catch(() => {})));
+    // 真题（静态喺页面）
+    document.querySelectorAll('#cert details summary').forEach(sm => idx.push({ t: sm.textContent, label: '题目 · ' + sm.textContent.slice(0, 24), href: '#cert' }));
+    return idx;
+  }
+  let timer;
+  inp.addEventListener('input', () => {
+    clearTimeout(timer);
+    const q = inp.value.trim();
+    if (q.length < 2) { out.style.display = 'none'; return; }
+    timer = setTimeout(async () => {
+      const data = await build();
+      const hits = data.filter(x => x.t && x.t.toLowerCase().includes(q.toLowerCase())).slice(0, 20);
+      out.innerHTML = hits.length
+        ? hits.map(h => `<a href="${esc(h.href)}" ${h.ext ? 'target="_blank" rel="noopener"' : ''} style="display:block;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--text);font-size:14px;border-bottom:1px solid var(--line)">${esc(h.label)}</a>`).join('')
+        : '<div style="padding:12px;font-size:13.5px;color:var(--text-3)">冇结果——呢个词未入过你嘅库。</div>';
+      out.style.display = '';
+    }, 250);
+  });
+  document.addEventListener('click', e => { if (!out.contains(e.target) && e.target !== inp) out.style.display = 'none'; });
+})();
+
 /* ================= 语音秘书桥（2026-11-21 老板亲令：秘书要识听讲） ================= */
 (function () {
   const mic = document.getElementById('vs-mic');
