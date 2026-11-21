@@ -2224,7 +2224,7 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
   fab.addEventListener('click', () => { bar.classList.toggle('open'); if (bar.classList.contains('open')) render(); });
 
   // 深读简报语音（digest-latest）归入同一队列，全站得一架播放器
-  fetch('assets/digest-latest.mp3', { method: 'HEAD' }).then(r => { if (r.ok) queue.unshift({ icon: '📻', meal: '深读简报语音', date: queue[0] ? queue[0].date : new Date().toISOString().slice(0, 10), audio: 'assets/digest-latest.mp3' }); fab.classList.add('on'); }).catch(() => {});
+  fetch('digest-audio.json?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(p => { if (p && p.src) queue.unshift({ icon: '📻', meal: '深读简报语音', date: p.date || '', audio: p.src }); fab.classList.add('on'); }).catch(() => {});
 
   fetch('broadcasts.json?_=' + Date.now()).then(r => r.json()).then(d => {
     const all = (d.items || []);
