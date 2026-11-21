@@ -1077,7 +1077,24 @@ function renderLive() {
           : '';
         return '<details class="bc-item"><summary><span>' + (it.icon || '📻') + ' ' + it.meal + ' · ' + it.date.slice(5) + wd + '</span><span class="bc-arrow">▾ 点击展开</span></summary><div class="bc-body">' + audio + it.html + '</div></details>';
       }).join('');
-      boxes.forEach(box => { box.innerHTML = __stripDanger(html); });
+      boxes.forEach(box => {
+        box.innerHTML = __stripDanger(html);
+        // 展开限高：正文太长就夹短，想读全文先揿掣（老板 11-21：唔好成屏长文）
+        box.querySelectorAll('.bc-body').forEach(bd => {
+          if (bd.scrollHeight > 240) {
+            bd.classList.add('bc-clamped');
+            const btn = document.createElement('button');
+            btn.className = 'bc-more';
+            btn.textContent = '展开全文 ▾';
+            btn.addEventListener('click', () => {
+              const open = !bd.classList.contains('bc-clamped');
+              bd.classList.toggle('bc-clamped', open);
+              btn.textContent = open ? '展开全文 ▾' : '收起 ▴';
+            });
+            bd.after(btn);
+          }
+        });
+      });
       if (window.mountVrates) window.mountVrates();
     })
     .catch(() => {
