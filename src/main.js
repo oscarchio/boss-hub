@@ -2270,6 +2270,56 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
 
 
 
+
+/* ================= 后路规划：体能自测台 + 下一步清单（2026-11-21） ================= */
+(function () {
+  const box = document.getElementById('fit-inputs');
+  if (!box) return;
+  const STD = [
+    ['sprint', '80 米跑', v => v <= 11.5, '≤11.5 秒', v => v.toFixed(1) + ' 秒', false],
+    ['jump', '立定跳远', v => v >= 2.0, '≥2.0 米', v => v.toFixed(2) + ' 米', true],
+    ['wall', '跨墙', v => v >= 0.9, '≥0.9 米', v => v.toFixed(2) + ' 米', true],
+    ['pull', '引体向上', v => v >= 5, '≥5 次', v => v + ' 次', true],
+    ['situp', '仰卧起坐45秒', v => v >= 30, '≥30 次', v => v + ' 次', true],
+    ['run', '2400 米跑', v => v <= 720, '≤12:00', v => Math.floor(v/60) + ':' + String(Math.round(v%60)).padStart(2,'0'), false],
+  ];
+  const KEY = 'boss_fit_v1';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const saved = load();
+  box.querySelectorAll('input[data-fit]').forEach(inp => { if (saved[inp.dataset.fit] != null) inp.value = saved[inp.dataset.fit]; });
+  const btn = document.getElementById('fit-eval'), res = document.getElementById('fit-result');
+  btn.addEventListener('click', () => {
+    const vals = {};
+    box.querySelectorAll('input[data-fit]').forEach(inp => {
+      let v = inp.value.trim();
+      if (inp.dataset.fit === 'run' && v.includes(':')) {
+        const p = v.split(':'); v = (+p[0]) * 60 + (+p[1] || 0);
+      }
+      vals[inp.dataset.fit] = parseFloat(v);
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(vals)); } catch {}
+    let pass = 0, rows = [];
+    STD.forEach(([k, name, test, std, fmt]) => {
+      const v = vals[k];
+      if (isNaN(v)) { rows.push(`<div style="padding:6px 0;border-bottom:1px dashed var(--line)">⬜ ${name}：未填（标准 ${std}）</div>`); return; }
+      const ok = test(v);
+      if (ok) pass++;
+      rows.push(`<div style="padding:6px 0;border-bottom:1px dashed var(--line)">${ok ? '✅' : '❌'} ${name}：你 ${fmt(v)} ｜ 标准 ${std}${ok ? '' : ' —— 仲差一截'}</div>`);
+    });
+    res.innerHTML = rows.join('') + `<div style="margin-top:10px;font-size:15px"><b>${pass}/6 达标</b> —— ${pass === 6 ? '全部达标！你可以去考消防员。' : pass >= 4 ? '接近了，针对❌项加练。' : '基线已记下——每次测完嚟对一次，睇住数字逼近。'}</div>`;
+  });
+  // 下一步清单打勾持久化
+  const steps = document.getElementById('backup-steps');
+  if (steps) {
+    const BKEY = 'boss_backup_v1';
+    let st = {}; try { st = JSON.parse(localStorage.getItem(BKEY)) || {}; } catch {}
+    steps.querySelectorAll('input[data-b]').forEach(cb => {
+      cb.checked = !!st[cb.dataset.b];
+      cb.addEventListener('change', () => { st[cb.dataset.b] = cb.checked; try { localStorage.setItem(BKEY, JSON.stringify(st)); } catch {} });
+    });
+  }
+})();
+
 /* ================= 今日引导条（2026-11-21：唔俾选项墙，直接话佢知做边样） ================= */
 (function () {
   const txt = document.getElementById('guide-text');

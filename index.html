@@ -596,7 +596,7 @@ body.in-module #backbar{display:block}
   </div>
 </section>
 
-<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795256676" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
+<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795256932" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
 
 <!-- ============ 功能宫格 ============ -->
 <!-- ============ 老板生活圈 ============ -->
@@ -1025,6 +1025,8 @@ body.in-module #backbar{display:block}
       </div>
     </div>
   </div>
+
+
   <div class="case" style="margin-top:16px">
     <div class="tag">对练升级 · 有人逼你才算练</div>
     <h3>🤖 AI 考官 · 它出题，你接招</h3>
@@ -1788,6 +1790,35 @@ body.in-module #backbar{display:block}
       <div class="recipe"><b>先后顺序：</b>雅思先上岸（学习院有作战室），产品做住走，读研申请季先唔使急住凑材料。</div>
     </div>
   </div>
+
+  <div class="case" style="border-color:rgba(212,175,55,.5);margin-top:16px">
+    <div class="tag">用嘅嘢 · 唔系概念</div>
+    <h3>🎯 体能自测台：你而家离消防员靶纸有几远？</h3>
+    <p style="font-size:13.5px">保安高校招生标准做靶。填入你最新一次成绩，即时话你知逐项达唔达标、差几多。成绩存喺你部机，每次测完嚟对一次，睇住自己逼近条及格线。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px" id="fit-inputs">
+      <label style="font-size:13px">80 米跑（秒）<br><input data-fit="sprint" type="number" step="0.1" placeholder="如 13.2" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+      <label style="font-size:13px">立定跳远（米）<br><input data-fit="jump" type="number" step="0.05" placeholder="如 1.75" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+      <label style="font-size:13px">跨墙（米）<br><input data-fit="wall" type="number" step="0.05" placeholder="如 0.8" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+      <label style="font-size:13px">引体向上（次）<br><input data-fit="pull" type="number" step="1" placeholder="如 3" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+      <label style="font-size:13px">仰卧起坐 45 秒（次）<br><input data-fit="situp" type="number" step="1" placeholder="如 22" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+      <label style="font-size:13px">2400 米跑（分:秒）<br><input data-fit="run" type="text" placeholder="如 13:40" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text)"></label>
+    </div>
+    <div style="margin-top:12px"><button class="btn" id="fit-eval">评估我嘅差距</button></div>
+    <div id="fit-result" style="margin-top:12px"></div>
+  </div>
+
+  <div class="case" style="margin-top:16px">
+    <div class="tag">下一步 · 打勾先算数</div>
+    <h3>三条退路各自嘅下一步（打勾会存喺你部机）</h3>
+    <div style="display:grid;gap:8px;margin-top:8px" id="backup-steps">
+      <label class="check"><input type="checkbox" data-b="gong1"><span><b>公务员：</b>去 concurso-uni.safp.gov.mo 登记一户通账号，订阅开考通知（10 分钟）</span></label>
+      <label class="check"><input type="checkbox" data-b="gong2"><span><b>公务员：</b>今周做晒上面真题库 30 题，错题抄入五问笔记</span></label>
+      <label class="check"><input type="checkbox" data-b="xiao1"><span><b>纪律部队：</b>用上面自测台测第一次，记下六项基线成绩</span></label>
+      <label class="check"><input type="checkbox" data-b="xiao2"><span><b>纪律部队：</b>将 2400 米纳入每周体能训练（一周一测）</span></label>
+      <label class="check"><input type="checkbox" data-b="yan1"><span><b>研究生：</b>雅思先做一套官方样题摸底（学习院有入口）</span></label>
+      <label class="check"><input type="checkbox" data-b="yan2"><span><b>研究生：</b>将「粤语课文配音 Demo」写成一页纸研究设想（申请要用）</span></label>
+    </div>
+  </div>
   <div class="case" style="margin-top:16px">
     <div class="tag">一句话</div>
     <h3>后路唔系认输，系让你敢喺主路全速冲刺</h3>
@@ -2449,6 +2480,6 @@ body.in-module #backbar{display:block}
   <p style="margin-top:14px;font-size:13px">v3.9.3 · 2026-11-21 · 学习资料大完善：雅思作战室（官方真题+四科资源+阶段计划）· TTS 自修书架（两配方+论文+验收尺）· 上一版：v3.9.2 · 悬浮随身听（三餐语音队列，右下角🎧）+ 秘书台数据一键备份还原 · GitHub Pages 双入口上线 · 上一版： 本版：军火库全库实测核验——修正 Ming-omni-tts 名称与许可证（Apache-2.0 非 MIT）、WSYue-TTS 许可证标注（官方 Apache-2.0，语料 NC 需确认）、三个底座链接全部改指模型本体页 · 全站 80 条外链逐一实测存活 · 晨报 07:43、午报 12:47 上岗，三餐制情报开饭</p>
 </footer>
 
-<script type="module" src="./src/main.js?v=1795256676"></script>
+<script type="module" src="./src/main.js?v=1795256932"></script>
 </body>
 </html>
