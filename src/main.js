@@ -2251,16 +2251,59 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
     const exp = document.createElement('button'); exp.textContent = '💾 备份我的数据';
     const imp = document.createElement('label'); imp.textContent = '♻️ 还原备份';
     const file = document.createElement('input'); file.type = 'file'; file.accept = '.json'; file.style.display = 'none';
+    // 备份龄提示（2026-11-21 老板亲令三保护措施）
+    const LBKEY = 'boss_hub_last_backup';
+    const age = document.createElement('span');
+    age.style.cssText = 'font-size:12px;color:var(--text-3);margin-left:8px';
+    const renderAge = () => {
+      const t = localStorage.getItem(LBKEY);
+      if (!t) { age.textContent = '⚠️ 从未备份'; age.style.color = '#c8a445'; return; }
+      const days = Math.floor((Date.now() - new Date(t).getTime()) / 864e5);
+      age.textContent = days > 7 ? `⚠️ 上次备份 ${days} 日前` : `上次备份 ${days} 日前`;
+      age.style.color = days > 7 ? '#c8a445' : 'var(--text-3)';
+    };
+    renderAge();
     exp.onclick = () => {
       const dump = {}; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); dump[k] = localStorage.getItem(k); }
+      // 完整性检查：序列化后必须可以 parse 返，兼记录数据量
+      const payload = { app: 'boss-hub', v: 2, saved: new Date().toISOString(), keyCount: Object.keys(dump).length, data: dump };
+      let txt;
+      try { txt = JSON.stringify(payload, null, 1); JSON.parse(txt); } catch { alert('备份失败：数据无法序列化，请截图俾情报部'); return; }
       const a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: 'boss-hub', v: 1, saved: new Date().toISOString(), data: dump }, null, 1)], { type: 'application/json' }));
+      a.href = URL.createObjectURL(new Blob([txt], { type: 'application/json' }));
       a.download = 'boss-hub-backup-' + new Date().toISOString().slice(0, 10) + '.json'; a.click();
+      try { localStorage.setItem(LBKEY, new Date().toISOString()); } catch {}
+      renderAge();
+      exp.textContent = '已备份 ' + payload.keyCount + ' 项 ✓';
+      setTimeout(() => { exp.textContent = '⬇️ 备份我的数据'; }, 2500);
     };
     file.onchange = () => {
       const f = file.files[0]; if (!f) return;
       const rd = new FileReader();
-      rd.onload = () => { try { const j = JSON.parse(rd.result); const d = j.data || j; Object.keys(d).forEach(k => localStorage.setItem(k, d[k])); alert('还原完成，页面即将刷新'); location.reload(); } catch { alert('备份文件格式唔啱'); } };
+      rd.onload = () => {
+        try {
+          const j = JSON.parse(rd.result);
+          const d = j.data || j;
+          if (typeof d !== 'object' || d === null || Array.isArray(d)) throw 0;
+          const keys = Object.keys(d);
+          if (!keys.length) throw 0;
+          const meta = j.saved ? `备份时间：${j.saved.slice(0, 16).replace('T', ' ')}
+数据项：${j.keyCount || keys.length}` : `数据项：${keys.length}`;
+          // 恢复前保护：先将而家嘅数据自动下载一份，防误覆盖
+          const cur = {}; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); cur[k] = localStorage.getItem(k); }
+          const pre = document.createElement('a');
+          pre.href = URL.createObjectURL(new Blob([JSON.stringify({ app: 'boss-hub', v: 2, saved: new Date().toISOString(), keyCount: Object.keys(cur).length, note: '还原前自动快照', data: cur }, null, 1)], { type: 'application/json' }));
+          pre.download = 'boss-hub-还原前快照-' + new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-').slice(0, 16) + '.json';
+          pre.click();
+          if (!confirm(`即将还原备份：
+${meta}
+
+你而家嘅数据已自动另存一份「还原前快照」。
+确定继续？`)) return;
+          keys.forEach(k => localStorage.setItem(k, d[k]));
+          alert('还原完成，页面即将刷新'); location.reload();
+        } catch { alert('备份文件格式唔啱'); }
+      };
       rd.readAsText(f);
     };
     imp.appendChild(file); imp.onclick = () => file.click();
