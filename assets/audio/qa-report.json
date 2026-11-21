@@ -1,10 +1,10 @@
 {
- "audio": "sample-qwen3tts.mp3",
- "cer_percent": 2.56,
+ "audio": "bc-2026-11-22-晨报.mp3",
+ "cer_percent": 40.08,
  "threshold": 10.0,
- "verdict": "PASS",
- "ref_chars": 39,
- "hyp_chars": 39,
+ "verdict": "FAIL",
+ "ref_chars": 2757,
+ "hyp_chars": 1801,
  "model": "small",
  "lang": "zh"
 }
