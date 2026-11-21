@@ -2314,6 +2314,47 @@ ${meta}
 
 
 
+
+/* ================= 真题库做题记录（2026-11-21 数据打通：做题要有数） ================= */
+(function () {
+  const qs = [...document.querySelectorAll('details')].filter(d => /^[①②③④⑤⑥⑦⑧⑨⑩]/.test((d.querySelector('summary') || {}).textContent || ''));
+  if (!qs.length) return;
+  const KEY = 'boss_quiz_v1';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const st = load();
+  // 记分牌插喺题库 case 顶部
+  const caseBox = qs[0].closest('.case');
+  const board = document.createElement('div');
+  board.style.cssText = 'font-size:13.5px;color:var(--gold);margin-bottom:10px';
+  if (caseBox) caseBox.insertBefore(board, caseBox.children[2] || null);
+  const render = () => {
+    const done = Object.keys(st).length, right = Object.values(st).filter(v => v === 'right').length;
+    board.textContent = done ? `做题记录：${right}/${done} 啱（错咗嘅会自动变红，得闲回头再做）` : '做题记录：未开始——每题对完答案，揿「啱/错」记账';
+  };
+  qs.forEach((d, i) => {
+    const p = d.querySelector('p');
+    if (!p) return;
+    const bar = document.createElement('div');
+    bar.style.cssText = 'margin-top:8px;display:flex;gap:8px';
+    ['right', 'wrong'].forEach(v => {
+      const b = document.createElement('button');
+      b.className = 'mini-btn';
+      b.textContent = v === 'right' ? '我答啱咗' : '答错咗';
+      b.style.cssText = 'font-size:12px;padding:3px 10px';
+      b.addEventListener('click', () => {
+        st[i] = v;
+        try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {}
+        d.style.borderColor = v === 'right' ? 'var(--gold)' : '#c05c5c';
+        render();
+      });
+      bar.appendChild(b);
+    });
+    if (st[i]) d.style.borderColor = st[i] === 'right' ? 'var(--gold)' : '#c05c5c';
+    p.appendChild(bar);
+  });
+  render();
+})();
+
 /* ================= 后路规划：体能自测台 + 下一步清单（2026-11-21） ================= */
 (function () {
   const box = document.getElementById('fit-inputs');
