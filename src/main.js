@@ -2405,6 +2405,48 @@ ${meta}
 })();
 
 
+
+/* ================= 语音秘书桥（2026-11-21 老板亲令：秘书要识听讲） ================= */
+(function () {
+  const mic = document.getElementById('vs-mic');
+  if (!mic) return;
+  const out = document.getElementById('vs-out'), txt = document.getElementById('vs-text');
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let rec = null, listening = false;
+  mic.addEventListener('click', () => {
+    if (!SR) { alert('你嘅浏览器唔支持语音转文字（Chrome/Edge 得）'); return; }
+    if (listening) { rec.stop(); return; }
+    rec = new SR();
+    rec.lang = 'zh-HK'; rec.interimResults = false; rec.maxAlternatives = 1;
+    rec.onresult = e => {
+      const t = e.results[0][0].transcript;
+      txt.textContent = t; out.style.display = '';
+      document.getElementById('vs-send').onclick = async () => {
+        try { await navigator.clipboard.writeText(t); } catch {}
+        const b = document.getElementById('vs-send'); b.textContent = '已复制 ✓ 去 Kimi 对话贴出';
+        setTimeout(() => b.textContent = '📋 复制（贴去 Kimi 对话即问）➔', 2500);
+      };
+    };
+    rec.onend = () => { listening = false; mic.textContent = '🎤 揿住讲嘢'; };
+    rec.onerror = () => { listening = false; mic.textContent = '🎤 揿住讲嘢（再试）'; };
+    listening = true; mic.textContent = '🔴 讲紧…再揿停';
+    rec.start();
+  });
+  document.getElementById('vs-read').addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) { alert('浏览器唔支持人声朗读'); return; }
+    let daily = 0;
+    try { const r = JSON.parse(localStorage.getItem('boss_daily_v1')); if (r && r.date === new Date().toLocaleDateString('sv')) daily = Object.values(r.done || {}).filter(Boolean).length; } catch {}
+    const h = new Date().getHours();
+    const slot = h < 12 ? '朝早' : h < 18 ? '下昼' : '夜晚';
+    const text = `老板，而家${slot}${h}点。今日四门修炼你完成咗${daily}门。` +
+      (daily < 4 ? '仲有功课未做，去练功房搞掂佢。' : '今日已打晒卡，可以休息。') +
+      '记住：阅读节摊位死线系十一月廿三号中午十二点。';
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'zh-HK'; u.rate = 1.0;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  });
+})();
+
 /* ================= 跨分頁同步（2026-11-21：两个 tab 开住，一边改咗另一边即刻跟） ================= */
 window.addEventListener('storage', e => {
   if (e.key && (e.key.startsWith('boss_') || e.key === 'mishutai_v1')) location.reload();

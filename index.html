@@ -397,7 +397,23 @@ body.in-module #backbar{display:block}
     <h2>任务栏：该做的、欠着的、等你拍板的</h2>
     <p>系统每天自动转，但有些事只有你能做。这页是秘书台：<strong>按死线排序，做完打钩</strong>。情报部每周随经营会更新这张单子。</p>
   </div>
-  <div class="case">
+    <div class="case" style="border-color:rgba(212,175,55,.5);margin-bottom:12px">
+    <div class="tag">🎤 语音秘书（讲嘢就得，唔使打字）</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px">
+      <button class="btn" id="vs-mic">🎤 揿住讲嘢</button>
+      <button class="btn ghost" id="vs-read">🔊 读我今日嘅情况俾我听</button>
+    </div>
+    <div id="vs-out" style="margin-top:10px;font-size:14.5px;display:none">
+      <div id="vs-text" style="background:var(--ink-3);border-radius:10px;padding:10px 12px"></div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="mini-btn" id="vs-send">📋 复制（贴去 Kimi 对话即问）➔</button>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-3);margin-top:8px">真话时间：浏览器语音转文字 + 内置人声，零成本。要真正双向实时通话，用 Kimi App 嘅语音功能——呢条桥系过渡。</p>
+  </div>
+
+
+<div class="case">
     <div class="tag">🔥 死线逼近</div>
     <div id="tasks-deadline"><p class="lite-sub" style="font-size:13.5px">死线加载中…</p></div>
   </div>
@@ -596,7 +612,7 @@ body.in-module #backbar{display:block}
   </div>
 </section>
 
-<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795260238" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
+<div class="wrap" style="margin:4px 0 18px"><img src="assets/img/hero-banner.png?v=1795260404" alt="老板成长中枢 · 卷首图" style="width:100%;border-radius:14px;display:block"></div>
 
 <!-- ============ 功能宫格 ============ -->
 <!-- ============ 老板生活圈 ============ -->
@@ -2518,6 +2534,6 @@ body.in-module #backbar{display:block}
   <p style="margin-top:14px;font-size:13px">v3.9.3 · 2026-11-21 · 学习资料大完善：雅思作战室（官方真题+四科资源+阶段计划）· TTS 自修书架（两配方+论文+验收尺）· 上一版：v3.9.2 · 悬浮随身听（三餐语音队列，右下角🎧）+ 秘书台数据一键备份还原 · GitHub Pages 双入口上线 · 上一版： 本版：军火库全库实测核验——修正 Ming-omni-tts 名称与许可证（Apache-2.0 非 MIT）、WSYue-TTS 许可证标注（官方 Apache-2.0，语料 NC 需确认）、三个底座链接全部改指模型本体页 · 全站 80 条外链逐一实测存活 · 晨报 07:43、午报 12:47 上岗，三餐制情报开饭</p>
 </footer>
 
-<script type="module" src="./src/main.js?v=1795260238"></script>
+<script type="module" src="./src/main.js?v=1795260404"></script>
 </body>
 </html>
