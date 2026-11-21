@@ -2404,6 +2404,12 @@ ${meta}
   }
 })();
 
+
+/* ================= 跨分頁同步（2026-11-21：两个 tab 开住，一边改咗另一边即刻跟） ================= */
+window.addEventListener('storage', e => {
+  if (e.key && (e.key.startsWith('boss_') || e.key === 'mishutai_v1')) location.reload();
+});
+
 /* ================= 今日引导条（2026-11-21：唔俾选项墙，直接话佢知做边样） ================= */
 (function () {
   const txt = document.getElementById('guide-text');
