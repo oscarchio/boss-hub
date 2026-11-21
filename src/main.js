@@ -2251,6 +2251,26 @@ $$('.src-grid').forEach(g => { if (g.id !== 'srcgrid') paginateGrid(g); });
   }
 })();
 
+
+/* ================= 每日三词词库（2026-11-21：学习资产累积器） ================= */
+(function () {
+  const box = document.getElementById('wb-list');
+  if (!box) return;
+  fetch('wordbank.json?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(j => {
+    if (!j || !j.words || !j.words.length) {
+      box.innerHTML = '<div class="empty">词库今日开始累积——每日晨报三个词自动入库。</div>';
+      return;
+    }
+    const meta = document.getElementById('wb-meta');
+    if (meta) meta.textContent = '共存 ' + j.words.length + ' 词 · 最近更新 ' + (j.updated || '');
+    box.innerHTML = j.words.slice(0, 12).map(w =>
+      '<div class="src"><span class="tag">' + __esc(w.d || '') + '</span><h3>' + __esc(w.t) + (w.r ? ' <small style="color:var(--text-3)">读作「' + __esc(w.r) + '」</small>' : '') + '</h3>' +
+      (w.m ? '<p><b>' + __esc(w.m) + '</b></p>' : '') +
+      (w.e ? '<p style="font-size:13px;color:var(--text-3)">' + __esc(w.e) + '</p>' : '') + '</div>'
+    ).join('');
+  }).catch(() => { box.innerHTML = '<div class="empty">词库加载失败，稍后再试。</div>'; });
+})();
+
 /* ================= 学习证明仪表盘（2026-11-21 老板亲令：学习要有证据，唔系概念） ================= */
 (function () {
   const statsBox = document.getElementById('lp-stats');
