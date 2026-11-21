@@ -1,37 +1,37 @@
 {
  "IT之家": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "Solidot": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "量子位": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "36氪": {
   "streak": 0,
-  "ok_total": 18,
+  "ok_total": 19,
   "fail_total": 3,
   "last_error": ""
  },
  "少数派": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "Hugging Face": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
@@ -43,133 +43,133 @@
  },
  "FT中文网": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "BBC 中文": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "RTHK 國際": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "澳門政府新聞": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "澳門日報": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "澳廣視TDM": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·澳門": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "RTHK 本地": {
   "streak": 0,
-  "ok_total": 22,
+  "ok_total": 23,
   "fail_total": 1,
   "last_error": ""
  },
  "TVB新聞": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "明報": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·香港": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·珠海": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·横琴": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·广州": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·大湾区": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·AI语音": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·AI歌手": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·对手动向": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "头条热榜": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "B站热门": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "HackerNews 头版": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "V2EX 热议": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
@@ -181,181 +181,181 @@
  },
  "YT·Yannic Kilcher": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·3Blue1Brown": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·Two Minute Papers": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·CantoneseClass101": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·教师痛点": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·粤语保育": {
   "streak": 0,
-  "ok_total": 23,
+  "ok_total": 24,
   "fail_total": 0,
   "last_error": ""
  },
  "全球粤语脉动": {
   "streak": 0,
-  "ok_total": 18,
+  "ok_total": 19,
   "fail_total": 0,
   "last_error": ""
  },
  "人才风向·大湾区": {
   "streak": 0,
-  "ok_total": 18,
+  "ok_total": 19,
   "fail_total": 0,
   "last_error": ""
  },
  "新股与上市": {
   "streak": 0,
-  "ok_total": 18,
+  "ok_total": 19,
   "fail_total": 0,
   "last_error": ""
  },
  "Techmeme": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "xAI盯梢": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "Reuters科技": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·Matt Wolfe": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·AI Explained": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "Product Hunt": {
   "streak": 0,
-  "ok_total": 17,
+  "ok_total": 18,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·视频翻译配音": {
   "streak": 0,
-  "ok_total": 14,
+  "ok_total": 15,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·AI Dubbing": {
   "streak": 0,
-  "ok_total": 14,
+  "ok_total": 15,
   "fail_total": 0,
   "last_error": ""
  },
  "行业·会议同传": {
   "streak": 0,
-  "ok_total": 14,
+  "ok_total": 15,
   "fail_total": 0,
   "last_error": ""
  },
  "YT·小Lin说": {
   "streak": 0,
-  "ok_total": 7,
+  "ok_total": 8,
   "fail_total": 0,
   "last_error": ""
  },
  "博主·数字生命卡兹克": {
   "streak": 0,
-  "ok_total": 7,
+  "ok_total": 8,
   "fail_total": 0,
   "last_error": ""
  },
  "博主·歸藏": {
   "streak": 0,
-  "ok_total": 7,
+  "ok_total": 8,
   "fail_total": 0,
   "last_error": ""
  },
  "聚合·深圳": {
   "streak": 0,
-  "ok_total": 5,
+  "ok_total": 6,
   "fail_total": 0,
   "last_error": ""
  },
  "民生·楼市": {
   "streak": 0,
-  "ok_total": 5,
+  "ok_total": 6,
   "fail_total": 0,
   "last_error": ""
  },
  "民生·交通通关": {
   "streak": 0,
-  "ok_total": 5,
+  "ok_total": 6,
   "fail_total": 0,
   "last_error": ""
  },
  "民生·澳门生活": {
   "streak": 0,
-  "ok_total": 5,
+  "ok_total": 6,
   "fail_total": 0,
   "last_error": ""
  },
  "arXiv·CL": {
-  "streak": 2,
+  "streak": 3,
   "ok_total": 0,
-  "fail_total": 2,
+  "fail_total": 3,
   "last_error": "空结果"
  },
  "arXiv·SD": {
-  "streak": 2,
+  "streak": 3,
   "ok_total": 0,
-  "fail_total": 2,
+  "fail_total": 3,
   "last_error": "空结果"
  },
  "Reddit·LocalLLaMA": {
-  "streak": 2,
+  "streak": 3,
   "ok_total": 0,
-  "fail_total": 2,
+  "fail_total": 3,
   "last_error": "HTTPError: HTTP Error 403: Blocked"
  },
  "Reddit·MachineLearning": {
-  "streak": 2,
+  "streak": 3,
   "ok_total": 0,
-  "fail_total": 2,
+  "fail_total": 3,
   "last_error": "HTTPError: HTTP Error 403: Blocked"
  },
  "ProductHunt": {
   "streak": 0,
-  "ok_total": 2,
+  "ok_total": 3,
   "fail_total": 0,
   "last_error": ""
  }
