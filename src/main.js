@@ -1096,6 +1096,70 @@ function renderLive() {
         });
       });
       if (window.mountVrates) window.mountVrates();
+      // ===== 逐字校对（老板 2026-11-22 亲定：唔开新页，直接喺播报文字稿度点字标黄+发送） =====
+      if (!document.getElementById('bc-mark-style')) {
+        const st = document.createElement('style');
+        st.id = 'bc-mark-style';
+        st.textContent = '.bc-ch{cursor:pointer;border-radius:3px}.bc-ch:hover{background:rgba(212,175,55,.25)}.bc-ch.bc-mark{background:#b58900;color:#111}.bc-proof-bar{display:flex;gap:8px;margin:8px 0;align-items:center;flex-wrap:wrap}.bc-proof-bar button{font-size:12.5px;padding:4px 12px;border-radius:8px;border:1px solid rgba(212,175,55,.45);background:none;color:#c8a445;cursor:pointer}.bc-proof-bar button:hover{background:rgba(212,175,55,.12)}';
+        document.head.appendChild(st);
+      }
+      box.querySelectorAll('details.bc-item').forEach(det => {
+        const bd = det.querySelector('.bc-body');
+        if (!bd || bd.dataset.proofReady) return;
+        bd.dataset.proofReady = '1';
+        const bar = document.createElement('div');
+        bar.className = 'bc-proof-bar';
+        bar.innerHTML = '<button class="bc-proof-toggle">✍️ 校对模式</button><button class="bc-proof-send" style="display:none">📤 发送标注（下载俾秘书）</button><span class="bc-proof-tip" style="font-size:11.5px;color:var(--text-3)">开咗校对模式后，点字标黄=疑错</span>';
+        bd.prepend(bar);
+        const orig = bd.innerHTML;
+        let on = false, myMarks = [];
+        const toggle = bar.querySelector('.bc-proof-toggle');
+        const sendBtn = bar.querySelector('.bc-proof-send');
+        toggle.addEventListener('click', () => {
+          on = !on;
+          toggle.textContent = on ? '✍️ 校对中…（再点退出）' : '✍️ 校对模式';
+          sendBtn.style.display = on ? '' : 'none';
+          if (on) {
+            const walk = (node) => {
+              if (node.nodeType === 3) {
+                const frag = document.createDocumentFragment();
+                [...node.textContent].forEach(c => {
+                  if (/[一-鿿]/.test(c)) {
+                    const sp = document.createElement('span');
+                    sp.className = 'bc-ch'; sp.textContent = c;
+                    sp.addEventListener('click', (e) => {
+                      e.stopPropagation();
+                      sp.classList.toggle('bc-mark');
+                      const i = myMarks.indexOf(c + '@' + sp.dataset.k);
+                      if (sp.classList.contains('bc-mark')) { sp.dataset.k = myMarks.length; myMarks.push(c); }
+                    });
+                    frag.appendChild(sp);
+                  } else {
+                    frag.appendChild(document.createTextNode(c));
+                  }
+                });
+                node.replaceWith(frag);
+              } else if (node.nodeType === 1 && !node.classList.contains('bc-proof-bar')) {
+                [...node.childNodes].forEach(walk);
+              }
+            };
+            [...bd.childNodes].forEach(n => { if (n !== bar) walk(n); });
+          } else {
+            const cur = bd.querySelectorAll('.bc-mark').length;
+            bd.innerHTML = orig;
+            bd.prepend(bar);
+            myMarks = [];
+          }
+        });
+        sendBtn.addEventListener('click', () => {
+          const marks = [...bd.querySelectorAll('.bc-mark')].map(sp => sp.textContent);
+          const blob = new Blob([JSON.stringify({ ts: new Date().toISOString(), card: det.querySelector('summary').textContent.trim(), marks }, null, 1)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = '校对标注.json';
+          a.click();
+        });
+      });
     })
     .catch(() => {
       boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，稍后再来。</p>'; });
