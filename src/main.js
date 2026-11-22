@@ -1103,7 +1103,7 @@ function renderLive() {
         st.textContent = '.bc-ch{cursor:pointer;border-radius:3px}.bc-ch:hover{background:rgba(212,175,55,.25)}.bc-ch.bc-mark{background:#b58900;color:#111}.bc-proof-bar{display:flex;gap:8px;margin:8px 0;align-items:center;flex-wrap:wrap}.bc-proof-bar button{font-size:12.5px;padding:4px 12px;border-radius:8px;border:1px solid rgba(212,175,55,.45);background:none;color:#c8a445;cursor:pointer}.bc-proof-bar button:hover{background:rgba(212,175,55,.12)}';
         document.head.appendChild(st);
       }
-      box.querySelectorAll('details.bc-item').forEach(det => {
+      boxes.forEach(box => box.querySelectorAll('details.bc-item').forEach(det => {
         const bd = det.querySelector('.bc-body');
         if (!bd || bd.dataset.proofReady) return;
         bd.dataset.proofReady = '1';
@@ -1158,7 +1158,7 @@ function renderLive() {
           a.download = '校对标注.json';
           a.click();
         });
-      });
+     }));
     })
     .catch(() => {
       // 2026-11-22 老板手机撞过一次「读不到」（网络/发布窗口抖动）——唔好一次就投降，2 秒后自动重试一次
