@@ -2481,8 +2481,7 @@ ${meta}
     const h = new Date().getHours();
     const slot = h < 12 ? '朝早' : h < 18 ? '下昼' : '夜晚';
     const text = `老板，而家${slot}${h}点。今日四门修炼你完成咗${daily}门。` +
-      (daily < 4 ? '仲有功课未做，去练功房搞掂佢。' : '今日已打晒卡，可以休息。') +
-      '记住：阅读节摊位死线系十一月廿三号中午十二点。';
+      (daily < 4 ? '仲有功课未做，去练功房搞掂佢。' : '今日已打晒卡，可以休息。');
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'zh-HK'; u.rate = 1.0;
     speechSynthesis.cancel(); speechSynthesis.speak(u);
