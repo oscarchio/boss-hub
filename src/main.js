@@ -1169,7 +1169,9 @@ function renderLive() {
             boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，手动刷新试下。</p>'; });
             return;
           }
-          location.reload();  // 拉到就整页重载，干净
+          // 防循环闸：每个会话最多 reload 一次；再失败就畀人手提示，唔再自动郁
+          if (!sessionStorage.getItem('bc_rl')) { sessionStorage.setItem('bc_rl', '1'); location.reload(); }
+          else { boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">网络唔稳，下拉刷新试下。</p>'; }); }
         }).catch(() => {
           boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，手动刷新试下。</p>'; });
         });
