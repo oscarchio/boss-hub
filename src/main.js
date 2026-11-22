@@ -1110,8 +1110,8 @@ function renderLive() {
         const bar = document.createElement('div');
         bar.className = 'bc-proof-bar';
         bar.innerHTML = '<button class="bc-proof-toggle">✍️ 校对模式</button><button class="bc-proof-send" style="display:none">📤 发送标注（下载俾秘书）</button><span class="bc-proof-tip" style="font-size:11.5px;color:var(--text-3)">开咗校对模式后，点字标黄=疑错</span>';
+        const orig = bd.innerHTML;  // 先存原稿（唔包工具条），退出校对时还原
         bd.prepend(bar);
-        const orig = bd.innerHTML;
         let on = false, myMarks = [];
         const toggle = bar.querySelector('.bc-proof-toggle');
         const sendBtn = bar.querySelector('.bc-proof-send');
@@ -1145,7 +1145,6 @@ function renderLive() {
             };
             [...bd.childNodes].forEach(n => { if (n !== bar) walk(n); });
           } else {
-            const cur = bd.querySelectorAll('.bc-mark').length;
             bd.innerHTML = orig;
             bd.prepend(bar);
             myMarks = [];
