@@ -1161,7 +1161,19 @@ function renderLive() {
       });
     })
     .catch(() => {
-      boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，稍后再来。</p>'; });
+      // 2026-11-22 老板手机撞过一次「读不到」（网络/发布窗口抖动）——唔好一次就投降，2 秒后自动重试一次
+      boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">重新拉取中…</p>'; });
+      setTimeout(() => {
+        fetch('broadcasts.json?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(j => {
+          if (!j || !j.items || !j.items.length) {
+            boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，手动刷新试下。</p>'; });
+            return;
+          }
+          location.reload();  // 拉到就整页重载，干净
+        }).catch(() => {
+          boxes.forEach(box => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">播报数据暂时读不到，手动刷新试下。</p>'; });
+        });
+      }, 2000);
     });
 })();
 
