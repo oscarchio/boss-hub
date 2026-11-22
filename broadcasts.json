@@ -1,7 +1,14 @@
 {
- "updated": "11-22 20:41",
- "count": 11,
+ "updated": "11-22 21:35",
+ "count": 12,
  "items": [
+  {
+   "date": "2026-11-22",
+   "meal": "深读口播视频",
+   "icon": "🎬",
+   "html": "<h2>🎬 深读口播视频 · 周日版（15 分 36 秒）</h2>\n<video controls preload=\"none\" style=\"width:100%;border-radius:10px;background:#000\" src=\"assets/video/deepread-2026-11-22.mp4\"></video>\n<p style=\"font-size:12.5px;color:var(--text-3)\">全自家产线：深读稿 → 通用版男声（M5 本地生成）→ PIL 文字卡 → ffmpeg 合成。第一条口播视频，朴素但系我哋嘅。视频因体积只住 GitHub 主站。</p>",
+   "audio": ""
+  },
   {
    "date": "2026-11-22",
    "meal": "晨报·普通话",
