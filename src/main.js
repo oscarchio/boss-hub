@@ -2531,6 +2531,19 @@ window.addEventListener('storage', e => {
   }).catch(() => { box.innerHTML = '<div class="empty">练习库加载失败。</div>'; });
 })();
 
+/* ================= 每日对数（2026-11-23：我把尺 vs 市场） ================= */
+(function () {
+  const box = document.getElementById('navlog-list');
+  if (!box) return;
+  fetch('navlog.json?_=' + Date.now()).then(r => r.ok ? r.json() : null).then(j => {
+    if (!j || !j.items || !j.items.length) { box.textContent = '今晚基金出净值后开始记。'; return; }
+    const latest = j.items[0];
+    box.innerHTML = latest.rows.map(r =>
+      `<div style="padding:6px 0;border-bottom:1px dashed var(--line)"><b>${r.name}</b>　净值 <b>${r.nav}</b>　<span style="color:var(--text-3);font-size:12px">${r.date}</span></div>`
+    ).join('') + `<div style="font-size:11.5px;color:var(--text-3);margin-top:6px">已记 ${j.items.length} 日 · 更新 ${j.updated}</div>`;
+  }).catch(() => { box.textContent = '对数加载失败。'; });
+})();
+
 /* ================= 每日三词词库（2026-11-21：学习资产累积器） ================= */
 (function () {
   const box = document.getElementById('wb-list');
