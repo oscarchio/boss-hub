@@ -141,6 +141,30 @@
    "scored": false,
    "actual": null,
    "note": "每日预估实验：方向感为主，一年级水平，凭每日对数累积校准"
+  },
+  {
+   "made_at": "2026-11-23 22:20",
+   "target_date": "2026-11-24",
+   "revises": "2026-11-23 20:26 版",
+   "items": {
+    "020704": {
+     "today_nav": 1.7225,
+     "predict_nav": 1.774,
+     "predict_change": "+3.0%",
+     "confidence": 0.65,
+     "basis": "黄仁勋复职CEO官宣（22:00），NVDA盘前+26~29%，光模块链听日高开；通信ETF跟升。风险：高开低走/调查未完"
+    },
+    "007467": {
+     "today_nav": 1.6722,
+     "predict_nav": 1.674,
+     "predict_change": "+0.1%",
+     "confidence": 0.6,
+     "basis": "维持原判，低波横行"
+    }
+   },
+   "scored": false,
+   "actual": null,
+   "note": "事件驱动修正：原预估+1.0%系技术反弹逻辑，黄仁勋复职改为事件解除逻辑。修正唔系搬龙门——全部留痕对数"
   }
  ],
  "watchlist": [
