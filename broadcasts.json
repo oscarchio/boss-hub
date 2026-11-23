@@ -1,6 +1,6 @@
 {
- "updated": "11-23 12:10",
- "count": 11,
+ "updated": "11-23 13:57",
+ "count": 12,
  "items": [
   {
    "date": "2026-11-23",
@@ -15,6 +15,13 @@
    "icon": "🌅",
    "html": "<h2>晨报 · 粤语足本（16 分）</h2>\n<p>同普通话版同一截稿、同一内容。本地 M5 生成，质检 37.74%（large-v3 官尺）</p>",
    "audio": "assets/audio/bc-2026-11-23-晨报-粤-full.mp3"
+  },
+  {
+   "date": "2026-11-23",
+   "meal": "晨报·English",
+   "icon": "🌐",
+   "html": "<h2>晨报 · English足本（11 分）</h2>\n<p>同普通话版同一截稿、同一内容。本地 M5 自家引擎生成（克隆 Andrew 声），质检 WER 14.99%</p>",
+   "audio": "assets/audio/bc-2026-11-23-晨报-en-full.mp3"
   },
   {
    "date": "2026-11-23",
