@@ -1,5 +1,5 @@
 {
- "updated": "11-23 09:25",
+ "updated": "11-23 10:12",
  "count": 10,
  "items": [
   {
@@ -28,14 +28,14 @@
    "meal": "晨报·粤语",
    "icon": "🌅",
    "html": "<h2>🌅 晨报 · 粤语足本版（全本地 M5，与普通话版同内容）</h2>\n<p>同普通话版一模一样嘅内容：亞馬遜收购 Decart、中美倾协议、中国 AI 开支 9,320 亿、香港选委会、美国人反 AI、三个词、隔日复读——全部足本，冇缩水。</p>\n<p style=\"font-size:12.5px;color:var(--text-3)\">阶段式成长记录：足本 57 段分句生成，质检 29.88%（口语词仍系弱项，照实标注。对比寻日 23.11% 同今朝 12.94% 短版——长稿系引擎最难嘅一关，呢个就系我哋要练嘅位）。</p>\n<p style=\"font-size:12.5px;color:var(--text-3)\">本版时长 11 分 35 秒（本地 M5 全离线生成）。同普通话、英文版内容一致，净系语言唔同。</p>",
-   "audio": "assets/audio/bc-2026-11-22-晨报-粤-full.mp3"
+   "audio": ""
   },
   {
    "date": "2026-11-22",
    "meal": "晨报·English",
    "icon": "🌐",
    "html": "<h2>📰 Morning Brief · English</h2>\n<p>今日五条：亞馬遜拟 75 亿收购 Decart；中美倾全面协议、军事决策唔交畀 AI；中国 AI 开支翻倍至 9,320 亿但收入唔到一成；香港选委会今日投票；美国人开始反对 AI（数据中心抢电 + 岗位焦虑）。加三个词（earn-out／资本开支／数据中心）同隔日复读。</p>\n<p><b>带走这句：免费同平价嘅背后，全部都有人喺度贴紧钱。</b></p>\n<p style=\"font-size:12.5px;color:var(--text-3)\">三版纪律：中文为原稿，粤语版由本地 M5 生成（质检 12.94%，比寻日 23.11% 再进一步），英文足本 edge-tts AndrewMultilingual，同中文版同内容。语音唔读信源、唔读网址。</p>\n<p style=\"font-size:12.5px;color:var(--text-3)\">本版时长 12 分 41 秒（edge-tts AndrewMultilingual）。同普通话、粤语版内容一致，净系语言唔同。</p>",
-   "audio": "assets/audio/bc-2026-11-22-morning-en-full.mp3"
+   "audio": ""
   },
   {
    "date": "2026-11-22",
@@ -49,7 +49,7 @@
    "meal": "午报·粤语",
    "icon": "🌅",
    "html": "<h2>🌅 午报 · 粤语足本（20 分 06 秒，本地 M5 生成，真停顿编排版）</h2><p style=\"font-size:12.5px;color:var(--text-3)\">同普通话版同一截稿。质检记录：23.63%（v2，large-v3 官尺）。</p>",
-   "audio": "assets/audio/bc-2026-11-22-午报-粤-full.mp3"
+   "audio": ""
   },
   {
    "date": "2026-11-22",
@@ -63,14 +63,14 @@
    "meal": "晚餐·粤语",
    "icon": "🌆",
    "html": "<h2>🌆 晚餐 · 粤语足本（18 分 56 秒，本地 M5 生成）</h2><p style=\"font-size:12.5px;color:var(--text-3)\">同普通话版同一截稿。质检记录：39.0%（large-v3 官尺，照实标注——偏高，病档跟进中）。</p>",
-   "audio": "assets/audio/bc-2026-11-22-晚餐-粤-full.mp3"
+   "audio": ""
   },
   {
    "date": "2026-11-22",
    "meal": "深夜特别版",
    "icon": "🌙",
    "html": "<h2>🌙 深夜特别版（1 分钟，实验成果试听）</h2><p>晓佳声 + 播报体 + 停顿编排——农场跑咗成晚嘅技术位全部喺晒入面。<b>照实报：官尺 QA 25.84%，未过 15% 闸</b>——你听落点，你嘅耳仔先系终审判官。</p>",
-   "audio": "assets/audio/bc-2026-11-22-深夜特别版.mp3"
+   "audio": ""
   }
  ]
 }
