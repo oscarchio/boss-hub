@@ -1010,10 +1010,8 @@ function renderLive() {
 (function () {
   const box = $('#digest-box'), meta = $('#digest-meta'), sd = $('#stat-dive');
   if (!box) return;
-  const fallback = [
-    { k: '深读 1 · 澳门政策', t: '澳门《2027 施政报告》：「政府引导基金」首次写入，你的政策窗口开闸了', p: '116 个重点项目、引导基金、科技企业认证、中小企数字化支援一次放出。注意：从报告到细则落地通常 6–12 个月——窗口用来看、用来准备，不是用来跳的。', a: '今晚花 10 分钟：去 policyaddress.gov.mo 搜「引导基金」，三段原文截图存档。' },
-    { k: '深读 2 · AI 行业', t: '通用大模型开始吞掉专用模型——语音就是下一张骨牌', p: '阿里 Qwen-Audio 把 TTS 价格砍了 70%。结论很直白：别再想「自研粤语引擎」，改用最好的现成 API 做粤语教学闭环，把发音纠错数据攒成自己的矿。', a: '把创业假设改写一句话，列出要积累的三类自有数据。' },
-  ];
+  // 2026-11-24 老板令：fetch 失败唔准再摆旧硬编码内容装新嘢——诚实讲读唔到
+  const fallback = null;
   const SCORE_KEY = 'boss_dive_scores_v1';
   const loadScores = () => { try { return JSON.parse(localStorage.getItem(SCORE_KEY)) || []; } catch { return []; } };
   function renderDives(dives, tip, stamp) {
@@ -1051,9 +1049,9 @@ function renderLive() {
     .then(r => r.ok ? r.json() : null)
     .then(j => {
       if (j && j.dives && j.dives.length) renderDives(j.dives, j.tip, j.updated);
-      else renderDives(fallback, null, null);
+      else box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">今日深读仲喺路上，每晚 20:00 后出炉。</p>';
     })
-    .catch(() => renderDives(fallback, null, null));
+    .catch(() => { box.innerHTML = '<p class="lite-sub" style="font-size:13.5px">网络未接通，深读暂时读不到——唔会攞旧闻充数，重新整理后再嚟。</p>'; });
 })();
 
 /* ================= 三餐播报：嵌入快讯页+深读页，读 broadcasts.json（三餐任务写 md 后跑 sync_broadcasts.py 自动同步，含语音） ================= */
@@ -1069,7 +1067,11 @@ function renderLive() {
         return;
       }
       metas.forEach(m => { m.textContent = '最新：' + (j.items[0].icon || '') + ' ' + j.items[0].meal + ' ' + j.items[0].date.slice(5) + ' 已送达'; });
-      const html = j.items.map((it, i) => {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const todayItems = j.items.filter(it => it.date === todayStr);
+      const pastItems = j.items.filter(it => it.date !== todayStr);
+      const showItems = todayItems.length ? todayItems : j.items.slice(0, 3);
+      const html = showItems.map((it, i) => {
         const d = new Date(it.date + 'T00:00:00');
         const wd = isNaN(d) ? '' : '（周' + WD[d.getDay()] + '）';
         const audio = it.audio
@@ -1077,8 +1079,13 @@ function renderLive() {
           : '';
         return '<details class="bc-item"><summary><span>' + (it.icon || '📻') + ' ' + it.meal + ' · ' + it.date.slice(5) + wd + '</span><span class="bc-arrow">▾ 点击展开</span></summary><div class="bc-body">' + audio + it.html + '</div></details>';
       }).join('');
+      // 往日存档折叠收埋（老板 2026-11-24：唔好今日昨日堆埋一齊）
+      const pastHtml = pastItems.length && todayItems.length
+        ? '<details class="bc-item" style="opacity:.75"><summary><span>🗂 往日存档（' + pastItems.length + ' 期）</span><span class="bc-arrow">▾ 点击展开</span></summary><div class="bc-body">'
+          + pastItems.map(it => '<div style="margin:6px 0;font-size:13.5px">· ' + (it.icon || '📻') + ' ' + it.meal + ' · ' + it.date.slice(5) + '</div>').join('')
+          + '</div></details>' : '';
       boxes.forEach(box => {
-        box.innerHTML = __stripDanger(html);
+        box.innerHTML = __stripDanger(html + pastHtml);
         // 展开限高：正文太长就夹短，想读全文先揿掣（老板 11-21：唔好成屏长文）
         box.querySelectorAll('.bc-body').forEach(bd => {
           if (bd.scrollHeight > 240) {
