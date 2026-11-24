@@ -1,10 +1,10 @@
 {
- "audio": "bc-2026-11-23-晚餐.mp3",
- "cer_percent": 15.15,
+ "audio": "bc-2026-11-24-午报.mp3",
+ "cer_percent": 21.84,
  "threshold": 10.0,
  "verdict": "FAIL",
- "ref_chars": 5761,
- "hyp_chars": 5748,
+ "ref_chars": 4172,
+ "hyp_chars": 4332,
  "model": "small",
  "lang": "zh"
 }
