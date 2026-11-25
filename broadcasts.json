@@ -1,6 +1,6 @@
 {
- "updated": "11-26 07:06",
- "count": 11,
+ "updated": "11-26 07:30",
+ "count": 13,
  "items": [
   {
    "date": "2026-11-26",
@@ -12,6 +12,20 @@
     "cer": 9.93,
     "verdict": "PASS"
    }
+  },
+  {
+   "date": "2026-11-26",
+   "meal": "晨报·粤语",
+   "icon": "🌅",
+   "html": "<h2>晨报 · 粤语足本（17 分）</h2>\n<p>同普通话版同一截稿、同一内容。本地 M5 生成，质检 14.8%（large-v3 官尺）</p>",
+   "audio": "assets/audio/bc-2026-11-26-晨报-粤-full.mp3"
+  },
+  {
+   "date": "2026-11-26",
+   "meal": "晨报·English",
+   "icon": "🌐",
+   "html": "<h2>晨报 · English足本（14 分）</h2>\n<p>同普通话版同一截稿、同一内容。本地 M5 自家引擎生成（克隆 Andrew 声），质检 WER 4.83%</p>",
+   "audio": "assets/audio/bc-2026-11-26-晨报-en-full.mp3"
   },
   {
    "date": "2026-11-25",
