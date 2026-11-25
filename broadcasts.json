@@ -1,6 +1,6 @@
 {
- "updated": "11-25 09:09",
- "count": 11,
+ "updated": "11-25 09:31",
+ "count": 12,
  "items": [
   {
    "date": "2026-11-25",
@@ -12,6 +12,13 @@
     "cer": 12.78,
     "verdict": "FAIL"
    }
+  },
+  {
+   "date": "2026-11-25",
+   "meal": "晨报·English",
+   "icon": "🌐",
+   "html": "<h2>晨报 · English足本（13 分）</h2>\n<p>同普通话版同一截稿、同一内容。本地 M5 自家引擎生成（克隆 Andrew 声），质检 WER 5.83%</p>",
+   "audio": "assets/audio/bc-2026-11-25-晨报-en-full.mp3"
   },
   {
    "date": "2026-11-24",
