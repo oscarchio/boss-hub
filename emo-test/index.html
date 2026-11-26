@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>情绪 A/B 实验</title>
+<style>body{font-family:sans-serif;background:#0f1419;color:#eee;max-width:640px;margin:0 auto;padding:24px}
+.v{background:#1a2230;border-radius:14px;padding:16px;margin:12px 0}.t{font-size:14px;color:#8a93a3;margin-bottom:8px}
+button{font-size:16px;padding:10px 24px;border:none;border-radius:20px;background:#b7791f;color:#fff;cursor:pointer}</style></head><body>
+<h1>🎙 同一句嘢，三种配方</h1>
+<p style="color:#8a93a3;font-size:13px">句：「佢净系 reply 个 OK，我就知道今次大镬啦。」（C 版改咗少少词加语气）</p>
+<div class="v"><div class="t">A · 生产参数（cfg 2.0 平稳）</div><button onclick="p('A-cfg2-平稳.wav')">▶ 听 A</button></div>
+<div class="v"><div class="t">B · 加强表达（cfg 3.5）</div><button onclick="p('B-cfg3.5-加强.wav')">▶ 听 B</button></div>
+<div class="v"><div class="t">C · 文本加语气（啊……咋、心谂）cfg 2.0</div><button onclick="p('C-cfg2-语气版.wav')">▶ 听 C</button></div>
+<p style="color:#8a93a3;font-size:13px">听完话我知边版最有「人味」。</p>
+<audio id="a"></audio><script>function p(f){const a=document.getElementById('a');a.src=f;a.play();}</script></body></html>
